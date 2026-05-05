@@ -1558,6 +1558,38 @@ p {
     color: var(--color-deep-forest);
 }
 
+/* Reflection Step */
+.reflection-subtitle {
+    font-size: var(--text-body-sm);
+    color: var(--neutral-500);
+    margin-bottom: var(--space-6);
+}
+
+.reflection-textarea {
+    width: 100%;
+    min-height: 160px;
+    padding: var(--space-4);
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    background: var(--neutral-50);
+    font-family: inherit;
+    font-size: var(--text-body);
+    line-height: 1.6;
+    color: var(--neutral-800);
+    resize: vertical;
+    transition: border-color var(--duration-normal) var(--ease-standard);
+}
+
+.reflection-textarea:focus {
+    outline: none;
+    border-color: var(--color-sage);
+    background: var(--color-warm-white);
+}
+
+.reflection-textarea::placeholder {
+    color: var(--neutral-400);
+}
+
 /* Completion Screen */
 .completion-content {
     align-items: center;

@@ -3,10 +3,10 @@
  * Multi-step daily check-in flow
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { post } from '@/utils/api';
+import { get, post } from '@/utils/api';
 
 // SVG Icons
 const icons = {
@@ -170,7 +170,27 @@ export default function Checkin() {
   const [sleep, setSleep] = useState(null);
   const [stress, setStress] = useState(4);
 
-  const totalSteps = 4;
+  // Reflection data
+  const [reflection, setReflection] = useState('');
+  const [reflectionPrompt, setReflectionPrompt] = useState('');
+
+  const totalSteps = 5;
+
+  // Fetch reflection prompt on mount
+  useEffect(() => {
+    async function fetchPrompt() {
+      try {
+        const response = await get('/api/reflection/prompt');
+        if (response.success) {
+          setReflectionPrompt(response.data.prompt);
+        }
+      } catch (error) {
+        console.error('Error fetching reflection prompt:', error);
+        setReflectionPrompt(t('checkin:reflection.fallbackPrompt', 'How was your day today?'));
+      }
+    }
+    fetchPrompt();
+  }, []);
 
   // Helper function to calculate slider fill gradient
   function getSliderStyle(value, min = 1, max = 10) {
@@ -207,6 +227,8 @@ export default function Checkin() {
       case 3:
         return sleep !== null;
       case 4:
+        return true; // reflection is optional
+      case 5:
         return true;
       default:
         return false;
@@ -214,9 +236,9 @@ export default function Checkin() {
   }
 
   async function handleNext() {
-    if (currentStep < totalSteps - 1) {
+    if (currentStep < 4) {
       setCurrentStep((prev) => prev + 1);
-    } else if (currentStep === totalSteps - 1) {
+    } else if (currentStep === 4) {
       await submitCheckin();
     } else {
       navigate('/dashboard');
@@ -240,9 +262,18 @@ export default function Checkin() {
         stress,
       });
 
+      // Submit reflection if user wrote something
+      if (reflection.trim()) {
+        try {
+          await post('/api/reflection', { reflection: reflection.trim() });
+        } catch (error) {
+          console.error('Error submitting reflection:', error);
+        }
+      }
+
       if (response.success) {
         setCompletionData(response.data);
-        setCurrentStep(4);
+        setCurrentStep(5);
       }
     } catch (error) {
       console.error('Error submitting check-in:', error);
@@ -397,8 +428,27 @@ export default function Checkin() {
         </div>
       </div>
 
-      {/* Step 4: Complete */}
+      {/* Step 4: Reflection */}
       <div className={`checkin-step ${currentStep === 4 ? 'active' : ''}`} data-step="4">
+        <div className="step-content">
+          <h3 className="step-question">
+            {reflectionPrompt || t('checkin:reflection.fallbackPrompt', 'How was your day today?')}
+          </h3>
+          <p className="reflection-subtitle">
+            {t('checkin:reflection.subtitle', 'This is optional — feel free to skip.')}
+          </p>
+          <textarea
+            className="reflection-textarea"
+            value={reflection}
+            onChange={(e) => setReflection(e.target.value)}
+            placeholder={t('checkin:reflection.placeholder', 'Write your thoughts here...')}
+            rows={6}
+          />
+        </div>
+      </div>
+
+      {/* Step 5: Complete */}
+      <div className={`checkin-step ${currentStep === 5 ? 'active' : ''}`} data-step="5">
         <div className="step-content completion-content">
           <div className="completion-icon">
             {icons.checkCircle}
@@ -437,7 +487,7 @@ export default function Checkin() {
           <button
             className="btn btn-ghost"
             onClick={handleBack}
-            style={{ visibility: currentStep === 1 || currentStep === 4 ? 'hidden' : 'visible' }}
+            style={{ visibility: currentStep === 1 || currentStep === 5 ? 'hidden' : 'visible' }}
           >
             {icons.arrowLeft}
             <span>{t('common:back', 'Back')}</span>
@@ -449,9 +499,9 @@ export default function Checkin() {
           >
             {isSubmitting ? (
               <span>{t('common:loading', 'Loading...')}</span>
-            ) : currentStep === 4 ? (
+            ) : currentStep === 5 ? (
               <span>{t('checkin:complete.done', 'Done')}</span>
-            ) : currentStep === 3 ? (
+            ) : currentStep === 4 ? (
               <span>{t('checkin:submit', 'Submit')}</span>
             ) : (
               <>

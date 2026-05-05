@@ -28,6 +28,11 @@
     "calm": "Lugn",
     "overwhelmed": "Överväldigad"
   },
+  "reflection": {
+    "fallbackPrompt": "Hur var din dag idag?",
+    "subtitle": "Detta är valfritt — hoppa över om du vill.",
+    "placeholder": "Skriv dina tankar här..."
+  },
   "complete": {
     "title": "Incheckning klar",
     "streak": "dagars svit!",
