@@ -80,6 +80,12 @@ export async function apiRequest(endpoint, options = {}) {
     const data = await response.json();
 
     if (!response.ok) {
+      if (response.status === 401) {
+        localStorage.removeItem('hfai_auth_token');
+        localStorage.removeItem('hfai_user');
+        authToken = null;
+        window.dispatchEvent(new CustomEvent('auth:session-expired'));
+      }
       throw new ApiError(
         data.error?.message || 'Request failed',
         data.error?.code,

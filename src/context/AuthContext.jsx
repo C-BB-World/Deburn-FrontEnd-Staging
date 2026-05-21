@@ -56,6 +56,16 @@ export function AuthProvider({ children }) {
   });
   const initializedRef = useRef(false);
 
+  // Force-logout when the API layer detects a 401 session expiry
+  useEffect(() => {
+    function handleSessionExpired() {
+      setUser(null);
+      setIsAuthenticated(false);
+    }
+    window.addEventListener('auth:session-expired', handleSessionExpired);
+    return () => window.removeEventListener('auth:session-expired', handleSessionExpired);
+  }, []);
+
   // Setup auth token and run background validation on mount
   useEffect(() => {
     if (initializedRef.current) return;
