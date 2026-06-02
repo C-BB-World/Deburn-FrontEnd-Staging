@@ -22,6 +22,15 @@
     "stress": "Stressnivåer",
     "stressLevels": "Stressnivåer"
   },
+  "reflections": {
+    "title": "Dina reflektioner",
+    "empty": "Inga reflektioner ännu. Skriv dina tankar vid nästa incheckning.",
+    "loadMore": "Ladda fler",
+    "edit": "Redigera",
+    "save": "Spara",
+    "cancel": "Avbryt",
+    "saveError": "Det gick inte att spara. Försök igen."
+  },
   "insights": {
     "title": "Viktiga insikter",
     "noInsights": "Inga insikter än",

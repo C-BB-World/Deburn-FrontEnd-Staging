@@ -22,6 +22,15 @@
     "stress": "Stress Levels",
     "stressLevels": "Stress Levels"
   },
+  "reflections": {
+    "title": "Your Reflections",
+    "empty": "No reflections yet. Write your thoughts during your next check-in.",
+    "loadMore": "Load more",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "saveError": "Failed to save. Please try again."
+  },
   "insights": {
     "title": "Key Insights",
     "noInsights": "No insights yet",

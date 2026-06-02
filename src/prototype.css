@@ -3392,6 +3392,94 @@ p {
     line-height: 1.5;
 }
 
+/* Reflections List */
+.reflections-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.reflection-entry {
+    background: var(--color-warm-white);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+}
+
+.reflection-date {
+    font-size: var(--text-body-sm);
+    color: var(--neutral-500);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+}
+
+.reflection-view-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+}
+
+.reflection-text {
+    flex: 1;
+    font-size: var(--text-body-sm);
+    color: var(--neutral-700);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.reflection-edit-btn {
+    background: none;
+    border: none;
+    padding: var(--space-1);
+    cursor: pointer;
+    color: var(--neutral-500);
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s, background 0.15s;
+}
+
+.reflection-edit-btn:hover {
+    color: var(--color-ink);
+    background: var(--neutral-100);
+}
+
+.reflection-textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 80px;
+    padding: var(--space-3);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    font-size: var(--text-body-sm);
+    font-family: inherit;
+    color: var(--color-ink);
+    background: var(--color-paper);
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+.reflection-textarea:focus {
+    outline: none;
+    border-color: var(--color-sage);
+}
+
+.reflection-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+}
+
+.reflection-error {
+    font-size: var(--text-body-sm);
+    color: var(--color-alert);
+    margin: var(--space-2) 0 0;
+}
+
 /* ==========================================================================
    Responsive - New Pages
    ========================================================================== */
