@@ -171,5 +171,20 @@
   "addBookmark": "Save",
   "removeBookmark": "Unsave",
   "minRead": "min read",
-  "noModules": "No learning modules available yet."
+  "noModules": "No learning modules available yet.",
+  "topics": {
+    "allTopics": "All Topics",
+    "delegation": "Delegation",
+    "stress": "Stress",
+    "team_dynamics": "Team Dynamics",
+    "communication": "Communication",
+    "leadership": "Leadership",
+    "time_management": "Time Management",
+    "conflict": "Conflict",
+    "burnout": "Burnout",
+    "motivation": "Motivation",
+    "decision_making": "Decision Making",
+    "mindfulness": "Mindfulness",
+    "resilience": "Resilience"
+  }
 }

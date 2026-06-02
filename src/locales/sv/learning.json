@@ -171,5 +171,20 @@
   "addBookmark": "Spara",
   "removeBookmark": "Ta bort",
   "minRead": "min läsning",
-  "noModules": "Inga lärmoduler tillgängliga ännu."
+  "noModules": "Inga lärmoduler tillgängliga ännu.",
+  "topics": {
+    "allTopics": "Alla ämnen",
+    "delegation": "Delegering",
+    "stress": "Stress",
+    "team_dynamics": "Teamdynamik",
+    "communication": "Kommunikation",
+    "leadership": "Ledarskap",
+    "time_management": "Tidshantering",
+    "conflict": "Konflikt",
+    "burnout": "Utbrändhet",
+    "motivation": "Motivation",
+    "decision_making": "Beslutsfattande",
+    "mindfulness": "Mindfulness",
+    "resilience": "Motståndskraft"
+  }
 }

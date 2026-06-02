@@ -47,6 +47,12 @@ const icons = {
   ),
 };
 
+const COACH_TOPICS = [
+  'delegation', 'stress', 'team_dynamics', 'communication',
+  'leadership', 'time_management', 'conflict', 'burnout',
+  'motivation', 'decision_making', 'mindfulness', 'resilience',
+];
+
 // Content type icons
 const contentIcons = {
   video: icons.playCircle,
@@ -76,6 +82,7 @@ export default function Learning() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [bookmarkedIds, setBookmarkedIds] = useState(new Set());
+  const [topicFilter, setTopicFilter] = useState('all');
 
   // Modal state
   const [selectedModule, setSelectedModule] = useState(null);
@@ -256,16 +263,20 @@ export default function Learning() {
   }
 
   // Filter categories for the filter buttons
-  const filterCategories = ['all', 'bookmarks', 'featured', 'leadership', 'breath', 'meditation'];
+  const filterCategories = ['all', 'bookmarks', 'leadership', 'breath', 'meditation'];
 
-  // Filter modules based on active filter and search query
+  // Filter modules based on active filter, topic filter, and search query
   const filteredModules = modules.filter(module => {
     const passesCategory =
       activeFilter === 'all' ||
       (activeFilter === 'bookmarks' && bookmarkedIds.has(module.id)) ||
       module.category === activeFilter;
 
-    if (!passesCategory) return false;
+    const passesTopic =
+      topicFilter === 'all' ||
+      (module.coachTopics || []).includes(topicFilter);
+
+    if (!passesCategory || !passesTopic) return false;
 
     if (searchQuery.trim() === '') return true;
     const title = getLocalizedField(module, 'title').toLowerCase();
@@ -281,7 +292,7 @@ export default function Learning() {
   }, {});
 
   // Define category order
-  const categoryOrder = ['featured', 'leadership', 'breath', 'meditation', 'burnout', 'wellbeing', 'other'];
+  const categoryOrder = ['leadership', 'breath', 'meditation', 'burnout', 'wellbeing', 'other'];
 
   return (
     <div className="learning-content">
@@ -343,6 +354,22 @@ export default function Learning() {
         ))}
       </div>
 
+      {/* Topic Filter Dropdown */}
+      <div className="learning-topic-filter">
+        <select
+          className="learning-topic-select"
+          value={topicFilter}
+          onChange={(e) => setTopicFilter(e.target.value)}
+        >
+          <option value="all">{t('learning:topics.allTopics', 'All Topics')}</option>
+          {COACH_TOPICS.map((topic) => (
+            <option key={topic} value={topic}>
+              {t(`learning:topics.${topic}`, topic)}
+            </option>
+          ))}
+        </select>
+      </div>
+
       {/* Learning Content Container */}
       <div id="learning-content-container">
         {/* Render categories in order */}
@@ -372,7 +399,7 @@ export default function Learning() {
           );
         })}
 
-        {filteredModules.length === 0 && searchQuery.trim() !== '' && (
+        {filteredModules.length === 0 && (searchQuery.trim() !== '' || topicFilter !== 'all') && (
           <div className="card empty-state">
             <p>{t('learning:search.noResults', 'No courses match your search.')}</p>
           </div>
