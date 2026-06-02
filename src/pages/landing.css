@@ -302,6 +302,128 @@
 }
 
 /* ============================================================
+   DEMO VIDEO
+   ============================================================ */
+.l-video {
+  background: var(--l-white);
+  padding: 48px var(--l-section-pad-h);
+}
+
+.l-video-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.l-video-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  background: #f9fafb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.l-video-card:hover {
+  background: #f3f4f6;
+}
+
+.l-video-card:focus-visible {
+  outline: 3px solid var(--l-ember);
+  outline-offset: 2px;
+}
+
+.l-video-thumb-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 192px;
+  height: 128px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.l-video-thumb-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.l-video-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.30);
+  transition: background 0.15s;
+}
+
+.l-video-card:hover .l-video-play-btn {
+  background: rgba(0, 0, 0, 0.40);
+}
+
+.l-video-play-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.l-video-card-text {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.l-video-card-text strong {
+  font-weight: 600;
+  color: var(--l-ink);
+}
+
+.l-video-expanded {
+  position: relative;
+}
+
+.l-video-close-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  background: #1f2937;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s;
+}
+
+.l-video-close-btn:hover {
+  background: #374151;
+}
+
+.l-video-player {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+  box-shadow: 0 0 0 4px var(--l-white);
+}
+
+.l-video-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ============================================================
    PROBLEM
    ============================================================ */
 .l-problem {
@@ -986,5 +1108,16 @@
 
   .l-eve-image {
     display: none;
+  }
+
+  .l-video-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .l-video-thumb-wrap {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
   }
 }
