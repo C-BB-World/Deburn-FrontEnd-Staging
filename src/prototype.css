@@ -9360,8 +9360,8 @@ body > .toast-notification.fade-out {
 
 .feedback-textarea-label {
     font-size: var(--text-body);
-    font-weight: 500;
-    color: var(--color-ink);
+    font-weight: 400;
+    color: var(--neutral-600);
     margin: 0;
 }
 
@@ -9465,6 +9465,13 @@ body > .toast-notification.fade-out {
 
 .feedback-submit-btn {
     flex-shrink: 0;
+}
+
+.feedback-anonymous-note {
+    font-size: var(--text-body-sm);
+    color: var(--neutral-500);
+    margin: 0;
+    line-height: 1.5;
 }
 
 .feedback-error {
