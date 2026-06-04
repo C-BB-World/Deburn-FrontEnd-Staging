@@ -29,7 +29,7 @@
     "overwhelmed": "Överväldigad"
   },
   "reflection": {
-    "fallbackPrompt": "Hur var din dag idag?",
+    "fallbackPrompt": "Vad har du på hjärtat just nu?",
     "subtitle": "Detta är valfritt — hoppa över om du vill.",
     "placeholder": "Skriv dina tankar här..."
   },

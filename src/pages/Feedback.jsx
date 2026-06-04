@@ -132,7 +132,7 @@ export default function Feedback() {
 
       {/* Subtitle below banner */}
       <p className="feedback-intro">
-        {t('feedback:subtitle', 'Help us improve Eve by sharing your thoughts')}
+        {t('feedback:subtitle', 'Help us improve Human First AI by sharing your thoughts')}
       </p>
 
       {/* Feedback Form */}
@@ -168,7 +168,7 @@ export default function Feedback() {
               {/* Rating Section */}
               <div className="feedback-rating-section">
                 <p className="feedback-rating-label">
-                  {t('feedback:ratingLabel', 'How is your experience with Eve?')}
+                  {t('feedback:ratingLabel', 'How is your experience with Human First AI?')}
                 </p>
                 <div className="feedback-rating-buttons">
                   {[1, 2, 3, 4, 5].map((value) => (

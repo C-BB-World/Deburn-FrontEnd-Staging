@@ -186,7 +186,7 @@ export default function Checkin() {
         }
       } catch (error) {
         console.error('Error fetching reflection prompt:', error);
-        setReflectionPrompt(t('checkin:reflection.fallbackPrompt', 'How was your day today?'));
+        setReflectionPrompt(t('checkin:reflection.fallbackPrompt', "What's on your mind right now?"));
       }
     }
     fetchPrompt();
@@ -432,7 +432,7 @@ export default function Checkin() {
       <div className={`checkin-step ${currentStep === 4 ? 'active' : ''}`} data-step="4">
         <div className="step-content">
           <h3 className="step-question">
-            {reflectionPrompt || t('checkin:reflection.fallbackPrompt', 'How was your day today?')}
+            {reflectionPrompt || t('checkin:reflection.fallbackPrompt', "What's on your mind right now?")}
           </h3>
           <p className="reflection-subtitle">
             {t('checkin:reflection.subtitle', 'This is optional — feel free to skip.')}
