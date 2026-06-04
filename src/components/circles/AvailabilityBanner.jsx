@@ -57,8 +57,9 @@ const icons = {
   ),
 };
 
-// 8am to 8pm (hours 8-20)
-const HOURS = Array.from({ length: 13 }, (_, i) => i + 8);
+// 8am to 8pm (hours 8–20) for dropdown options
+const HOURS_DISPLAY = Array.from({ length: 13 }, (_, i) => i + 8);
+const MINUTES = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 // Helper to format date as YYYY-MM-DD
@@ -74,11 +75,12 @@ function getTodayKey() {
   return formatDateKey(new Date());
 }
 
-function formatHour(hour) {
-  if (hour === 0) return '12am';
-  if (hour === 12) return '12pm';
-  if (hour > 12) return `${hour - 12}pm`;
-  return `${hour}am`;
+function formatTime(hour, minute) {
+  const mins = String(minute).padStart(2, '0');
+  if (hour === 0) return `12:${mins}am`;
+  if (hour === 12) return `12:${mins}pm`;
+  if (hour > 12) return `${hour - 12}:${mins}pm`;
+  return `${hour}:${mins}am`;
 }
 
 // Get calendar days for a month (current month only, with empty slots for alignment)
@@ -125,10 +127,15 @@ export default function AvailabilityBanner({
   const today = new Date();
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [viewMonth, setViewMonth] = useState(today.getMonth());
-  const [selectedDate, setSelectedDate] = useState(null); // Date that's expanded to show hours
+  const [selectedDate, setSelectedDate] = useState(null);
   const [selectedSlots, setSelectedSlots] = useState(new Set());
   const [hasChanges, setHasChanges] = useState(false);
-  const [showMembersFor, setShowMembersFor] = useState(null); // hour24 to show members popover
+  // showMembersFor stores a "HH-MM" string key or null
+  const [showMembersFor, setShowMembersFor] = useState(null);
+
+  // Pending time state for the add-slot controls
+  const [pendingHour, setPendingHour] = useState(8);
+  const [pendingMinute, setPendingMinute] = useState(0);
 
   // Build lookup maps from group availability data
   const groupTotalMembers = groupAvailability?.totalMembers || 0;
@@ -144,7 +151,6 @@ export default function AvailabilityBanner({
       }
       (slot.availableMembers || []).forEach(name => map[slot.date].names.add(name));
     }
-    // Convert sets to arrays
     for (const key of Object.keys(map)) {
       map[key].names = Array.from(map[key].names);
     }
@@ -155,7 +161,7 @@ export default function AvailabilityBanner({
     if (!groupAvailability?.slots) return {};
     const map = {};
     for (const slot of groupAvailability.slots) {
-      const key = `${slot.date}-${slot.hour}`;
+      const key = `${slot.date}-${slot.hour}-${slot.minute || 0}`;
       map[key] = {
         count: slot.availableCount,
         names: slot.availableMembers || [],
@@ -170,7 +176,7 @@ export default function AvailabilityBanner({
 
   useEffect(() => {
     if (availability.length > 0) {
-      const slotKeys = availability.map(slot => `${slot.date}-${slot.hour}`);
+      const slotKeys = availability.map(slot => `${slot.date}-${slot.hour}-${slot.minute ?? 0}`);
       setSelectedSlots(new Set(slotKeys));
     }
   }, [availability]);
@@ -203,43 +209,40 @@ export default function AvailabilityBanner({
     }
   }
 
-  // Check if a date has any slots selected
+  // Count slots for a date using prefix match on "YYYY-MM-DD-"
   function getDateSlotCount(dateKey) {
-    return HOURS.filter(hour => selectedSlots.has(`${dateKey}-${hour}`)).length;
+    return Array.from(selectedSlots).filter(key => key.startsWith(`${dateKey}-`)).length;
   }
 
-  // Toggle a date's expanded state
   function handleDateClick(dateKey, isPast) {
     if (isPast) return;
     setSelectedDate(selectedDate === dateKey ? null : dateKey);
   }
 
-  // Toggle hour slot
-  function toggleSlot(hour) {
+  function addTimeSlot() {
     if (!selectedDate) return;
-    const key = `${selectedDate}-${hour}`;
+    const key = `${selectedDate}-${pendingHour}-${pendingMinute}`;
+    setSelectedSlots(prev => new Set([...prev, key]));
+    setHasChanges(true);
+  }
+
+  function removeTimeSlot(key) {
     setSelectedSlots(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(key)) {
-        newSet.delete(key);
-      } else {
-        newSet.add(key);
-      }
-      return newSet;
+      const next = new Set(prev);
+      next.delete(key);
+      return next;
     });
     setHasChanges(true);
   }
 
-  function isSlotSelected(hour) {
-    return selectedDate && selectedSlots.has(`${selectedDate}-${hour}`);
-  }
-
   function handleSave() {
     const slots = Array.from(selectedSlots).map(key => {
-      const lastDash = key.lastIndexOf('-');
-      const date = key.substring(0, lastDash);
-      const hour = parseInt(key.substring(lastDash + 1), 10);
-      return { date, hour };
+      const parts = key.split('-');
+      // key format: YYYY-MM-DD-HH-MM → parts[0..2] are date parts, parts[3] = hour, parts[4] = minute
+      const date = `${parts[0]}-${parts[1]}-${parts[2]}`;
+      const hour = parseInt(parts[3], 10);
+      const minute = parseInt(parts[4], 10);
+      return { date, hour, minute };
     });
     onSaveAvailability?.(slots);
     setHasChanges(false);
@@ -247,13 +250,7 @@ export default function AvailabilityBanner({
 
   function handleClearDate() {
     if (!selectedDate) return;
-    setSelectedSlots(prev => {
-      const newSet = new Set(prev);
-      HOURS.forEach(hour => {
-        newSet.delete(`${selectedDate}-${hour}`);
-      });
-      return newSet;
-    });
+    setSelectedSlots(prev => new Set([...prev].filter(key => !key.startsWith(`${selectedDate}-`))));
     setHasChanges(true);
   }
 
@@ -263,7 +260,7 @@ export default function AvailabilityBanner({
   }
 
   function handleCancel() {
-    const slotKeys = availability.map(slot => `${slot.date}-${slot.hour}`);
+    const slotKeys = availability.map(slot => `${slot.date}-${slot.hour}-${slot.minute ?? 0}`);
     setSelectedSlots(new Set(slotKeys));
     setHasChanges(false);
     setSelectedDate(null);
@@ -271,6 +268,17 @@ export default function AvailabilityBanner({
   }
 
   const currentDateSlotCount = selectedDate ? getDateSlotCount(selectedDate) : 0;
+
+  // Slots for the currently selected date, sorted by time
+  const dateSlots = selectedDate
+    ? Array.from(selectedSlots)
+        .filter(key => key.startsWith(`${selectedDate}-`))
+        .map(key => {
+          const parts = key.split('-');
+          return { key, hour: +parts[3], minute: +parts[4] };
+        })
+        .sort((a, b) => a.hour - b.hour || a.minute - b.minute)
+    : [];
 
   // Format selected date for display
   const selectedDateDisplay = selectedDate
@@ -282,11 +290,22 @@ export default function AvailabilityBanner({
     : '';
 
   // Members modal data — exclude current user
-  const membersModalData = showMembersFor !== null ? groupHourMap[`${selectedDate}-${showMembersFor}`] : null;
+  const membersModalData = showMembersFor !== null
+    ? groupHourMap[`${selectedDate}-${showMembersFor}`]
+    : null;
   const allGroupMembers = groupAvailability?.members || [];
   const availableSet = membersModalData ? new Set(membersModalData.names) : new Set();
-  const modalAvailableNames = membersModalData ? membersModalData.names.filter(n => n !== currentUserName) : [];
-  const unavailableMembers = membersModalData ? allGroupMembers.filter(m => !availableSet.has(m) && m !== currentUserName) : [];
+  const modalAvailableNames = membersModalData
+    ? membersModalData.names.filter(n => n !== currentUserName)
+    : [];
+  const unavailableMembers = membersModalData
+    ? allGroupMembers.filter(m => !availableSet.has(m) && m !== currentUserName)
+    : [];
+
+  // Parse showMembersFor ("HH-MM") for modal time display
+  const modalTimeParts = showMembersFor ? showMembersFor.split('-') : null;
+  const modalHour = modalTimeParts ? parseInt(modalTimeParts[0], 10) : 0;
+  const modalMinute = modalTimeParts ? parseInt(modalTimeParts[1], 10) : 0;
 
   return (
     <>
@@ -378,7 +397,7 @@ export default function AvailabilityBanner({
             })}
           </div>
 
-          {/* Hour Selection (when a date is selected) */}
+          {/* Time Selection (when a date is selected) */}
           {selectedDate && (
             <div className="availability-hours-section">
               <div className="availability-hours-header">
@@ -387,35 +406,72 @@ export default function AvailabilityBanner({
                   {t('circles:availability.dateSlots', '{{count}} slots selected for this date', { count: currentDateSlotCount })}
                 </span>
               </div>
-              <div className="availability-chips">
-                {HOURS.map(hour => {
-                  const groupHour = groupHourMap[`${selectedDate}-${hour}`];
-                  const hasGroupMembers = groupHour && groupHour.names.length > 0;
-                  return (
-                    <div key={hour} className="availability-chip-wrapper">
-                      <button
-                        type="button"
-                        className={`availability-chip ${isSlotSelected(hour) ? 'selected' : ''}`}
-                        onClick={() => toggleSlot(hour)}
-                        aria-label={`${formatHour(hour)} on ${selectedDateDisplay}`}
-                        aria-pressed={isSlotSelected(hour)}
-                      >
-                        <span className="availability-chip-number">{hour}:00</span>
+
+              {/* Hour + Minute dropdowns + Add button */}
+              <div className="availability-time-picker">
+                <select
+                  className="availability-time-select"
+                  value={pendingHour}
+                  onChange={e => setPendingHour(Number(e.target.value))}
+                  aria-label={t('circles:availability.selectHour', 'Hour')}
+                >
+                  {HOURS_DISPLAY.map(h => (
+                    <option key={h} value={h}>{formatTime(h, 0).replace(':00', '')}</option>
+                  ))}
+                </select>
+                <select
+                  className="availability-time-select"
+                  value={pendingMinute}
+                  onChange={e => setPendingMinute(Number(e.target.value))}
+                  aria-label={t('circles:availability.selectMinute', 'Minute')}
+                >
+                  {MINUTES.map(m => (
+                    <option key={m} value={m}>{String(m).padStart(2, '0')}</option>
+                  ))}
+                </select>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-small"
+                  onClick={addTimeSlot}
+                >
+                  {t('circles:availability.addSlot', 'Add')}
+                </button>
+              </div>
+
+              {/* Added slots for this date */}
+              {dateSlots.length > 0 && (
+                <div className="availability-slot-tags">
+                  {dateSlots.map(({ key, hour, minute }) => {
+                    const timeKey = `${hour}-${minute}`;
+                    const groupEntry = groupHourMap[`${selectedDate}-${timeKey}`];
+                    const hasGroupMembers = groupEntry && groupEntry.names.length > 0;
+                    return (
+                      <div key={key} className="availability-slot-tag">
+                        <span className="availability-slot-tag-time">{formatTime(hour, minute)}</span>
                         {hasGroupMembers && (
                           <span
                             className="availability-chip-person-icon"
-                            onClick={(e) => { e.stopPropagation(); setShowMembersFor(hour); }}
+                            onClick={() => setShowMembersFor(timeKey)}
                             role="button"
                             tabIndex={0}
                           >
                             {icons.person}
                           </span>
                         )}
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
+                        <button
+                          type="button"
+                          className="availability-slot-tag-remove"
+                          onClick={() => removeTimeSlot(key)}
+                          aria-label={t('circles:availability.removeSlot', 'Remove {{time}}', { time: formatTime(hour, minute) })}
+                        >
+                          {icons.x}
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
               {currentDateSlotCount > 0 && (
                 <button
                   type="button"
@@ -476,7 +532,7 @@ export default function AvailabilityBanner({
         <div className="members-availability-content">
           <p className="members-availability-time">
             {icons.calendar} {selectedDateDisplay} &nbsp;
-            {formatHour(showMembersFor)}
+            {formatTime(modalHour, modalMinute)}
           </p>
 
           <div className="members-availability-list">
