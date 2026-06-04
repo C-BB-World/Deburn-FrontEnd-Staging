@@ -170,15 +170,16 @@ export default function AvailabilityBanner({
     return map;
   }, [groupAvailability]);
 
-  const hasAvailability = availability && availability.length > 0;
-  const slotCount = availability.length;
   const todayKey = getTodayKey();
+  const futureAvailability = availability.filter(slot => slot.date >= todayKey);
+  const hasAvailability = futureAvailability.length > 0;
+  const slotCount = futureAvailability.length;
 
   useEffect(() => {
-    if (availability.length > 0) {
-      const slotKeys = availability.map(slot => `${slot.date}-${slot.hour}-${slot.minute ?? 0}`);
-      setSelectedSlots(new Set(slotKeys));
-    }
+    const slotKeys = availability
+      .filter(slot => slot.date >= todayKey)
+      .map(slot => `${slot.date}-${slot.hour}-${slot.minute ?? 0}`);
+    setSelectedSlots(new Set(slotKeys));
   }, [availability]);
 
   // Get calendar days for current view
@@ -260,7 +261,9 @@ export default function AvailabilityBanner({
   }
 
   function handleCancel() {
-    const slotKeys = availability.map(slot => `${slot.date}-${slot.hour}-${slot.minute ?? 0}`);
+    const slotKeys = availability
+      .filter(slot => slot.date >= todayKey)
+      .map(slot => `${slot.date}-${slot.hour}-${slot.minute ?? 0}`);
     setSelectedSlots(new Set(slotKeys));
     setHasChanges(false);
     setSelectedDate(null);
