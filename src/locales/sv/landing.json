@@ -5,105 +5,105 @@
     "demo": "Boka demo"
   },
   "hero": {
-    "eyebrow": "AI skräddarsydd för ledarskapscoaching",
-    "headline": "Dagligt stöd för ledare som håller",
-    "sub": "Human First AI är en lederskapsplattform som förlänger ledarskapsprogram till dagliga beslut, samtal och utmaningar.",
-    "cta1": "Boka demo",
-    "cta2": "Se hur det fungerar"
+    "headline": "Du skalar upp medan hela världen förändras.",
+    "sub": "AI ensamt räcker inte. Det krävs ett sammansvetsat ledarskapsteam.",
+    "body": "Ditt företag växer snabbt, och AI förändrar samtidigt hur arbetet utförs. Dina ledare bär båda dessa utmaningar. En engångssession eller ett årligt offsite räcker inte under den pressen.",
+    "body2": "Human First AI följer med dina ledare varje dag: korta, regelbundna incheckningar. En AI-guide byggd på decennier av ledarskapscoaching. Ett bibliotek med 3–5 minuters mikrokurser i ljud- och artikelformat. Och peergrupper där ledare löser verkliga problem tillsammans och bygger förtroende — vilket leder till snabbare genomförande, bättre beslut och starkare affärsresultat.",
+    "cta1": "Boka demo"
   },
   "video": {
     "headline": "Se hur Human First AI fungerar",
     "desc": "Se plattformen i aktion — från daglig incheckning till AI-coaching och teaminsikter. Under 2 minuter."
   },
-  "problem": {
-    "headline": "Beteende förändras inte i program. Det förändras i hur ledare agerar varje dag.",
-    "body": "Med AI-ledarskapscoaching, mikrolärande och kollegialt ansvar stödjer vi ledare i verkliga situationer – och ger dem klarhet och riktning för att navigera press, komplexitet och ständig förändring. Det är där de flesta ledarskapsutvecklingsprogram brister. Gapet kostar: långsammare beslut, omotiverade team och ledare som faller tillbaka i gamla mönster. Vi stänger det gapet. Genom att göra beteende synligt och stöttat dagligen lär sig ledare inte bara – de agerar annorlunda. Organisationer ser tydligare beslut, mindre friktion i team och ledare som inte faller tillbaka i gamla mönster när trycket ökar."
+  "pov": {
+    "eyebrow": "Vår syn",
+    "headline": "Ledarskap är skillnaden mellan att köpa AI och att få värde av det.",
+    "body1": "Varje tillväxtbolag investerar i AI. Betydligt färre ser den avkastning de förväntade sig. Gapet är sällan tekniken. Det handlar om huruvida ledare kan fatta tydliga beslut, sätta prioriteringar som folk förstår och hjälpa sina team att faktiskt förändra hur de arbetar.",
+    "body2": "När du skalar rör varje ledare fler beslut, fler människor och mer förändring. Strategi och verktyg skapar möjligheten. Ledare avgör om den förvandlas till resultat.",
+    "body3": "De företag som går starkast framåt kommer inte vara de som spenderar mest på AI. De kommer vara de vars ledare omvandlar adoptionen till verklig output, vecka efter vecka."
   },
-  "stat1": {
-    "number": "70%",
-    "label": "av chefer uppvisar tecken på stress och utmattning, men de flesta söker aldrig stöd"
-  },
-  "stat2": {
-    "number": "322 mdr kr",
-    "label": "förloras globalt varje år till ledarskapsprestationsgap och organisatorisk omotivation"
-  },
-  "stat3": {
-    "number": "75%",
-    "label": "av organisationsförändringar misslyckas — beteendegap i ledarskap är den ledande dolda orsaken"
-  },
-  "insight": {
-    "eyebrow": "Paradigmskiftet",
-    "headline": "Inte fler workshops. Daglig träning.",
-    "body": "De flesta ledarskapsutvecklingsprogram avslutas i utbildningssalen. Verklig beteendeförändring sker i mötet, det svåra samtalet, det högstressiga beslutet. Human First AI bryggar det gapet — med AI-coaching, mikrolärande och kollegialt ansvar mitt i arbetsdagen, där det faktiskt spelar roll.",
-    "old": {
-      "label": "Gammal modell",
-      "title": "Episodisk Intervention",
-      "1": "Årliga ledarskapsretreats",
-      "2": "Reaktiv coaching efter prestandatapp",
-      "3": "Generiska workshops frånkopplade från det dagliga arbetet",
-      "4": "Mätvärden mätta en gång om året"
+  "story": {
+    "eyebrow": "Så här ser det ut i praktiken",
+    "stat1": {
+      "number": "14%",
+      "label": "av ledare förespråkar konsekvent AI-adoption. De flesta team lämnas att klara sig på egen hand."
     },
-    "new": {
-      "label": "Human First AI",
-      "title": "Daglig Intelligens",
-      "1": "Daglig incheckning håller ledare medvetna om sitt eget tillstånd på 60 sekunder",
-      "2": "Eve coachar ledare inför samtal, efter möten och under verkliga utmaningar",
-      "3": "Mikrolärande utlöst av verkliga arbetsplatssituationer",
-      "4": "Kontinuerliga beteendesignaler och kollegialt ansvar i hela organisationen"
+    "stat2": {
+      "number": "1 av 6",
+      "label": "företag saknar en tydlig ansvarig chef för AI-adoption. En misslyckad omplacering kostar 500 000–1 000 000 kr"
+    },
+    "stat3": {
+      "number": "88%",
+      "label": "av företag implementerar AI, men många fastnar i isolerade framgångar som aldrig når resultatet"
+    },
+    "box1": {
+      "img": "Fotoplats — Elena i ett ledarskapsmöte med sitt ledningsteam",
+      "body": "Elena är VD för ett logistikbolag med 200 anställda under snabb tillväxt och driver en ambitiös AI-transformation. Hon lämnar över lanseringen till sitt sexpersoners ledningsteam, var och en ansvarig för sina egna seniora ledare och förväntad att omvandla strategi till resultat inom sin del av verksamheten."
+    },
+    "box2": {
+      "img": "Fotoplats — Friktion vid ett rollout-möte",
+      "body": "Inom veckor uppstår sprickor överallt på en gång. Team motsätter sig nya verktyg, ansvarighet tystnar och en gång beslutsamma ledare håller sig undan i möten medan tidplaner glider. Det som var tänkt att bli Elenas konkurrensfördel börjar se ut som det som mest troligt kan bryta sönder företaget inifrån."
+    },
+    "box3": {
+      "img": "Fotoplats — Elena och en coach granskar ledarskapsprogrammet",
+      "body": "Elena hade redan investerat i ett ledarskapsprogram. Principerna var rätt och innehållet var starkt. Men en tvådagars workshop överlever inte den första svåra tisdagen sex veckor senare. Hon tar in Human First AI inte för att ersätta den investeringen, utan för att hålla dess momentum levande i de ögonblick workshopen inte kan nå."
+    },
+    "box4": {
+      "img": "Fotoplats — En ledare startar morgonen med appen",
+      "intro": "Human First AI blir en del av dagen, inte ett program att komma ihåg. En tvåminuters incheckning, coaching från Eve inför ett svårt samtal, en mikrokurs på pendlingen och en Think Tank som håller dem till vad de lovat. Små dagliga vanor som ackumuleras till hur de faktiskt leder."
+    },
+    "box5": {
+      "img": "Fotoplats — Ledningsteamet i en energifylld, produktiv session",
+      "body": "Inom veckor är förändringen synlig. Ledare som tystnat börjar fatta beslut igen och team återfår en tydlig känsla av ägarskap. Elena ser på nära håll att att överleva en AI-transformation aldrig handlade om verktygen. Det handlade om huruvida hennes ledare kunde hålla sig stadiga nog att leda igenom det."
     }
   },
-  "eve": {
-    "eyebrow": "Möt Eve",
-    "headline": "Din AI-coach för hållbart ledarskap.",
-    "body": "Eve är AI-ledarskapcoachen i hjärtat av Human First AI. Hon kombinerar klinisk coachingmetodik med de dagliga vanor som forskning visar faktiskt förändrar beteende — och möter ledare i verkliga situationer, inte bara i utbildningssalar.",
-    "cap1": "Personliga dagliga incheckning och reflektionsuppmaningar",
-    "cap2": "Coachningsamtal i realtid på begäran",
-    "cap3": "Evidensbaserat mikrolärande på under 5 minuter",
-    "cap4": "Sammanslagna teamprestationsinsikter för HR och ledning"
-  },
-  "pillars": {
-    "headline": "Allt du behöver. Inget du inte behöver.",
-    "sub": "Fyra integrerade funktioner som samverkar — varje dag."
+  "product": {
+    "headline": "Fem sammankopplade delar. En vana: håll i."
   },
   "pillar1": {
-    "title": "Daglig Intelligens",
-    "body": "60-sekunders incheckning avslöjar humör, energi och risksignaler innan de blir kriser."
+    "title": "Daglig incheckning",
+    "body": "Ansvarighet börjar med dig själv. En tvåminuters puls på humör, energi, sömn och stress. Över tid visar mönstren ledare hur de egentligen mår — innan det syns i hur de leder."
   },
   "pillar2": {
     "title": "Fråga Eve",
-    "body": "On-demand coaching för verkliga ledarskapsfrågor — tillgänglig kl 23 när det verkligen gäller."
+    "body": "En AI-guide tränad på decennier av coachingpraktik. När en ledare ställs inför ett svårt beslut, osäkerhet eller ett svårt samtal hjälper Eve dem att tänka igenom det, välja en riktning och hålla sig ansvariga till de åtaganden de gör."
   },
   "pillar3": {
-    "title": "Lärbibliotek",
-    "body": "Kurerade mikromoduler om resiliens, kommunikation och hållbar prestation. 5 minuter, evidensbaserade."
+    "title": "Mikrolärande",
+    "body": "Rätt färdighet, vid rätt tillfälle. 3–5 minuters kurser i ljud- och artikelformat, anpassade till vad en ledare hanterar just nu. Tillräckligt kort för att passa en arbetsdag. Regelbundet nog för att bli en vana."
   },
   "pillar4": {
-    "title": "Teamcirklar",
-    "body": "Faciliterade peergrupper för ledare som navigerar gemensamma utmaningar — byggda för förtroende och öppenhet."
+    "title": "Think Tanks",
+    "body": "Kollegor som håller dig till det. Små grupper av ledare som arbetar igenom liknande utmaningar. Ett tryggt utrymme att lösa problem tillsammans och hålla varandra till det som beslutades."
   },
-  "how": {
-    "headline": "Tre steg till en motståndskraftig organisation."
+  "pillar5": {
+    "title": "Realtidsdata",
+    "body": "För grundare och chefer: vet hur ditt ledarskapsteam mår dagligen, inte var sjätte månad. Aggregerade, anonymiserade signaler visar var energin är hög, var stress byggs upp och vilka team som behöver stöd — tillräckligt tidigt för att agera."
+  },
+  "compounds": {
+    "headline": "Kontinuerligt ansvarighet. Konsekvent genomförande."
   },
   "step1": {
-    "title": "Checka in",
-    "body": "Ledare genomför en 60-sekunders daglig incheckning. Eve synliggör mönster som är osynliga för blotta ögat."
+    "title": "Bygg motståndskraftiga ledare",
+    "body": "Daglig träning ger ledare vanor och självförtroende att fortsätta leda väl genom ständig förändring."
   },
   "step2": {
-    "title": "Bli coachad",
-    "body": "Eve ger personlig vägledning, mikrolärande och övningar anpassade till varje ledares tillstånd."
+    "title": "Stärk genomförandet",
+    "body": "AI-vägledning, praktiskt lärande och peer-stöd hjälper ledare att följa upp på vad de åtagit sig."
   },
   "step3": {
-    "title": "Bygg tillsammans",
-    "body": "Cirkelsamtal och teaminsikter omvandlar individuell träning till organisatorisk resiliens."
+    "title": "Driv affärsresultat",
+    "body": "Realtidsinsikt visar dig var stöd behövs så att du kan agera tidigt och hålla AI-adoption och affärsprioriteringar i rörelse."
   },
   "testimonials": {
-    "headline": "Vad tidiga användare säger.",
+    "headline": "Hör det från våra kunder.",
     "sub": "Från betaprogrammet — ärlig feedback från ledare i fält.",
     "empty": "Omdömen kommer snart."
   },
   "demo": {
-    "headline": "Redo att skydda din viktigaste tillgång?",
-    "sub": "Boka ett demo och se hur Human First AI passar in i din organisation."
+    "headline": "Dina ledare bär redan förändringen. Ge dem en partner.",
+    "sub": "Skalning och AI-transformation är inte två separata problem. De är samma problem, och ditt ledarskapsteam är där det löses.",
+    "cta2": "Prata med oss"
   },
   "form": {
     "name": "Ditt namn",

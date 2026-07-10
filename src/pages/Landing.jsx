@@ -8,6 +8,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
 import { get, post } from '@/utils/api';
+import storyElenaDream from '@/assets/images/story-elena-dream.png';
+import storyMismatch from '@/assets/images/story-mismatched-priorities.png';
+import storyLeadership from '@/assets/images/story-leadership-coaching.png';
 
 export default function Landing() {
   const { t, i18n } = useTranslation('landing');
@@ -147,14 +150,12 @@ export default function Landing() {
       <section className="l-hero" id="l-hero">
         <div className="l-hero-bg" role="presentation" aria-hidden="true" />
         <div className="l-hero-content l-container">
-          <p className="l-hero-eyebrow l-animate">{t('hero.eyebrow')}</p>
-          <h1 className="l-hero-headline l-animate l-animate-delay-1">{t('hero.headline')}</h1>
-          <p className="l-hero-sub l-animate l-animate-delay-2">{t('hero.sub')}</p>
+          <h1 className="l-hero-headline l-animate">{t('hero.headline')}</h1>
+          <p className="l-hero-sub l-animate l-animate-delay-1">{t('hero.sub')}</p>
+          <p className="l-hero-body l-animate l-animate-delay-2">{t('hero.body')}</p>
+          <p className="l-hero-body l-animate l-animate-delay-2">{t('hero.body2')}</p>
           <div className="l-hero-actions l-animate l-animate-delay-3">
             <button className="l-btn-ember" onClick={scrollToDemo}>{t('hero.cta1')}</button>
-            <a href="#l-how" className="l-btn-outline-white" onClick={(e) => scrollToId(e, 'l-how')}>
-              {t('hero.cta2')}
-            </a>
           </div>
         </div>
       </section>
@@ -162,87 +163,87 @@ export default function Landing() {
       {/* DEMO VIDEO */}
       <VideoSection t={t} />
 
-      {/* PROBLEM */}
-      <section className="l-problem" id="l-problem">
+      {/* OUR POINT OF VIEW */}
+      <section className="l-problem" id="l-pov">
         <div className="l-container">
-          <h2 className="l-section-headline l-animate">{t('problem.headline')}</h2>
-          <p className="l-eve-body l-animate l-animate-delay-1">{t('problem.body')}</p>
-          <div className="l-stat-grid">
-            <div className="l-stat-card l-stat-card-sage l-animate l-animate-delay-1">
-              <div className="l-stat-number">{t('stat1.number')}</div>
-              <p className="l-stat-label">{t('stat1.label')}</p>
-            </div>
-            <div className="l-stat-card l-stat-card-ember l-animate l-animate-delay-2">
-              <div className="l-stat-number">{t('stat2.number')}</div>
-              <p className="l-stat-label">{t('stat2.label')}</p>
-            </div>
-            <div className="l-stat-card l-stat-card-forest l-animate l-animate-delay-3">
-              <div className="l-stat-number">{t('stat3.number')}</div>
-              <p className="l-stat-label">{t('stat3.label')}</p>
-            </div>
-          </div>
+          <p className="l-insight-eyebrow l-animate">{t('pov.eyebrow')}</p>
+          <h2 className="l-section-headline l-animate l-animate-delay-1">{t('pov.headline')}</h2>
+          <p className="l-eve-body l-animate l-animate-delay-2">{t('pov.body1')}</p>
+          <p className="l-eve-body l-animate l-animate-delay-2">{t('pov.body2')}</p>
+          <p className="l-eve-body l-animate l-animate-delay-3">{t('pov.body3')}</p>
         </div>
       </section>
 
-      {/* INSIGHT */}
-      <section className="l-insight" id="l-insight">
+      {/* WHAT THIS LOOKS LIKE IN PRACTICE */}
+      <section className="l-insight" id="l-story">
         <div className="l-insight-inner l-container">
-          <div className="l-insight-header">
-            <p className="l-insight-eyebrow l-animate">{t('insight.eyebrow')}</p>
-            <h2 className="l-section-headline l-animate l-animate-delay-1">{t('insight.headline')}</h2>
-            <p className="l-eve-body l-animate l-animate-delay-2">{t('insight.body')}</p>
+          <p className="l-insight-eyebrow l-animate">{t('story.eyebrow')}</p>
+
+          <div className="l-stat-grid l-animate l-animate-delay-1">
+            <div className="l-stat-card l-stat-card-sage">
+              <div className="l-stat-number">{t('story.stat1.number')}</div>
+              <p className="l-stat-label">{t('story.stat1.label')}</p>
+            </div>
+            <div className="l-stat-card l-stat-card-ember">
+              <div className="l-stat-number">{t('story.stat2.number')}</div>
+              <p className="l-stat-label">{t('story.stat2.label')}</p>
+            </div>
+            <div className="l-stat-card l-stat-card-forest">
+              <div className="l-stat-number">{t('story.stat3.number')}</div>
+              <p className="l-stat-label">{t('story.stat3.label')}</p>
+            </div>
           </div>
-          <div className="l-compare-grid">
-            <div className="l-compare-card l-old l-animate l-animate-delay-1">
-              <p className="l-compare-label">{t('insight.old.label')}</p>
-              <h3 className="l-compare-title">{t('insight.old.title')}</h3>
-              <ul className="l-compare-list">
-                <li>{t('insight.old.1')}</li>
-                <li>{t('insight.old.2')}</li>
-                <li>{t('insight.old.3')}</li>
-                <li>{t('insight.old.4')}</li>
-              </ul>
+
+          <div className="l-story-boxes">
+
+            {/* Box 1 — The Setup */}
+            <div className="l-story-box l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">1</span>
+              <img className="l-story-box-img" src={storyElenaDream} alt={t('story.box1.img')} />
+              <p className="l-story-box-body">{t('story.box1.body')}</p>
             </div>
-            <div className="l-compare-card l-new l-animate l-animate-delay-2">
-              <p className="l-compare-label">{t('insight.new.label')}</p>
-              <h3 className="l-compare-title">{t('insight.new.title')}</h3>
-              <ul className="l-compare-list">
-                <li>{t('insight.new.1')}</li>
-                <li>{t('insight.new.2')}</li>
-                <li>{t('insight.new.3')}</li>
-                <li>{t('insight.new.4')}</li>
-              </ul>
+
+            {/* Box 2 — The Breaking Point */}
+            <div className="l-story-box l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">2</span>
+              <img className="l-story-box-img" src={storyMismatch} alt={t('story.box2.img')} />
+              <p className="l-story-box-body">{t('story.box2.body')}</p>
             </div>
+
+            {/* Box 3 — The Turning Point */}
+            <div className="l-story-box l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">3</span>
+              <img className="l-story-box-img" src={storyLeadership} alt={t('story.box3.img')} />
+              <p className="l-story-box-body">{t('story.box3.body')}</p>
+            </div>
+
+            {/* Box 4 — The Daily Habit */}
+            <div className="l-story-box l-story-box--habit l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">4</span>
+              <div className="l-story-box-img l-story-box-img--dark" role="img" aria-label={t('story.box4.img')}>
+                <span className="l-story-box-img-label">{t('story.box4.img')}</span>
+              </div>
+              <p className="l-story-box-body">{t('story.box4.intro')}</p>
+            </div>
+
+            {/* Box 5 — The Result */}
+            <div className="l-story-box l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">5</span>
+              <div className="l-story-box-img" role="img" aria-label={t('story.box5.img')}>
+                <span className="l-story-box-img-label">{t('story.box5.img')}</span>
+              </div>
+              <p className="l-story-box-body">{t('story.box5.body')}</p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* MEET EVE */}
-      <section className="l-eve" id="l-eve">
-        <div className="l-eve-inner l-container">
-          <div className="l-eve-image" aria-hidden="true">
-            <img src="/images/landing/solution.jpg" alt="" loading="lazy" />
-          </div>
-          <div className="l-eve-copy">
-            <p className="l-eve-eyebrow l-animate">{t('eve.eyebrow')}</p>
-            <h2 className="l-eve-headline l-animate l-animate-delay-1">{t('eve.headline')}</h2>
-            <p className="l-eve-body l-animate l-animate-delay-2">{t('eve.body')}</p>
-            <ul className="l-eve-capabilities l-animate l-animate-delay-3">
-              <li>{t('eve.cap1')}</li>
-              <li>{t('eve.cap2')}</li>
-              <li>{t('eve.cap3')}</li>
-              <li>{t('eve.cap4')}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* PILLARS */}
-      <section className="l-pillars" id="l-pillars">
+      {/* THE PRODUCT */}
+      <section className="l-pillars" id="l-product">
         <div className="l-pillars-inner l-container">
           <div className="l-pillars-header l-animate">
-            <h2 className="l-section-headline l-section-headline-center">{t('pillars.headline')}</h2>
-            <p className="l-pillars-sub">{t('pillars.sub')}</p>
+            <h2 className="l-section-headline l-section-headline-center">{t('product.headline')}</h2>
           </div>
           <div className="l-pillars-grid">
             <div className="l-pillar-card l-animate l-animate-delay-1">
@@ -279,15 +280,25 @@ export default function Landing() {
               <h3 className="l-pillar-title">{t('pillar4.title')}</h3>
               <p className="l-pillar-body">{t('pillar4.body')}</p>
             </div>
+            <div className="l-pillar-card l-animate l-animate-delay-4">
+              <svg className="l-pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+                <line x1="2" y1="20" x2="22" y2="20" />
+              </svg>
+              <h3 className="l-pillar-title">{t('pillar5.title')}</h3>
+              <p className="l-pillar-body">{t('pillar5.body')}</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="l-how" id="l-how">
+      {/* HOW IT COMPOUNDS */}
+      <section className="l-how" id="l-compounds">
         <div className="l-how-inner l-container">
           <div className="l-how-header l-animate">
-            <h2 className="l-section-headline l-section-headline-center">{t('how.headline')}</h2>
+            <h2 className="l-section-headline l-section-headline-center">{t('compounds.headline')}</h2>
           </div>
           <div className="l-steps-grid">
             <div className="l-step l-animate l-animate-delay-1">
@@ -336,6 +347,10 @@ export default function Landing() {
         <div className="l-demo-inner l-container">
           <h2 className="l-demo-headline l-animate">{t('demo.headline')}</h2>
           <p className="l-demo-sub l-animate l-animate-delay-1">{t('demo.sub')}</p>
+          <div className="l-demo-actions l-animate l-animate-delay-2">
+            <button className="l-btn-ember" onClick={scrollToDemo}>{t('hero.cta1')}</button>
+            <button className="l-btn-outline-white" onClick={scrollToDemo}>{t('demo.cta2')}</button>
+          </div>
 
           {formState === 'success' ? (
             <div className="l-form-success" role="status">
@@ -344,7 +359,7 @@ export default function Landing() {
               <p className="l-form-success-body">{t('form.success.body')}</p>
             </div>
           ) : (
-            <form className="l-contact-form l-animate l-animate-delay-2" onSubmit={handleSubmit} noValidate>
+            <form className="l-contact-form l-animate l-animate-delay-3" onSubmit={handleSubmit} noValidate>
               <div className="l-form-row">
                 <input className="l-input" type="text" name="name" maxLength={100} required placeholder={t('form.name')} />
                 <input className="l-input" type="text" name="company" maxLength={200} required placeholder={t('form.company')} />
