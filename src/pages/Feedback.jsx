@@ -132,7 +132,7 @@ export default function Feedback() {
 
       {/* Subtitle below banner */}
       <p className="feedback-intro">
-        {t('feedback:subtitle', 'Help us improve Eve by sharing your thoughts')}
+        {t('feedback:subtitle', 'Help us improve Human First AI by sharing your thoughts')}
       </p>
 
       {/* Feedback Form */}
@@ -168,7 +168,7 @@ export default function Feedback() {
               {/* Rating Section */}
               <div className="feedback-rating-section">
                 <p className="feedback-rating-label">
-                  {t('feedback:ratingLabel', 'How is your experience with Eve?')}
+                  {t('feedback:ratingLabel', "How's your experience?")}
                 </p>
                 <div className="feedback-rating-buttons">
                   {[1, 2, 3, 4, 5].map((value) => (
@@ -189,13 +189,13 @@ export default function Feedback() {
               {/* Text Feedback */}
               <div className="feedback-textarea-section">
                 <p className="feedback-textarea-label">
-                  {t('feedback:textLabel', 'Tell us more (optional)')}
+                  {t('feedback:inputHelps', "Your input helps us grow - and helps us build something that actually works for you. We'd love to hear what's working, what isn't, and how things are going beyond the platform as well.")}
                 </p>
                 <div className="feedback-textarea-wrapper">
                   <textarea
                     ref={textareaRef}
                     className="feedback-textarea"
-                    placeholder={t('feedback:placeholder', "What's on your mind?")}
+                    placeholder={t('feedback:placeholder', 'Share your thoughts about Human First AI, with your team, or just how things are going in general.')}
                     value={content}
                     onChange={(e) => setContent(e.target.value.slice(0, MAX_CHARS))}
                   />
@@ -231,6 +231,9 @@ export default function Feedback() {
                     : t('feedback:submit', 'Submit Feedback')}
                 </button>
               </div>
+              <p className="feedback-anonymous-note">
+                {t('feedback:anonymousNote', "If you keep this off and include your account, it helps us follow up if we have questions - but it's always your choice. If you'd rather turn this on and be anonymous, that's completely fine too.")}
+              </p>
             </form>
           </div>
         )}

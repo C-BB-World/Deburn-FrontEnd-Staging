@@ -5,7 +5,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { get } from '@/utils/api';
+import { get, patch } from '@/utils/api';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 
 // Hero image import
@@ -68,7 +68,148 @@ const icons = {
       <path d="M17 19h4"></path>
     </svg>
   ),
+  pencil: (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path>
+      <path d="m15 5 4 4"></path>
+    </svg>
+  ),
 };
+
+// ─────────────────────────────────────────────────────────────────
+// ReflectionEntry component
+// ─────────────────────────────────────────────────────────────────
+
+function ReflectionEntry({
+  entry,
+  isEditing,
+  editingText,
+  onEditStart,
+  onEditCancel,
+  onEditSave,
+  onEditChange,
+  editError,
+}) {
+  const { t, i18n } = useTranslation('progress');
+
+  const formattedDate = new Date(entry.createdAt).toLocaleDateString(
+    i18n.language === 'sv' ? 'sv-SE' : 'en-US',
+    { year: 'numeric', month: 'long', day: 'numeric' }
+  );
+
+  const isSaveDisabled =
+    editingText.trim() === entry.reflection || editingText.trim() === '';
+
+  return (
+    <div className="reflection-entry">
+      <div className="reflection-date">{formattedDate}</div>
+      {isEditing ? (
+        <>
+          <textarea
+            className="reflection-textarea"
+            value={editingText}
+            onChange={onEditChange}
+            maxLength={500}
+          />
+          {editError && <p className="reflection-error">{editError}</p>}
+          <div className="reflection-actions">
+            <button className="btn btn-ghost btn-sm" onClick={onEditCancel}>
+              {t('reflections.cancel', 'Cancel')}
+            </button>
+            <button
+              className="btn btn-primary btn-sm"
+              onClick={() => onEditSave(entry._id)}
+              disabled={isSaveDisabled}
+            >
+              {t('reflections.save', 'Save')}
+            </button>
+          </div>
+        </>
+      ) : (
+        <div className="reflection-view-row">
+          <p className="reflection-text">{entry.reflection}</p>
+          <button
+            className="reflection-edit-btn"
+            onClick={() => onEditStart(entry._id, entry.reflection)}
+            aria-label={t('reflections.edit', 'Edit')}
+          >
+            {icons.pencil}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────
+// ReflectionsSection component
+// ─────────────────────────────────────────────────────────────────
+
+function ReflectionsSection({
+  reflections,
+  reflectionsLoading,
+  reflectionsHasMore,
+  editingId,
+  editingText,
+  editErrors,
+  onLoadMore,
+  onEditStart,
+  onEditCancel,
+  onEditSave,
+  onEditChange,
+}) {
+  const { t } = useTranslation('progress');
+
+  return (
+    <section className="section">
+      <h2 className="section-title">{t('reflections.title', 'Your Reflections')}</h2>
+
+      {reflectionsLoading && reflections.length === 0 ? (
+        <div className="insights-list">
+          <LoadingSpinner />
+        </div>
+      ) : !reflectionsLoading && reflections.length === 0 ? (
+        <div className="insight-item empty-state">
+          <div className="insight-icon">{icons.sparkles}</div>
+          <div className="insight-content">
+            <p className="insight-description">
+              {t('reflections.empty', 'No reflections yet. Write your thoughts during your next check-in.')}
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="reflections-list">
+          {reflections.map((entry) => (
+            <ReflectionEntry
+              key={entry._id}
+              entry={entry}
+              isEditing={editingId === entry._id}
+              editingText={editingId === entry._id ? editingText : ''}
+              onEditStart={onEditStart}
+              onEditCancel={onEditCancel}
+              onEditSave={onEditSave}
+              onEditChange={onEditChange}
+              editError={editErrors[entry._id] || null}
+            />
+          ))}
+          {reflectionsHasMore && (
+            <button
+              className="btn btn-ghost btn-sm"
+              onClick={onLoadMore}
+              disabled={reflectionsLoading}
+            >
+              {t('reflections.loadMore', 'Load more')}
+            </button>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────
+// Progress page
+// ─────────────────────────────────────────────────────────────────
 
 export default function Progress() {
   const { t } = useTranslation(['progress', 'common']);
@@ -84,9 +225,35 @@ export default function Progress() {
   const [trends, setTrends] = useState(null);
   const [insights, setInsights] = useState([]);
 
+  // Reflections state
+  const [reflections, setReflections] = useState([]);
+  const [reflectionsPage, setReflectionsPage] = useState(1);
+  const [reflectionsHasMore, setReflectionsHasMore] = useState(false);
+  const [reflectionsLoading, setReflectionsLoading] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+  const [editingText, setEditingText] = useState('');
+  const [editErrors, setEditErrors] = useState({});
+
   useEffect(() => {
     loadProgressData();
   }, [period]);
+
+  async function fetchReflections(page = 1, append = false) {
+    setReflectionsLoading(true);
+    try {
+      const res = await get(`/api/reflection?page=${page}&limit=10`);
+      if (res.success) {
+        setReflections((prev) =>
+          append ? [...prev, ...res.data.reflections] : res.data.reflections
+        );
+        setReflectionsHasMore(res.data.hasMore);
+      }
+    } catch {
+      // silent — consistent with loadProgressData pattern
+    } finally {
+      setReflectionsLoading(false);
+    }
+  }
 
   async function loadProgressData() {
     setIsLoading(true);
@@ -112,6 +279,56 @@ export default function Progress() {
       console.error('Error loading progress:', error);
     } finally {
       setIsLoading(false);
+    }
+
+    fetchReflections(1, false);
+  }
+
+  function handleLoadMore() {
+    const nextPage = reflectionsPage + 1;
+    setReflectionsPage(nextPage);
+    fetchReflections(nextPage, true);
+  }
+
+  function handleEditStart(id, currentText) {
+    setEditingId(id);
+    setEditingText(currentText);
+    setEditErrors((prev) => ({ ...prev, [id]: null }));
+  }
+
+  function handleEditCancel() {
+    setEditingId(null);
+    setEditingText('');
+  }
+
+  async function handleEditSave(id) {
+    const trimmed = editingText.trim();
+
+    // Optimistic update
+    const original = reflections.find((r) => r._id === id);
+    setReflections((prev) =>
+      prev.map((r) => (r._id === id ? { ...r, reflection: trimmed } : r))
+    );
+    setEditingId(null);
+    setEditingText('');
+
+    try {
+      await patch(`/api/reflection/${id}`, { reflection: trimmed });
+      setEditErrors((prev) => ({ ...prev, [id]: null }));
+    } catch {
+      // Revert optimistic update on failure
+      if (original) {
+        setReflections((prev) =>
+          prev.map((r) => (r._id === id ? original : r))
+        );
+      }
+      setEditErrors((prev) => ({
+        ...prev,
+        [id]: t('progress:reflections.saveError', 'Failed to save. Please try again.'),
+      }));
+      // Re-open editor with the text the user had typed
+      setEditingId(id);
+      setEditingText(trimmed);
     }
   }
 
@@ -331,6 +548,21 @@ export default function Progress() {
           )}
         </div>
       </section>
+
+      {/* Reflections */}
+      <ReflectionsSection
+        reflections={reflections}
+        reflectionsLoading={reflectionsLoading}
+        reflectionsHasMore={reflectionsHasMore}
+        editingId={editingId}
+        editingText={editingText}
+        editErrors={editErrors}
+        onLoadMore={handleLoadMore}
+        onEditStart={handleEditStart}
+        onEditCancel={handleEditCancel}
+        onEditSave={handleEditSave}
+        onEditChange={(e) => setEditingText(e.target.value)}
+      />
     </div>
   );
 }

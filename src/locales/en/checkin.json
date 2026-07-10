@@ -29,7 +29,7 @@
     "overwhelmed": "Overwhelmed"
   },
   "reflection": {
-    "fallbackPrompt": "How was your day today?",
+    "fallbackPrompt": "What's on your mind right now?",
     "subtitle": "This is optional — feel free to skip.",
     "placeholder": "Write your thoughts here..."
   },

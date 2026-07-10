@@ -64,7 +64,12 @@ export function Header({ onMenuClick }) {
           className={`user-menu ${isMenuOpen ? 'open' : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <div className="avatar">{initials}</div>
+          <div className="avatar">
+            {user?.avatarUrl
+              ? <img src={user.avatarUrl} alt={initials} />
+              : initials
+            }
+          </div>
           <span className="user-name">{user?.firstName || 'User'}</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="user-menu-chevron">
             <polyline points="6 9 12 15 18 9"></polyline>

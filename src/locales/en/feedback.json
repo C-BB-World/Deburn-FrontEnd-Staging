@@ -1,10 +1,11 @@
 {
   "title": "Share Your Feedback",
-  "subtitle": "Help us improve Eve by sharing your thoughts",
-  "ratingLabel": "How is your experience with Eve?",
-  "textLabel": "Tell us more (optional)",
-  "placeholder": "What's on your mind?",
+  "subtitle": "Help us improve Human First AI by sharing your thoughts",
+  "ratingLabel": "How's your experience?",
+  "inputHelps": "Your input helps us grow - and helps us build something that actually works for you. We'd love to hear what's working, what isn't, and how things are going beyond the platform as well.",
+  "placeholder": "Share your thoughts about Human First AI, with your team, or just how things are going in general.",
   "anonymous": "Submit anonymously",
+  "anonymousNote": "If you keep this off and include your account, it helps us follow up if we have questions - but it's always your choice. If you'd rather turn this on and be anonymous, that's completely fine too.",
   "submit": "Submit Feedback",
   "success": {
     "title": "Thank you!",

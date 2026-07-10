@@ -245,6 +245,15 @@ export function AuthProvider({ children }) {
     return authApi.register(userData, language);
   }, []);
 
+  const updateUser = useCallback((updates) => {
+    setUser(prev => {
+      if (!prev) return prev;
+      const updated = { ...prev, ...updates };
+      localStorage.setItem(USER_KEY, JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
   const value = {
     user,
     isLoading,
@@ -253,6 +262,7 @@ export function AuthProvider({ children }) {
     logout,
     register,
     checkSession,
+    updateUser,
   };
 
   return (

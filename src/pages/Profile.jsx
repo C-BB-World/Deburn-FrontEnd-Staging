@@ -71,7 +71,7 @@ const icons = {
 
 export default function Profile() {
   const { t, i18n } = useTranslation(['profile', 'common']);
-  const { user, logout, refreshUser } = useAuth();
+  const { user, logout, checkSession: refreshUser, updateUser } = useAuth();
   const navigate = useNavigate();
 
   const [isSaving, setIsSaving] = useState(false);
@@ -124,8 +124,9 @@ export default function Profile() {
     try {
       const response = await uploadFile('/api/profile/avatar', formData);
       if (response.success) {
-        setAvatarUrl(response.data.avatarUrl);
-        await refreshUser();
+        const newUrl = `${response.data.avatarUrl}?t=${Date.now()}`;
+        setAvatarUrl(newUrl);
+        updateUser({ avatarUrl: newUrl });
       }
     } catch (err) {
       setError(err.message || t('profile:avatar.error.upload', 'Failed to upload avatar'));
@@ -136,7 +137,7 @@ export default function Profile() {
     try {
       await put('/api/profile/avatar', { remove: true });
       setAvatarUrl('');
-      await refreshUser();
+      updateUser({ avatarUrl: null });
     } catch (err) {
       setError(err.message);
     }
@@ -276,7 +277,7 @@ export default function Profile() {
                   <input
                     type="file"
                     accept=".jpg,.jpeg,.png"
-                    className="hidden"
+                    style={{ display: 'none' }}
                     onChange={handleAvatarUpload}
                   />
                 </label>

@@ -1,10 +1,11 @@
 {
   "title": "Dela din feedback",
-  "subtitle": "Hjälp oss förbättra Eve genom att dela dina tankar",
-  "ratingLabel": "Hur är din upplevelse med Eve?",
-  "textLabel": "Berätta mer (valfritt)",
-  "placeholder": "Vad tänker du på?",
+  "subtitle": "Hjälp oss förbättra Human First AI genom att dela dina tankar",
+  "ratingLabel": "Hur är din upplevelse?",
+  "inputHelps": "Dina synpunkter hjälper oss att växa – och bygga något som faktiskt fungerar för dig. Vi vill gärna höra vad som fungerar, vad som inte gör det, och hur saker och ting går bortom plattformen också.",
+  "placeholder": "Dela dina tankar om Human First AI, om ditt team, eller hur det bara går i allmänhet.",
   "anonymous": "Skicka anonymt",
+  "anonymousNote": "Om du låter detta vara avstängt och inkluderar ditt konto hjälper det oss att följa upp om vi har frågor – men det är alltid ditt val. Om du hellre vill aktivera det och vara anonym är det helt okej också.",
   "submit": "Skicka feedback",
   "success": {
     "title": "Tack!",

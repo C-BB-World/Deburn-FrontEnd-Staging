@@ -159,6 +159,9 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* DEMO VIDEO */}
+      <VideoSection t={t} />
+
       {/* PROBLEM */}
       <section className="l-problem" id="l-problem">
         <div className="l-container">
@@ -379,6 +382,99 @@ export default function Landing() {
         </div>
       </footer>
     </div>
+  );
+}
+
+/**
+ * Demo video section — collapsible Vimeo player
+ */
+function VideoSection({ t }) {
+  const [videoOpen, setVideoOpen] = useState(false);
+  const hasOpenedRef = useRef(false);
+  const closeButtonRef = useRef(null);
+
+  const openVideo = () => {
+    hasOpenedRef.current = true;
+    setVideoOpen(true);
+  };
+  const closeVideo = () => setVideoOpen(false);
+
+  useEffect(() => {
+    if (videoOpen && closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
+  }, [videoOpen]);
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === 'Escape' && videoOpen) closeVideo();
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [videoOpen]);
+
+  return (
+    <section className="l-video" id="l-video">
+      <div className="l-video-inner">
+        {!videoOpen ? (
+          <div
+            className={`l-video-card l-animate${hasOpenedRef.current ? ' l-visible' : ''}`}
+            role="button"
+            tabIndex={0}
+            aria-label="Play demo video"
+            onClick={openVideo}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openVideo();
+              }
+            }}
+          >
+            <div className="l-video-thumb-wrap">
+              <img
+                className="l-video-thumb-img"
+                src="/images/landing/demo-thumbnail.jpg"
+                alt="Human First AI platform demo"
+                draggable={false}
+              />
+              <div className="l-video-play-btn" aria-hidden="true">
+                <svg className="l-video-play-icon" viewBox="0 0 24 24" fill="none">
+                  <polygon points="9.5,6 9.5,18 19,12" fill="white" />
+                </svg>
+              </div>
+            </div>
+            <p className="l-video-card-text">
+              <strong>{t('video.headline')}</strong>
+              <br />
+              <span>{t('video.desc')}</span>
+            </p>
+          </div>
+        ) : (
+          <div className="l-video-expanded">
+            <button
+              className="l-video-close-btn"
+              type="button"
+              aria-label="Close video"
+              ref={closeButtonRef}
+              onClick={closeVideo}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <div className="l-video-player">
+              <iframe
+                src="https://player.vimeo.com/video/1196383244?h=b3aa5b669a&autoplay=1&badge=0&byline=0&portrait=0&title=0"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
   );
 }
 

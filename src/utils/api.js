@@ -166,9 +166,15 @@ export async function uploadFile(endpoint, formData, options = {}) {
   const baseUrl = getApiBaseUrl();
   const url = `${baseUrl}${endpoint}`;
 
+  const headers = {};
+  if (authToken) {
+    headers['Authorization'] = `Bearer ${authToken}`;
+  }
+
   const response = await fetch(url, {
     method: 'POST',
     credentials: 'include',
+    headers,
     body: formData,
     ...options,
   });
