@@ -318,6 +318,45 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* COMPARISON TABLE */}
+      <section className="l-comparison" id="l-comparison">
+        <div className="l-container">
+          <h2 className="l-comparison-headline l-animate">{t('compare.headline')}</h2>
+          <div className="l-comparison-wrap l-animate l-animate-delay-1">
+            <table className="l-comparison-table">
+              <thead>
+                <tr>
+                  <th className="l-cmp-col-feature">{t('compare.col_feature')}</th>
+                  <th className="l-cmp-col-hfai">{t('compare.col_hfai')}</th>
+                  <th>{t('compare.col_lms')}</th>
+                  <th>{t('compare.col_coaching')}</th>
+                  <th>{t('compare.col_manager')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'compare.row1', hfai: 'yes', lms: 'no',  coaching: 'no',                                   manager: ['partial', 'compare.note_inconsistent'] },
+                  { label: 'compare.row2', hfai: 'yes', lms: 'no',  coaching: ['partial', 'compare.note_scheduled'],  manager: 'no' },
+                  { label: 'compare.row3', hfai: 'yes', lms: 'yes', coaching: 'no',                                   manager: ['partial', 'compare.note_bandwidth'] },
+                  { label: 'compare.row4', hfai: 'yes', lms: 'no',  coaching: 'no',                                   manager: 'no' },
+                  { label: 'compare.row5', hfai: 'yes', lms: 'no',  coaching: 'no',                                   manager: 'no' },
+                  { label: 'compare.row6', hfai: 'yes', lms: 'no',  coaching: 'no',                                   manager: ['partial', 'compare.note_notices'] },
+                  { label: 'compare.row7', hfai: 'yes', lms: 'yes', coaching: 'no',                                   manager: ['partial', 'compare.note_time'] },
+                ].map((row, i) => (
+                  <tr key={i}>
+                    <td className="l-cmp-col-feature">{t(row.label)}</td>
+                    <td className="l-cmp-col-hfai"><CmpCell val={row.hfai} t={t} /></td>
+                    <td><CmpCell val={row.lms} t={t} /></td>
+                    <td><CmpCell val={row.coaching} t={t} /></td>
+                    <td><CmpCell val={row.manager} t={t} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* TESTIMONIALS */}
       <section className="l-testimonials" id="l-testimonials">
         <div className="l-testimonials-inner l-container">
@@ -326,16 +365,20 @@ export default function Landing() {
             <p className="l-pillars-sub">{t('testimonials.sub')}</p>
           </div>
           <div className="l-testimonials-grid">
-            {testimonials.length === 0 ? (
-              <p className="l-testimonials-empty">{t('testimonials.empty')}</p>
-            ) : (
-              testimonials.map((item, i) => (
-                <div className="l-testimonial-card l-animate l-visible" key={i}>
-                  <p className="l-testimonial-quote">{item.content}</p>
-                  <p className="l-testimonial-attribution">{item.attribution}</p>
-                </div>
-              ))
-            )}
+            {(() => {
+              const localeItems = t('testimonials.items', { returnObjects: true }) || [];
+              const displayItems = testimonials.length > 0 ? testimonials : localeItems;
+              return displayItems.length > 0 ? (
+                displayItems.map((item, i) => (
+                  <div className="l-testimonial-card l-animate l-visible" key={i}>
+                    <p className="l-testimonial-quote">{item.content}</p>
+                    <p className="l-testimonial-attribution">{item.attribution}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="l-testimonials-empty">{t('testimonials.empty')}</p>
+              );
+            })()}
           </div>
         </div>
       </section>
@@ -489,6 +532,23 @@ function VideoSection({ t }) {
       </div>
     </section>
   );
+}
+
+/**
+ * Comparison table cell — renders yes / no / partial+note
+ */
+function CmpCell({ val, t }) {
+  if (val === 'yes') return <span className="l-cmp-yes" aria-label="Yes">✓</span>;
+  if (val === 'no')  return <span className="l-cmp-no"  aria-label="No">✗</span>;
+  if (Array.isArray(val)) {
+    return (
+      <span className="l-cmp-partial">
+        <span aria-label="Partial">⚠</span>
+        <span className="l-cmp-note">{t(val[1])}</span>
+      </span>
+    );
+  }
+  return null;
 }
 
 /**

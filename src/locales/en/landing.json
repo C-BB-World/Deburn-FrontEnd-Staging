@@ -95,10 +95,44 @@
     "title": "Drive business performance",
     "body": "Real-time insight shows you where support is needed so you can step in early and keep AI adoption and business priorities moving."
   },
+  "compare": {
+    "headline": "We're not replacing your leadership stack. We're adding what it can't do.",
+    "col_feature": "Feature",
+    "col_hfai": "Human First AI",
+    "col_lms": "LMS / Courses",
+    "col_coaching": "Executive Coaching",
+    "col_manager": "Manual Manager Check-ins",
+    "row1": "Daily behavior tracking",
+    "row2": "Real-time AI guidance in the moment",
+    "row3": "Scales to every leader, not just top execs",
+    "row4": "Peer accountability built in",
+    "row5": "CEO-level visibility across all leaders",
+    "row6": "Catches stalled adoption in weeks, not quarters",
+    "row7": "Affordable at scale-up headcount",
+    "note_inconsistent": "inconsistent",
+    "note_scheduled": "scheduled only",
+    "note_bandwidth": "depends on manager bandwidth",
+    "note_notices": "only if manager notices",
+    "note_time": "but costs leader time"
+  },
   "testimonials": {
     "headline": "Hear it from our customers.",
     "sub": "From the beta programme — honest feedback from leaders in the field.",
-    "empty": "Testimonials coming soon."
+    "empty": "Testimonials coming soon.",
+    "items": [
+      {
+        "content": "Pleasantly surprised by how Eve responds. I get genuinely relevant answers and guidance for the real challenges I brought to her.",
+        "attribution": "Pilot participant, leadership program"
+      },
+      {
+        "content": "Profound experience. People opened up about real challenges, and we contributed with experience and new perspectives.",
+        "attribution": "Pilot participant, leadership program"
+      },
+      {
+        "content": "The micro-courses are fantastic the right length and very informative. That's exactly what makes it genuinely user-friendly.",
+        "attribution": "Pilot participant, leadership program"
+      }
+    ]
   },
   "demo": {
     "headline": "Your leaders are already carrying the change. Give them a partner.",

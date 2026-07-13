@@ -979,6 +979,124 @@ img.l-story-box-img {
 }
 
 /* ============================================================
+   COMPARISON TABLE
+   ============================================================ */
+.l-comparison {
+  background: var(--l-white);
+  padding: var(--l-section-pad-v) 0;
+}
+
+.l-comparison-headline {
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 700;
+  color: var(--l-ink);
+  margin: 0 auto 48px;
+  line-height: 1.25;
+  max-width: 700px;
+  text-align: center;
+}
+
+.l-comparison-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  border: 1px solid var(--l-neutral-200);
+}
+
+.l-comparison-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: var(--l-white);
+}
+
+.l-comparison-table thead tr {
+  background: var(--l-clay);
+}
+
+.l-comparison-table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--l-ink);
+  border-bottom: 2px solid var(--l-neutral-200);
+  white-space: nowrap;
+}
+
+th.l-cmp-col-hfai {
+  background: var(--l-forest);
+  color: var(--l-white);
+  text-align: center;
+}
+
+.l-comparison-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--l-neutral-200);
+  vertical-align: middle;
+  color: var(--l-ink-light);
+  line-height: 1.45;
+}
+
+.l-comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.l-comparison-table tbody tr:hover td {
+  background: var(--l-clay);
+}
+
+td.l-cmp-col-hfai {
+  background: rgba(45, 74, 71, 0.05);
+  text-align: center;
+}
+
+.l-comparison-table tbody tr:hover td.l-cmp-col-hfai {
+  background: rgba(45, 74, 71, 0.1);
+}
+
+.l-cmp-col-feature {
+  font-weight: 500;
+  color: var(--l-ink);
+  max-width: 220px;
+}
+
+.l-cmp-yes {
+  color: #2e7d4f;
+  font-size: 17px;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+}
+
+.l-cmp-no {
+  color: #b93030;
+  font-size: 17px;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+}
+
+.l-cmp-partial {
+  display: block;
+  text-align: center;
+}
+
+.l-cmp-partial > span:first-child {
+  font-size: 15px;
+  color: #c07a0a;
+}
+
+.l-cmp-note {
+  display: block;
+  font-size: 11px;
+  color: var(--l-neutral-600);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+/* ============================================================
    TESTIMONIALS
    ============================================================ */
 .l-testimonials {

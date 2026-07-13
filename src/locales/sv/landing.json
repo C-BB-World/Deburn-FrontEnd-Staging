@@ -95,10 +95,44 @@
     "title": "Driv affärsresultat",
     "body": "Realtidsinsikt visar dig var stöd behövs så att du kan agera tidigt och hålla AI-adoption och affärsprioriteringar i rörelse."
   },
+  "compare": {
+    "headline": "Vi ersätter inte din befintliga ledarskapssatsning. Vi tillför det den saknar.",
+    "col_feature": "Funktion",
+    "col_hfai": "Human First AI",
+    "col_lms": "LMS / Kurser",
+    "col_coaching": "Executive Coaching",
+    "col_manager": "Manuella chefsuppföljningar",
+    "row1": "Daglig beteendespårning",
+    "row2": "AI-vägledning i realtid, i stunden",
+    "row3": "Skalar till varje ledare, inte bara toppchefer",
+    "row4": "Kollegial ansvarighet inbyggd",
+    "row5": "VD-nivå synlighet över alla ledare",
+    "row6": "Fångar upp stoppad adoption på veckor, inte kvartal",
+    "row7": "Prisvärd vid scale-up-personalstyrka",
+    "note_inconsistent": "inkonsekvent",
+    "note_scheduled": "enbart schemalagd",
+    "note_bandwidth": "beror på chefens kapacitet",
+    "note_notices": "bara om chefen märker det",
+    "note_time": "men kostar ledartid"
+  },
   "testimonials": {
     "headline": "Hör det från våra kunder.",
     "sub": "Från betaprogrammet — ärlig feedback från ledare i fält.",
-    "empty": "Omdömen kommer snart."
+    "empty": "Omdömen kommer snart.",
+    "items": [
+      {
+        "content": "Pleasantly surprised by how Eve responds. I get genuinely relevant answers and guidance for the real challenges I brought to her.",
+        "attribution": "Pilotdeltagare, ledarskapsprogram"
+      },
+      {
+        "content": "Profound experience. People opened up about real challenges, and we contributed with experience and new perspectives.",
+        "attribution": "Pilotdeltagare, ledarskapsprogram"
+      },
+      {
+        "content": "The micro-courses are fantastic the right length and very informative. That's exactly what makes it genuinely user-friendly.",
+        "attribution": "Pilotdeltagare, ledarskapsprogram"
+      }
+    ]
   },
   "demo": {
     "headline": "Dina ledare bär redan förändringen. Ge dem en partner.",
