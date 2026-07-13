@@ -612,8 +612,8 @@
    STORY BOXES
    ============================================================ */
 .l-story-boxes {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 16px;
   margin-top: 48px;
 }
@@ -621,9 +621,13 @@
 .l-story-box {
   background: var(--l-clay);
   border-radius: 20px;
-  padding: 20px 16px;
+  padding: 20px 24px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
 }
 
 .l-story-box-step {
@@ -653,6 +657,9 @@
 }
 
 img.l-story-box-img {
+  flex: 0 0 38%;
+  width: 38%;
+  margin-bottom: 0;
   object-fit: cover;
   border: none;
   background: none;
@@ -677,6 +684,7 @@ img.l-story-box-img {
 }
 
 .l-story-box-body {
+  flex: 1;
   font-size: 13px;
   line-height: 1.65;
   color: var(--l-ink-light);
@@ -1238,7 +1246,7 @@ img.l-story-box-img {
    ============================================================ */
 @media (max-width: 900px) {
   .l-story-boxes {
-    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
 
   .l-pillars-grid {
@@ -1276,8 +1284,14 @@ img.l-story-box-img {
     grid-template-columns: 1fr;
   }
 
-  .l-story-boxes {
-    grid-template-columns: repeat(2, 1fr);
+  .l-story-box {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  img.l-story-box-img {
+    flex: none;
+    width: 100%;
   }
 
   .l-pillars-grid {

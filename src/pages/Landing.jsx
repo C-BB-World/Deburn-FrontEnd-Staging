@@ -11,6 +11,8 @@ import { get, post } from '@/utils/api';
 import storyElenaDream from '@/assets/images/story-elena-dream.png';
 import storyMismatch from '@/assets/images/story-mismatched-priorities.png';
 import storyLeadership from '@/assets/images/story-leadership-coaching.png';
+import storyHfai from '@/assets/images/story-hfai.png';
+import storyEnding from '@/assets/images/story-ending.png';
 
 export default function Landing() {
   const { t, i18n } = useTranslation('landing');
@@ -220,18 +222,14 @@ export default function Landing() {
             {/* Box 4 — The Daily Habit */}
             <div className="l-story-box l-story-box--habit l-animate l-animate-delay-1">
               <span className="l-story-box-step" aria-hidden="true">4</span>
-              <div className="l-story-box-img l-story-box-img--dark" role="img" aria-label={t('story.box4.img')}>
-                <span className="l-story-box-img-label">{t('story.box4.img')}</span>
-              </div>
+              <img className="l-story-box-img" src={storyHfai} alt={t('story.box4.img')} />
               <p className="l-story-box-body">{t('story.box4.intro')}</p>
             </div>
 
             {/* Box 5 — The Result */}
             <div className="l-story-box l-animate l-animate-delay-1">
               <span className="l-story-box-step" aria-hidden="true">5</span>
-              <div className="l-story-box-img" role="img" aria-label={t('story.box5.img')}>
-                <span className="l-story-box-img-label">{t('story.box5.img')}</span>
-              </div>
+              <img className="l-story-box-img" src={storyEnding} alt={t('story.box5.img')} />
               <p className="l-story-box-body">{t('story.box5.body')}</p>
             </div>
 
