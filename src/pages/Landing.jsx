@@ -8,11 +8,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
 import { get, post } from '@/utils/api';
-import storyElenaDream from '@/assets/images/story-elena-dream.png';
-import storyMismatch from '@/assets/images/story-mismatched-priorities.png';
-import storyLeadership from '@/assets/images/story-leadership-coaching.png';
-import storyHfai from '@/assets/images/story-hfai.png';
-import storyEnding from '@/assets/images/story-ending.png';
+import storyElenaDream from '@/assets/images/story-elena-dream.jpg';
+import storyMismatch from '@/assets/images/story-mismatched-priorities.jpg';
+import storyLeadership from '@/assets/images/story-leadership-coaching.jpg';
+import storyHfai from '@/assets/images/story-hfai.jpg';
+import storyEnding from '@/assets/images/story-ending.jpg';
 
 export default function Landing() {
   const { t, i18n } = useTranslation('landing');
