@@ -5,10 +5,10 @@
     "demo": "Book a Demo"
   },
   "hero": {
-    "headline": "You're scaling up while the whole world is changing.",
-    "sub": "AI alone won't get you there. An aligned leadership team will.",
-    "body": "Your company is growing fast, and AI is changing how work gets done at the same time. Your leaders are carrying both. A one-off coaching session or an annual offsite won't hold up under that.",
-    "body2": "Human First AI stays with your leaders every day: short, regular check-ins. An AI guide built on decades of leadership coaching. A library of 3–5 minute micro-courses in audio and article form. And peer groups where leaders solve real problems together and build trust while doing it — resulting in faster execution, better decisions, and stronger business performance.",
+    "headline": "You're scaling up while the whole world is changing",
+    "sub": "",
+    "body": "Human First AI helps fast-growing companies keep their leadership teams aligned so they can execute AI transformation with speed and confidence.",
+    "body2": "",
     "cta1": "Book a demo"
   },
   "video": {
@@ -18,8 +18,8 @@
   "pov": {
     "eyebrow": "Our Point of View",
     "headline": "Leadership is the difference between buying AI and getting value from it.",
-    "body1": "Every growth-stage company is investing in AI. Far fewer are seeing the return they expected. The gap is rarely the technology. It comes down to whether leaders can make clear decisions, set priorities people understand, and help their teams actually change how they work.",
-    "body2": "As you scale, every leader touches more decisions, more people, and more change. Strategy and tools create the opportunity. Leaders decide whether it turns into results.",
+    "body1": "Every growth-stage company is investing in AI. Yet many never see the return they expected, not because the technology is the problem, but because leaders struggle to turn AI adoption into consistent execution across the business.",
+    "body2": "As your company grows, every leader influences more decisions, more teams, and more of your AI transformation. Technology creates the opportunity. Leadership determines whether AI delivers measurable business value",
     "body3": "The companies that pull ahead won't be the ones that spend the most on AI. They'll be the ones whose leaders turn adoption into real output, week after week."
   },
   "story": {
@@ -30,7 +30,7 @@
     },
     "stat2": {
       "number": "1 in 6",
-      "label": "companies have no clear executive owner for AI adoption. A failed mid-level redeployment costs £35,000–£85,000"
+      "label": "companies have no clear executive owner for AI adoption. A failed mid-level redeployment costs $47,000–$114,860"
     },
     "stat3": {
       "number": "88%",
@@ -46,7 +46,7 @@
     },
     "box3": {
       "img": "Photo placeholder — Elena and a coach reviewing the leadership programme",
-      "body": "Elena had already invested in a leadership programme. The principles were right and the content was strong. But a two-day workshop doesn't survive the first hard Tuesday six weeks later. She brings in Human First AI not to replace that investment, but to keep its momentum alive in the moments the workshop can't reach."
+      "body": "Leadership programmes create awareness. Human First AI creates reinforcement. Up to 70% of learning is forgotten without reinforcement. Human First AI extends your leadership programmes with bite-sized support, AI coaching, and continuous accountability between sessions so leaders apply what they've learned, strengthen new behaviours, and keep AI transformation moving from disruption to adoption."
     },
     "box4": {
       "img": "Photo placeholder — A leader starting the morning with the app",
@@ -58,27 +58,27 @@
     }
   },
   "product": {
-    "headline": "Five connected pieces. One habit: follow through."
+    "headline": "The Accountability Behind AI Transformation."
   },
   "pillar1": {
     "title": "Daily Check-in",
-    "body": "Accountability starts with yourself. A two-minute pulse on mood, energy, sleep, and stress. Over time, the patterns show leaders how they're really doing before it shows up in how they lead."
+    "body": "Accountability starts with yourself, 1 min pulse on mood, energy, sleep & stress before they become crises"
   },
   "pillar2": {
     "title": "Ask Eve",
-    "body": "An AI guide trained on decades of coaching experience. When a leader faces a hard decision, uncertainty, or a difficult conversation, Eve helps them think it through, choose a course, and stay accountable to the commitments they make."
+    "body": "An AI leadership coach, for support & accountability when leaders are faced with leadership challenges 24/7"
   },
   "pillar3": {
     "title": "Micro-learning",
-    "body": "The right skill, at the moment it's needed. 3–5 minute courses in audio and article form, matched to what a leader is dealing with right now. Small enough to fit a workday. Regular enough to become a habit."
+    "body": "The right skill in the right moment it's needed to grow & develop, short enough to fit in a work-week"
   },
   "pillar4": {
     "title": "Think Tanks",
-    "body": "Peers who hold you to it. Small groups of leaders working through similar challenges. A trusted space to solve problems together and hold each other to what was agreed."
+    "body": "Peer groups of leaders that hold you to it and working through similar challenges. Built for trust and candor"
   },
   "pillar5": {
     "title": "Real-time Data",
-    "body": "For founders and execs: know how your leadership team is doing daily, not every 6 months. Aggregated, anonymised signals show where energy is high, where stress is building, and which teams need support — early enough to step in."
+    "body": "For Founders & HR - Spot where attention is needed early. Insights into wellbeing and engagement let you act proactively, while measuring the impact and ROI of your leadership investment."
   },
   "compounds": {
     "headline": "Continuous accountability. Consistent execution."
@@ -89,7 +89,7 @@
   },
   "step2": {
     "title": "Strengthen execution",
-    "body": "AI guidance, practical learning, and peer support help leaders follow through on what they commit to."
+    "body": "AI leadership coaching, practical learning, and peer support help leaders follow through on what they commit to."
   },
   "step3": {
     "title": "Drive business performance",
