@@ -5,10 +5,10 @@
     "demo": "Boka demo"
   },
   "hero": {
-    "headline": "Du skalar upp medan hela världen förändras.",
-    "sub": "AI ensamt räcker inte. Det krävs ett sammansvetsat ledarskapsteam.",
-    "body": "Ditt företag växer snabbt, och AI förändrar samtidigt hur arbetet utförs. Dina ledare bär båda dessa utmaningar. En engångssession eller ett årligt offsite räcker inte under den pressen.",
-    "body2": "Human First AI följer med dina ledare varje dag: korta, regelbundna incheckningar. En AI-guide byggd på decennier av ledarskapscoaching. Ett bibliotek med 3–5 minuters mikrokurser i ljud- och artikelformat. Och peergrupper där ledare löser verkliga problem tillsammans och bygger förtroende — vilket leder till snabbare genomförande, bättre beslut och starkare affärsresultat.",
+    "headline": "Du skalar upp medan hela världen förändras",
+    "sub": "",
+    "body": "Human First AI hjälper snabbväxande företag att hålla sina ledningsgrupper samstämda så att de kan genomföra AI-transformation med snabbhet och trygghet.",
+    "body2": "",
     "cta1": "Boka demo"
   },
   "video": {
@@ -18,8 +18,8 @@
   "pov": {
     "eyebrow": "Vår syn",
     "headline": "Ledarskap är skillnaden mellan att köpa AI och att få värde av det.",
-    "body1": "Varje tillväxtbolag investerar i AI. Betydligt färre ser den avkastning de förväntade sig. Gapet är sällan tekniken. Det handlar om huruvida ledare kan fatta tydliga beslut, sätta prioriteringar som folk förstår och hjälpa sina team att faktiskt förändra hur de arbetar.",
-    "body2": "När du skalar rör varje ledare fler beslut, fler människor och mer förändring. Strategi och verktyg skapar möjligheten. Ledare avgör om den förvandlas till resultat.",
+    "body1": "Varje tillväxtbolag investerar i AI. Ändå ser många aldrig den avkastning de förväntade sig — inte för att tekniken är problemet, utan för att ledare kämpar med att omvandla AI-adoption till konsekvent genomförande i hela verksamheten.",
+    "body2": "När ditt företag växer påverkar varje ledare fler beslut, fler team och en större del av er AI-transformation. Tekniken skapar möjligheten. Ledarskapet avgör om AI levererar mätbart affärsvärde",
     "body3": "De företag som går starkast framåt kommer inte vara de som spenderar mest på AI. De kommer vara de vars ledare omvandlar adoptionen till verklig output, vecka efter vecka."
   },
   "story": {
@@ -30,7 +30,7 @@
     },
     "stat2": {
       "number": "1 av 6",
-      "label": "företag saknar en tydlig ansvarig chef för AI-adoption. En misslyckad omplacering kostar 500 000–1 000 000 kr"
+      "label": "företag saknar en tydlig ansvarig chef för AI-adoption. En misslyckad omplacering kostar $47 000–$114 860"
     },
     "stat3": {
       "number": "88%",
@@ -46,7 +46,7 @@
     },
     "box3": {
       "img": "Fotoplats — Elena och en coach granskar ledarskapsprogrammet",
-      "body": "Elena hade redan investerat i ett ledarskapsprogram. Principerna var rätt och innehållet var starkt. Men en tvådagars workshop överlever inte den första svåra tisdagen sex veckor senare. Hon tar in Human First AI inte för att ersätta den investeringen, utan för att hålla dess momentum levande i de ögonblick workshopen inte kan nå."
+      "body": "Ledarskapsprogram skapar medvetenhet. Human First AI skapar förstärkning. Upp till 70 % av inlärningen glöms bort utan förstärkning. Human First AI förlänger era ledarskapsprogram med lättsmälta stödinsatser, AI-coaching och kontinuerlig ansvarighet mellan sessionerna, så att ledare tillämpar det de lärt sig, förstärker nya beteenden och håller AI-transformationen i rörelse från omställning till adoption."
     },
     "box4": {
       "img": "Fotoplats — En ledare startar morgonen med appen",
@@ -58,27 +58,27 @@
     }
   },
   "product": {
-    "headline": "Fem sammankopplade delar. En vana: håll i."
+    "headline": "Ansvarigheten bakom AI-transformationen."
   },
   "pillar1": {
     "title": "Daglig incheckning",
-    "body": "Ansvarighet börjar med dig själv. En tvåminuters puls på humör, energi, sömn och stress. Över tid visar mönstren ledare hur de egentligen mår — innan det syns i hur de leder."
+    "body": "Ansvarighet börjar med dig själv, en 1-minuters puls på humör, energi, sömn & stress innan de blir kriser"
   },
   "pillar2": {
     "title": "Fråga Eve",
-    "body": "En AI-guide tränad på decennier av coachingpraktik. När en ledare ställs inför ett svårt beslut, osäkerhet eller ett svårt samtal hjälper Eve dem att tänka igenom det, välja en riktning och hålla sig ansvariga till de åtaganden de gör."
+    "body": "En AI-ledarskapscoach, för stöd & ansvarighet när ledare möter ledarskapsutmaningar dygnet runt"
   },
   "pillar3": {
     "title": "Mikrolärande",
-    "body": "Rätt färdighet, vid rätt tillfälle. 3–5 minuters kurser i ljud- och artikelformat, anpassade till vad en ledare hanterar just nu. Tillräckligt kort för att passa en arbetsdag. Regelbundet nog för att bli en vana."
+    "body": "Rätt färdighet i rätt ögonblick den behövs för att växa & utvecklas, tillräckligt kort för att få plats i en arbetsvecka"
   },
   "pillar4": {
     "title": "Think Tanks",
-    "body": "Kollegor som håller dig till det. Små grupper av ledare som arbetar igenom liknande utmaningar. Ett tryggt utrymme att lösa problem tillsammans och hålla varandra till det som beslutades."
+    "body": "Grupper av kollegor som håller dig till det och arbetar igenom liknande utmaningar. Byggt för tillit och öppenhet"
   },
   "pillar5": {
     "title": "Realtidsdata",
-    "body": "För grundare och chefer: vet hur ditt ledarskapsteam mår dagligen, inte var sjätte månad. Aggregerade, anonymiserade signaler visar var energin är hög, var stress byggs upp och vilka team som behöver stöd — tillräckligt tidigt för att agera."
+    "body": "För grundare & HR – upptäck var uppmärksamhet behövs tidigt. Insikter i välmående och engagemang låter dig agera proaktivt, samtidigt som du mäter effekten och avkastningen på er ledarskapsinvestering."
   },
   "compounds": {
     "headline": "Kontinuerligt ansvarighet. Konsekvent genomförande."
@@ -89,7 +89,7 @@
   },
   "step2": {
     "title": "Stärk genomförandet",
-    "body": "AI-vägledning, praktiskt lärande och peer-stöd hjälper ledare att följa upp på vad de åtagit sig."
+    "body": "AI-ledarskapscoaching, praktiskt lärande och peer-stöd hjälper ledare att fullfölja det de åtagit sig."
   },
   "step3": {
     "title": "Driv affärsresultat",
