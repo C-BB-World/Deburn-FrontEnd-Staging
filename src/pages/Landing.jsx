@@ -156,9 +156,6 @@ export default function Landing() {
           <p className="l-hero-sub l-animate l-animate-delay-1">{t('hero.sub')}</p>
           <p className="l-hero-body l-animate l-animate-delay-2">{t('hero.body')}</p>
           <p className="l-hero-body l-animate l-animate-delay-2">{t('hero.body2')}</p>
-          <div className="l-hero-actions l-animate l-animate-delay-3">
-            <button className="l-btn-ember" onClick={scrollToDemo}>{t('hero.cta1')}</button>
-          </div>
         </div>
       </section>
 
@@ -173,15 +170,8 @@ export default function Landing() {
           <p className="l-eve-body l-animate l-animate-delay-2">{t('pov.body1')}</p>
           <p className="l-eve-body l-animate l-animate-delay-2">{t('pov.body2')}</p>
           <p className="l-eve-body l-animate l-animate-delay-3">{t('pov.body3')}</p>
-        </div>
-      </section>
 
-      {/* WHAT THIS LOOKS LIKE IN PRACTICE */}
-      <section className="l-insight" id="l-story">
-        <div className="l-insight-inner l-container">
-          <p className="l-insight-eyebrow l-animate">{t('story.eyebrow')}</p>
-
-          <div className="l-stat-grid l-animate l-animate-delay-1">
+          <div className="l-stat-grid l-animate l-animate-delay-3">
             <div className="l-stat-card l-stat-card-sage">
               <div className="l-stat-number">{t('story.stat1.number')}</div>
               <p className="l-stat-label">{t('story.stat1.label')}</p>
@@ -195,6 +185,13 @@ export default function Landing() {
               <p className="l-stat-label">{t('story.stat3.label')}</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* WHAT THIS LOOKS LIKE IN PRACTICE */}
+      <section className="l-insight" id="l-story">
+        <div className="l-insight-inner l-container">
+          <p className="l-insight-eyebrow l-animate">{t('story.eyebrow')}</p>
 
           <div className="l-story-boxes">
 
@@ -202,35 +199,35 @@ export default function Landing() {
             <div className="l-story-box l-animate l-animate-delay-1">
               <span className="l-story-box-step" aria-hidden="true">1</span>
               <img className="l-story-box-img" src={storyElenaDream} alt={t('story.box1.img')} />
-              <p className="l-story-box-body">{t('story.box1.body')}</p>
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box1.body') }} />
             </div>
 
             {/* Box 2 — The Breaking Point */}
             <div className="l-story-box l-animate l-animate-delay-1">
               <span className="l-story-box-step" aria-hidden="true">2</span>
               <img className="l-story-box-img" src={storyMismatch} alt={t('story.box2.img')} />
-              <p className="l-story-box-body">{t('story.box2.body')}</p>
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box2.body') }} />
             </div>
 
             {/* Box 3 — The Turning Point */}
             <div className="l-story-box l-animate l-animate-delay-1">
               <span className="l-story-box-step" aria-hidden="true">3</span>
               <img className="l-story-box-img" src={storyLeadership} alt={t('story.box3.img')} />
-              <p className="l-story-box-body">{t('story.box3.body')}</p>
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box3.body') }} />
             </div>
 
             {/* Box 4 — The Daily Habit */}
             <div className="l-story-box l-story-box--habit l-animate l-animate-delay-1">
               <span className="l-story-box-step" aria-hidden="true">4</span>
               <img className="l-story-box-img" src={storyHfai} alt={t('story.box4.img')} />
-              <p className="l-story-box-body">{t('story.box4.intro')}</p>
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box4.intro') }} />
             </div>
 
             {/* Box 5 — The Result */}
             <div className="l-story-box l-animate l-animate-delay-1">
               <span className="l-story-box-step" aria-hidden="true">5</span>
               <img className="l-story-box-img" src={storyEnding} alt={t('story.box5.img')} />
-              <p className="l-story-box-body">{t('story.box5.body')}</p>
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box5.body') }} />
             </div>
 
           </div>
@@ -278,6 +275,11 @@ export default function Landing() {
               <h3 className="l-pillar-title">{t('pillar4.title')}</h3>
               <p className="l-pillar-body">{t('pillar4.body')}</p>
             </div>
+          </div>
+
+          <hr className="l-pillars-divider l-animate l-animate-delay-4" />
+
+          <div className="l-pillars-grid l-pillars-grid--single">
             <div className="l-pillar-card l-animate l-animate-delay-4">
               <svg className="l-pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="18" y1="20" x2="18" y2="10" />
@@ -388,10 +390,6 @@ export default function Landing() {
         <div className="l-demo-inner l-container">
           <h2 className="l-demo-headline l-animate">{t('demo.headline')}</h2>
           <p className="l-demo-sub l-animate l-animate-delay-1">{t('demo.sub')}</p>
-          <div className="l-demo-actions l-animate l-animate-delay-2">
-            <button className="l-btn-ember" onClick={scrollToDemo}>{t('hero.cta1')}</button>
-            <button className="l-btn-outline-white" onClick={scrollToDemo}>{t('demo.cta2')}</button>
-          </div>
 
           {formState === 'success' ? (
             <div className="l-form-success" role="status">

@@ -8,12 +8,11 @@
     "headline": "You're scaling up while the whole world is changing",
     "sub": "",
     "body": "Human First AI helps fast-growing companies keep their leadership teams aligned so they can execute AI transformation with speed and confidence.",
-    "body2": "",
-    "cta1": "Book a demo"
+    "body2": ""
   },
   "video": {
     "headline": "Watch how Human First AI works",
-    "desc": "See the platform in action — from daily check-ins to AI coaching and team insights. Under 2 minutes."
+    "desc": "See the platform in action, from daily check-ins to AI coaching and team insights. Under 2 minutes."
   },
   "pov": {
     "eyebrow": "Our Point of View",
@@ -37,24 +36,24 @@
       "label": "of companies are deploying AI, yet many stay stuck in isolated wins that never reach the bottom line"
     },
     "box1": {
-      "img": "Photo placeholder — Elena in a leadership meeting with her executive team",
-      "body": "Elena, CEO of a 200-person logistics scale-up, is driving an ambitious AI transformation. She hands the rollout to her six-person executive team, each leading their own senior leaders and expected to turn strategy into results across their part of the business."
+      "img": "Photo placeholder: Elena in a leadership meeting with her executive team",
+      "body": "Elena, CEO of a 200-person logistics scale-up, is <strong>driving an ambitious AI transformation</strong>. She hands the rollout to her six-person executive team, each leading their own senior leaders and expected to turn strategy into results across their part of the business."
     },
     "box2": {
-      "img": "Photo placeholder — Friction in a team rollout meeting",
-      "body": "Within weeks, cracks appear everywhere at once. Teams resist new tools, accountability slips, and once-decisive leaders go quiet in meetings while timelines slip across departments. What was meant to be Elena's competitive advantage starts looking like the thing most likely to break the company from the inside."
+      "img": "Photo placeholder: Friction in a team rollout meeting",
+      "body": "Soon, <strong>cracks appear everywhere</strong> at once. <strong>Teams resist new tools, accountability slips, and once-decisive leaders go quiet in meetings</strong> while timelines slip across departments. What was meant to be Elena's competitive advantage starts looking like the thing most likely to break the company from the inside."
     },
     "box3": {
-      "img": "Photo placeholder — Elena and a coach reviewing the leadership programme",
-      "body": "Leadership programmes create awareness. Human First AI creates reinforcement. Up to 70% of learning is forgotten without reinforcement. Human First AI extends your leadership programmes with bite-sized support, AI coaching, and continuous accountability between sessions so leaders apply what they've learned, strengthen new behaviours, and keep AI transformation moving from disruption to adoption."
+      "img": "Photo placeholder: Elena and a coach reviewing the leadership program",
+      "body": "Leadership programs create awareness. Human First AI creates reinforcement. Up to 70% of learning is forgotten without reinforcement. <strong>Human First AI extends your leadership programs with bite-sized support, AI coaching</strong>, and continuous accountability between sessions so leaders apply what they've learned, strengthen new behaviors, and keep AI transformation moving from disruption to adoption."
     },
     "box4": {
-      "img": "Photo placeholder — A leader starting the morning with the app",
-      "intro": "Human First AI becomes part of the day, not a programme to remember. A two-minute check-in, coaching from Eve before a difficult conversation, a Micro-course on the commute, and a Think Tank that holds them to what they committed. Small daily habits that compound into how they actually lead."
+      "img": "Photo placeholder: A leader starting the morning with the app",
+      "intro": "Human First AI becomes part of the day, not a program to remember. A two-minute check-in, coaching from Eve before a difficult conversation, a Micro-course on the commute, and a Think Tank that holds them to what they committed. <strong>Small daily habits that compound into how they actually lead.</strong>"
     },
     "box5": {
-      "img": "Photo placeholder — The executive team in a high-energy, productive session",
-      "body": "Within weeks, the shift is visible. Leaders who'd gone quiet start making decisions again and teams regain a clear sense of ownership. Elena sees firsthand that surviving an AI transformation was never about the tools. It was about whether her leaders could stay steady enough to lead through it."
+      "img": "Photo placeholder: The executive team in a high-energy, productive session",
+      "body": "Soon, the shift is visible. Leaders who'd gone quiet start making decisions again and teams regain a clear sense of ownership. <strong>Elena sees firsthand that embracing an AI transformation was never about the technology.</strong> It was about whether her leaders could stay steady enough to lead through it."
     }
   },
   "product": {
@@ -78,7 +77,7 @@
   },
   "pillar5": {
     "title": "Real-time Data",
-    "body": "For Founders & HR - Spot where attention is needed early. Insights into wellbeing and engagement let you act proactively, while measuring the impact and ROI of your leadership investment."
+    "body": "For Founders & HR: Spot where attention is needed early. Insights into wellbeing and engagement let you act proactively, while measuring the impact and ROI of your leadership investment."
   },
   "compounds": {
     "headline": "Continuous accountability. Consistent execution."
@@ -117,7 +116,7 @@
   },
   "testimonials": {
     "headline": "Hear it from our customers.",
-    "sub": "From the beta programme — honest feedback from leaders in the field.",
+    "sub": "From the beta program: honest feedback from leaders in the field.",
     "empty": "Testimonials coming soon.",
     "items": [
       {
@@ -136,18 +135,17 @@
   },
   "demo": {
     "headline": "Your leaders are already carrying the change. Give them a partner.",
-    "sub": "Scaling and AI transformation aren't two separate problems. They're the same problem, and your leadership team is where it gets solved.",
-    "cta2": "Talk to us"
+    "sub": "Scaling and AI transformation aren't two separate problems. They're the same problem, and your leadership team is where it gets solved."
   },
   "form": {
     "name": "Your name",
     "company": "Company",
     "email": "Work email",
     "message": "Tell us about your organization and what you're trying to solve (optional)",
-    "submit": "Book a Demo",
+    "submit": "Book a pilot",
     "sending": "Sending…",
     "success": {
-      "title": "Thank you — we'll be in touch.",
+      "title": "Thank you. We'll be in touch.",
       "body": "Expect a reply within one business day."
     },
     "error": {

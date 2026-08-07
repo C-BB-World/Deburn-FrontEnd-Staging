@@ -685,7 +685,7 @@ img.l-story-box-img {
 
 .l-story-box-body {
   flex: 1;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.65;
   color: var(--l-ink-light);
   margin: 0;
@@ -874,8 +874,18 @@ img.l-story-box-img {
 
 .l-pillars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+}
+
+.l-pillars-divider {
+  border: none;
+  border-top: 1px solid var(--l-clay);
+  margin: 32px 0;
+}
+
+.l-pillars-grid--single {
+  grid-template-columns: 1fr;
 }
 
 .l-pillar-card {
@@ -888,7 +898,7 @@ img.l-story-box-img {
 .l-pillar-card:nth-child(2) .l-pillar-icon { color: var(--l-sage); }
 .l-pillar-card:nth-child(3) .l-pillar-icon { color: var(--l-dawn); }
 .l-pillar-card:nth-child(4) .l-pillar-icon { color: var(--l-forest); }
-.l-pillar-card:nth-child(5) .l-pillar-icon { color: var(--l-ember); }
+.l-pillars-grid--single .l-pillar-card .l-pillar-icon { color: var(--l-ember); }
 
 .l-pillar-icon {
   width: 40px;
