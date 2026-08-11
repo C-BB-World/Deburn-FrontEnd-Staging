@@ -29,8 +29,8 @@
     "overwhelmed": "Overwhelmed"
   },
   "reflection": {
-    "fallbackPrompt": "What's on your mind right now?",
-    "subtitle": "This is optional — feel free to skip.",
+    "fallbackPrompt": "What's on your mind?",
+    "subtitle": "Optional: This is your space to reflect, notice patterns and track your journey",
     "placeholder": "Write your thoughts here..."
   },
   "complete": {
