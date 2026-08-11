@@ -8,6 +8,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
 import { get, post } from '@/utils/api';
+import storyElenaDream from '@/assets/images/story-elena-dream.jpg';
+import storyMismatch from '@/assets/images/story-mismatched-priorities.jpg';
+import storyLeadership from '@/assets/images/story-leadership-coaching.jpg';
+import storyHfai from '@/assets/images/story-hfai.jpg';
+import storyEnding from '@/assets/images/story-ending.jpg';
 
 export default function Landing() {
   const { t, i18n } = useTranslation('landing');
@@ -147,102 +152,93 @@ export default function Landing() {
       <section className="l-hero" id="l-hero">
         <div className="l-hero-bg" role="presentation" aria-hidden="true" />
         <div className="l-hero-content l-container">
-          <p className="l-hero-eyebrow l-animate">{t('hero.eyebrow')}</p>
-          <h1 className="l-hero-headline l-animate l-animate-delay-1">{t('hero.headline')}</h1>
-          <p className="l-hero-sub l-animate l-animate-delay-2">{t('hero.sub')}</p>
-          <div className="l-hero-actions l-animate l-animate-delay-3">
-            <button className="l-btn-ember" onClick={scrollToDemo}>{t('hero.cta1')}</button>
-            <a href="#l-how" className="l-btn-outline-white" onClick={(e) => scrollToId(e, 'l-how')}>
-              {t('hero.cta2')}
-            </a>
-          </div>
+          <h1 className="l-hero-headline l-animate">{t('hero.headline')}</h1>
+          <p className="l-hero-sub l-animate l-animate-delay-1">{t('hero.sub')}</p>
+          <p className="l-hero-body l-animate l-animate-delay-2">{t('hero.body')}</p>
+          <p className="l-hero-body l-animate l-animate-delay-2">{t('hero.body2')}</p>
         </div>
       </section>
 
       {/* DEMO VIDEO */}
       <VideoSection t={t} />
 
-      {/* PROBLEM */}
-      <section className="l-problem" id="l-problem">
+      {/* OUR POINT OF VIEW */}
+      <section className="l-problem" id="l-pov">
         <div className="l-container">
-          <h2 className="l-section-headline l-animate">{t('problem.headline')}</h2>
-          <p className="l-eve-body l-animate l-animate-delay-1">{t('problem.body')}</p>
-          <div className="l-stat-grid">
-            <div className="l-stat-card l-stat-card-sage l-animate l-animate-delay-1">
-              <div className="l-stat-number">{t('stat1.number')}</div>
-              <p className="l-stat-label">{t('stat1.label')}</p>
+          <p className="l-insight-eyebrow l-animate">{t('pov.eyebrow')}</p>
+          <h2 className="l-section-headline l-animate l-animate-delay-1">{t('pov.headline')}</h2>
+          <p className="l-eve-body l-animate l-animate-delay-2">{t('pov.body1')}</p>
+          <p className="l-eve-body l-animate l-animate-delay-2">{t('pov.body2')}</p>
+          <p className="l-eve-body l-animate l-animate-delay-3">{t('pov.body3')}</p>
+
+          <div className="l-stat-grid l-animate l-animate-delay-3">
+            <div className="l-stat-card l-stat-card-sage">
+              <div className="l-stat-number">{t('story.stat1.number')}</div>
+              <p className="l-stat-label">{t('story.stat1.label')}</p>
             </div>
-            <div className="l-stat-card l-stat-card-ember l-animate l-animate-delay-2">
-              <div className="l-stat-number">{t('stat2.number')}</div>
-              <p className="l-stat-label">{t('stat2.label')}</p>
+            <div className="l-stat-card l-stat-card-ember">
+              <div className="l-stat-number">{t('story.stat2.number')}</div>
+              <p className="l-stat-label">{t('story.stat2.label')}</p>
             </div>
-            <div className="l-stat-card l-stat-card-forest l-animate l-animate-delay-3">
-              <div className="l-stat-number">{t('stat3.number')}</div>
-              <p className="l-stat-label">{t('stat3.label')}</p>
+            <div className="l-stat-card l-stat-card-forest">
+              <div className="l-stat-number">{t('story.stat3.number')}</div>
+              <p className="l-stat-label">{t('story.stat3.label')}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* INSIGHT */}
-      <section className="l-insight" id="l-insight">
+      {/* WHAT THIS LOOKS LIKE IN PRACTICE */}
+      <section className="l-insight" id="l-story">
         <div className="l-insight-inner l-container">
-          <div className="l-insight-header">
-            <p className="l-insight-eyebrow l-animate">{t('insight.eyebrow')}</p>
-            <h2 className="l-section-headline l-animate l-animate-delay-1">{t('insight.headline')}</h2>
-            <p className="l-eve-body l-animate l-animate-delay-2">{t('insight.body')}</p>
-          </div>
-          <div className="l-compare-grid">
-            <div className="l-compare-card l-old l-animate l-animate-delay-1">
-              <p className="l-compare-label">{t('insight.old.label')}</p>
-              <h3 className="l-compare-title">{t('insight.old.title')}</h3>
-              <ul className="l-compare-list">
-                <li>{t('insight.old.1')}</li>
-                <li>{t('insight.old.2')}</li>
-                <li>{t('insight.old.3')}</li>
-                <li>{t('insight.old.4')}</li>
-              </ul>
+          <p className="l-insight-eyebrow l-animate">{t('story.eyebrow')}</p>
+
+          <div className="l-story-boxes">
+
+            {/* Box 1 — The Setup */}
+            <div className="l-story-box l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">1</span>
+              <img className="l-story-box-img" src={storyElenaDream} alt={t('story.box1.img')} />
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box1.body') }} />
             </div>
-            <div className="l-compare-card l-new l-animate l-animate-delay-2">
-              <p className="l-compare-label">{t('insight.new.label')}</p>
-              <h3 className="l-compare-title">{t('insight.new.title')}</h3>
-              <ul className="l-compare-list">
-                <li>{t('insight.new.1')}</li>
-                <li>{t('insight.new.2')}</li>
-                <li>{t('insight.new.3')}</li>
-                <li>{t('insight.new.4')}</li>
-              </ul>
+
+            {/* Box 2 — The Breaking Point */}
+            <div className="l-story-box l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">2</span>
+              <img className="l-story-box-img" src={storyMismatch} alt={t('story.box2.img')} />
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box2.body') }} />
             </div>
+
+            {/* Box 3 — The Turning Point */}
+            <div className="l-story-box l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">3</span>
+              <img className="l-story-box-img" src={storyLeadership} alt={t('story.box3.img')} />
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box3.body') }} />
+            </div>
+
+            {/* Box 4 — The Daily Habit */}
+            <div className="l-story-box l-story-box--habit l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">4</span>
+              <img className="l-story-box-img" src={storyHfai} alt={t('story.box4.img')} />
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box4.intro') }} />
+            </div>
+
+            {/* Box 5 — The Result */}
+            <div className="l-story-box l-animate l-animate-delay-1">
+              <span className="l-story-box-step" aria-hidden="true">5</span>
+              <img className="l-story-box-img" src={storyEnding} alt={t('story.box5.img')} />
+              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box5.body') }} />
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* MEET EVE */}
-      <section className="l-eve" id="l-eve">
-        <div className="l-eve-inner l-container">
-          <div className="l-eve-image" aria-hidden="true">
-            <img src="/images/landing/solution.jpg" alt="" loading="lazy" />
-          </div>
-          <div className="l-eve-copy">
-            <p className="l-eve-eyebrow l-animate">{t('eve.eyebrow')}</p>
-            <h2 className="l-eve-headline l-animate l-animate-delay-1">{t('eve.headline')}</h2>
-            <p className="l-eve-body l-animate l-animate-delay-2">{t('eve.body')}</p>
-            <ul className="l-eve-capabilities l-animate l-animate-delay-3">
-              <li>{t('eve.cap1')}</li>
-              <li>{t('eve.cap2')}</li>
-              <li>{t('eve.cap3')}</li>
-              <li>{t('eve.cap4')}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* PILLARS */}
-      <section className="l-pillars" id="l-pillars">
+      {/* THE PRODUCT */}
+      <section className="l-pillars" id="l-product">
         <div className="l-pillars-inner l-container">
           <div className="l-pillars-header l-animate">
-            <h2 className="l-section-headline l-section-headline-center">{t('pillars.headline')}</h2>
-            <p className="l-pillars-sub">{t('pillars.sub')}</p>
+            <h2 className="l-section-headline l-section-headline-center">{t('product.headline')}</h2>
           </div>
           <div className="l-pillars-grid">
             <div className="l-pillar-card l-animate l-animate-delay-1">
@@ -280,14 +276,29 @@ export default function Landing() {
               <p className="l-pillar-body">{t('pillar4.body')}</p>
             </div>
           </div>
+
+          <hr className="l-pillars-divider l-animate l-animate-delay-4" />
+
+          <div className="l-pillars-grid l-pillars-grid--single">
+            <div className="l-pillar-card l-animate l-animate-delay-4">
+              <svg className="l-pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+                <line x1="2" y1="20" x2="22" y2="20" />
+              </svg>
+              <h3 className="l-pillar-title">{t('pillar5.title')}</h3>
+              <p className="l-pillar-body">{t('pillar5.body')}</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="l-how" id="l-how">
+      {/* HOW IT COMPOUNDS */}
+      <section className="l-how" id="l-compounds">
         <div className="l-how-inner l-container">
           <div className="l-how-header l-animate">
-            <h2 className="l-section-headline l-section-headline-center">{t('how.headline')}</h2>
+            <h2 className="l-section-headline l-section-headline-center">{t('compounds.headline')}</h2>
           </div>
           <div className="l-steps-grid">
             <div className="l-step l-animate l-animate-delay-1">
@@ -309,6 +320,45 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* COMPARISON TABLE */}
+      <section className="l-comparison" id="l-comparison">
+        <div className="l-container">
+          <h2 className="l-comparison-headline l-animate">{t('compare.headline')}</h2>
+          <div className="l-comparison-wrap l-animate l-animate-delay-1">
+            <table className="l-comparison-table">
+              <thead>
+                <tr>
+                  <th className="l-cmp-col-feature">{t('compare.col_feature')}</th>
+                  <th className="l-cmp-col-hfai">{t('compare.col_hfai')}</th>
+                  <th>{t('compare.col_lms')}</th>
+                  <th>{t('compare.col_coaching')}</th>
+                  <th>{t('compare.col_manager')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: 'compare.row1', hfai: 'yes', lms: 'no',  coaching: 'no',                                   manager: ['partial', 'compare.note_inconsistent'] },
+                  { label: 'compare.row2', hfai: 'yes', lms: 'no',  coaching: ['partial', 'compare.note_scheduled'],  manager: 'no' },
+                  { label: 'compare.row3', hfai: 'yes', lms: 'yes', coaching: 'no',                                   manager: ['partial', 'compare.note_bandwidth'] },
+                  { label: 'compare.row4', hfai: 'yes', lms: 'no',  coaching: 'no',                                   manager: 'no' },
+                  { label: 'compare.row5', hfai: 'yes', lms: 'no',  coaching: 'no',                                   manager: 'no' },
+                  { label: 'compare.row6', hfai: 'yes', lms: 'no',  coaching: 'no',                                   manager: ['partial', 'compare.note_notices'] },
+                  { label: 'compare.row7', hfai: 'yes', lms: 'yes', coaching: 'no',                                   manager: ['partial', 'compare.note_time'] },
+                ].map((row, i) => (
+                  <tr key={i}>
+                    <td className="l-cmp-col-feature">{t(row.label)}</td>
+                    <td className="l-cmp-col-hfai"><CmpCell val={row.hfai} t={t} /></td>
+                    <td><CmpCell val={row.lms} t={t} /></td>
+                    <td><CmpCell val={row.coaching} t={t} /></td>
+                    <td><CmpCell val={row.manager} t={t} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* TESTIMONIALS */}
       <section className="l-testimonials" id="l-testimonials">
         <div className="l-testimonials-inner l-container">
@@ -317,16 +367,20 @@ export default function Landing() {
             <p className="l-pillars-sub">{t('testimonials.sub')}</p>
           </div>
           <div className="l-testimonials-grid">
-            {testimonials.length === 0 ? (
-              <p className="l-testimonials-empty">{t('testimonials.empty')}</p>
-            ) : (
-              testimonials.map((item, i) => (
-                <div className="l-testimonial-card l-animate l-visible" key={i}>
-                  <p className="l-testimonial-quote">{item.content}</p>
-                  <p className="l-testimonial-attribution">{item.attribution}</p>
-                </div>
-              ))
-            )}
+            {(() => {
+              const localeItems = t('testimonials.items', { returnObjects: true }) || [];
+              const displayItems = testimonials.length > 0 ? testimonials : localeItems;
+              return displayItems.length > 0 ? (
+                displayItems.map((item, i) => (
+                  <div className="l-testimonial-card l-animate l-visible" key={i}>
+                    <p className="l-testimonial-quote">{item.content}</p>
+                    <p className="l-testimonial-attribution">{item.attribution}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="l-testimonials-empty">{t('testimonials.empty')}</p>
+              );
+            })()}
           </div>
         </div>
       </section>
@@ -344,7 +398,7 @@ export default function Landing() {
               <p className="l-form-success-body">{t('form.success.body')}</p>
             </div>
           ) : (
-            <form className="l-contact-form l-animate l-animate-delay-2" onSubmit={handleSubmit} noValidate>
+            <form className="l-contact-form l-animate l-animate-delay-3" onSubmit={handleSubmit} noValidate>
               <div className="l-form-row">
                 <input className="l-input" type="text" name="name" maxLength={100} required placeholder={t('form.name')} />
                 <input className="l-input" type="text" name="company" maxLength={200} required placeholder={t('form.company')} />
@@ -476,6 +530,23 @@ function VideoSection({ t }) {
       </div>
     </section>
   );
+}
+
+/**
+ * Comparison table cell — renders yes / no / partial+note
+ */
+function CmpCell({ val, t }) {
+  if (val === 'yes') return <span className="l-cmp-yes" aria-label="Yes">✓</span>;
+  if (val === 'no')  return <span className="l-cmp-no"  aria-label="No">✗</span>;
+  if (Array.isArray(val)) {
+    return (
+      <span className="l-cmp-partial">
+        <span aria-label="Partial">⚠</span>
+        <span className="l-cmp-note">{t(val[1])}</span>
+      </span>
+    );
+  }
+  return null;
 }
 
 /**

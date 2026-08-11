@@ -236,7 +236,7 @@
    ============================================================ */
 .l-hero {
   position: relative;
-  min-height: 600px;
+  min-height: 720px;
   background: var(--l-forest);
   display: flex;
   align-items: center;
@@ -286,7 +286,15 @@
   line-height: 1.6;
   color: rgba(255,255,255,0.75);
   max-width: 540px;
-  margin-bottom: 40px;
+  margin-bottom: 16px;
+}
+
+.l-hero-body {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  max-width: 600px;
+  margin-bottom: 20px;
 }
 
 .l-hero-actions {
@@ -295,9 +303,7 @@
   flex-wrap: wrap;
 }
 
-.l-hero-actions .l-btn-ember,
-.l-hero-actions .l-btn-outline-white {
-  flex: 1;
+.l-hero-actions .l-btn-ember {
   text-align: center;
 }
 
@@ -580,6 +586,183 @@
   color: rgba(255,255,255,0.6);
 }
 
+.l-compare-body {
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.l-compare-card.l-old .l-compare-body {
+  color: var(--l-neutral-600);
+}
+
+.l-compare-card.l-new .l-compare-body {
+  color: rgba(255,255,255,0.85);
+}
+
+.l-story-conclusion {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--l-ink);
+  margin: 40px 0 16px;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   STORY BOXES
+   ============================================================ */
+.l-story-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.l-story-box {
+  background: var(--l-clay);
+  border-radius: 20px;
+  padding: 20px 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 28px;
+}
+
+.l-story-box-step {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--l-ember);
+  opacity: 0.1;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.l-story-box-img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  background: var(--l-neutral-200);
+  border: 2px dashed var(--l-neutral-400);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+img.l-story-box-img {
+  flex: 0 0 38%;
+  width: 38%;
+  margin-bottom: 0;
+  object-fit: cover;
+  border: none;
+  background: none;
+  display: block;
+}
+
+.l-story-box-img--dark {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.l-story-box-img-label {
+  font-size: 12px;
+  color: var(--l-neutral-400);
+  text-align: center;
+  padding: 0 20px;
+  line-height: 1.5;
+}
+
+.l-story-box-img--dark .l-story-box-img-label {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.l-story-box-body {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--l-ink-light);
+  margin: 0;
+}
+
+.l-story-box-stat {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--l-ember);
+  background: rgba(190, 90, 56, 0.07);
+  border-radius: 0 10px 10px 0;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--l-ink);
+  line-height: 1.5;
+}
+
+/* Box 4 — dark forest background */
+.l-story-box--habit {
+  background: var(--l-forest);
+}
+
+.l-story-box--habit .l-story-box-body {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.l-story-box--habit .l-story-box-step {
+  color: var(--l-white);
+  opacity: 0.08;
+}
+
+.l-story-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.l-story-feature-card {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.l-story-feature-img {
+  aspect-ratio: 16/9;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.l-story-feature-img-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  padding: 0 16px;
+  line-height: 1.5;
+}
+
+.l-story-feature-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--l-white);
+  margin: 0 0 8px;
+}
+
+.l-story-feature-body {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.55;
+  margin: 0;
+}
+
 /* ============================================================
    MEET EVE
    ============================================================ */
@@ -695,6 +878,16 @@
   gap: 20px;
 }
 
+.l-pillars-divider {
+  border: none;
+  border-top: 1px solid var(--l-clay);
+  margin: 32px 0;
+}
+
+.l-pillars-grid--single {
+  grid-template-columns: 1fr;
+}
+
 .l-pillar-card {
   background: var(--l-clay);
   border-radius: 24px;
@@ -705,6 +898,7 @@
 .l-pillar-card:nth-child(2) .l-pillar-icon { color: var(--l-sage); }
 .l-pillar-card:nth-child(3) .l-pillar-icon { color: var(--l-dawn); }
 .l-pillar-card:nth-child(4) .l-pillar-icon { color: var(--l-forest); }
+.l-pillars-grid--single .l-pillar-card .l-pillar-icon { color: var(--l-ember); }
 
 .l-pillar-icon {
   width: 40px;
@@ -792,6 +986,124 @@
   font-size: 14px;
   color: var(--l-neutral-600);
   line-height: 1.55;
+}
+
+/* ============================================================
+   COMPARISON TABLE
+   ============================================================ */
+.l-comparison {
+  background: var(--l-white);
+  padding: var(--l-section-pad-v) 0;
+}
+
+.l-comparison-headline {
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 700;
+  color: var(--l-ink);
+  margin: 0 auto 48px;
+  line-height: 1.25;
+  max-width: 700px;
+  text-align: center;
+}
+
+.l-comparison-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  border: 1px solid var(--l-neutral-200);
+}
+
+.l-comparison-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: var(--l-white);
+}
+
+.l-comparison-table thead tr {
+  background: var(--l-clay);
+}
+
+.l-comparison-table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--l-ink);
+  border-bottom: 2px solid var(--l-neutral-200);
+  white-space: nowrap;
+}
+
+th.l-cmp-col-hfai {
+  background: var(--l-forest);
+  color: var(--l-white);
+  text-align: center;
+}
+
+.l-comparison-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--l-neutral-200);
+  vertical-align: middle;
+  color: var(--l-ink-light);
+  line-height: 1.45;
+}
+
+.l-comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.l-comparison-table tbody tr:hover td {
+  background: var(--l-clay);
+}
+
+td.l-cmp-col-hfai {
+  background: rgba(45, 74, 71, 0.05);
+  text-align: center;
+}
+
+.l-comparison-table tbody tr:hover td.l-cmp-col-hfai {
+  background: rgba(45, 74, 71, 0.1);
+}
+
+.l-cmp-col-feature {
+  font-weight: 500;
+  color: var(--l-ink);
+  max-width: 220px;
+}
+
+.l-cmp-yes {
+  color: #2e7d4f;
+  font-size: 17px;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+}
+
+.l-cmp-no {
+  color: #b93030;
+  font-size: 17px;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+}
+
+.l-cmp-partial {
+  display: block;
+  text-align: center;
+}
+
+.l-cmp-partial > span:first-child {
+  font-size: 15px;
+  color: #c07a0a;
+}
+
+.l-cmp-note {
+  display: block;
+  font-size: 11px;
+  color: var(--l-neutral-600);
+  margin-top: 3px;
+  line-height: 1.4;
 }
 
 /* ============================================================
@@ -891,7 +1203,20 @@
 .l-demo-sub {
   font-size: 16px;
   color: rgba(255,255,255,0.65);
+  margin-bottom: 32px;
+}
+
+.l-demo-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 48px;
+}
+
+.l-demo-actions .l-btn-ember,
+.l-demo-actions .l-btn-outline-white {
+  min-width: 160px;
 }
 
 .l-contact-form {
@@ -1048,6 +1373,10 @@
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
+  .l-story-boxes {
+    gap: 12px;
+  }
+
   .l-pillars-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1081,6 +1410,16 @@
 
   .l-stat-grid {
     grid-template-columns: 1fr;
+  }
+
+  .l-story-box {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  img.l-story-box-img {
+    flex: none;
+    width: 100%;
   }
 
   .l-pillars-grid {

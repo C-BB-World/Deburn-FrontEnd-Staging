@@ -29,8 +29,8 @@
     "overwhelmed": "Överväldigad"
   },
   "reflection": {
-    "fallbackPrompt": "Vad har du på hjärtat just nu?",
-    "subtitle": "Detta är valfritt — hoppa över om du vill.",
+    "fallbackPrompt": "Vad har du på hjärtat?",
+    "subtitle": "Valfritt: Detta är din plats för att reflektera, upptäcka mönster och följa din resa",
     "placeholder": "Skriv dina tankar här..."
   },
   "complete": {
