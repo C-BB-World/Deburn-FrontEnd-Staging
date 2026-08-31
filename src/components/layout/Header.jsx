@@ -10,13 +10,12 @@ import { useAuth } from '@/context/AuthContext';
 import { NotificationDropdown } from '@/components/notifications/NotificationDropdown';
 
 export function Header({ onMenuClick }) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  const currentLang = i18n.language || 'en';
   const isAdmin = user?.role === 'admin' || user?.isHubAdmin || user?.isOrgAdmin;
 
   // Close menu when clicking outside
@@ -34,11 +33,6 @@ export function Header({ onMenuClick }) {
   async function handleLogout() {
     await logout();
     navigate('/login');
-  }
-
-  function handleLanguageChange(lang) {
-    i18n.changeLanguage(lang);
-    localStorage.setItem('language', lang);
   }
 
   // Get user initials for avatar
@@ -132,29 +126,6 @@ export function Header({ onMenuClick }) {
                   <span>{t('common:nav.admin', 'Admin')}</span>
                 </button>
               )}
-
-              <div className="user-menu-dropdown-item language-switcher">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                </svg>
-                <span>{t('common:language.label', 'Language')}</span>
-                <div className="language-options">
-                  <button
-                    className={`language-btn ${currentLang === 'en' ? 'active' : ''}`}
-                    onClick={() => handleLanguageChange('en')}
-                  >
-                    EN
-                  </button>
-                  <button
-                    className={`language-btn ${currentLang === 'sv' ? 'active' : ''}`}
-                    onClick={() => handleLanguageChange('sv')}
-                  >
-                    SV
-                  </button>
-                </div>
-              </div>
 
               <div className="user-menu-dropdown-divider"></div>
 

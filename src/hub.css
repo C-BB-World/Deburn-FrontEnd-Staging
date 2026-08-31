@@ -4,13 +4,13 @@
  */
 
 :root {
-  --hub-primary: #2D4A47;
-  --hub-secondary: #7A9E97;
-  --hub-bg: #F8F7F4;
+  --hub-primary: #753BBD;
+  --hub-secondary: #9B6FE0;
+  --hub-bg: #F8F7FB;
   --hub-card: #ffffff;
-  --hub-border: #E8E5DE;
-  --hub-text: #2C2C2C;
-  --hub-text-secondary: #6B6660;
+  --hub-border: #E4E2ED;
+  --hub-text: #0F0F12;
+  --hub-text-secondary: #5B5B66;
   --hub-success: #5A9A82;
   --hub-error: #C27066;
   --hub-warning: #C49A6C;
@@ -20,7 +20,7 @@
 /* Hub-specific styles scoped to .hub-page wrapper */
 
 .hub-page {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--hub-bg);
   color: var(--hub-text);
   line-height: 1.5;

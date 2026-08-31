@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
-import { put, patch, post, uploadFile, del } from '@/utils/api';
+import { put, post, uploadFile, del } from '@/utils/api';
 
 // LocalStorage key for conversation history (must match Coach.jsx)
 const CONVERSATION_STORAGE_KEY = 'hfai_coach_conversation';
@@ -70,7 +70,7 @@ const icons = {
 };
 
 export default function Profile() {
-  const { t, i18n } = useTranslation(['profile', 'common']);
+  const { t } = useTranslation(['profile', 'common']);
   const { user, logout, checkSession: refreshUser, updateUser } = useAuth();
   const navigate = useNavigate();
 
@@ -167,19 +167,6 @@ export default function Profile() {
       setError(err.message || t('profile:error.save', 'Failed to save changes'));
     } finally {
       setIsSaving(false);
-    }
-  }
-
-  async function changeLanguage(lang) {
-    i18n.changeLanguage(lang);
-    localStorage.setItem('language', lang);
-
-    // Sync to backend for email preferences
-    try {
-      await patch('/api/user/profile', { preferredLanguage: lang });
-    } catch (err) {
-      // Non-blocking - language still works locally even if sync fails
-      console.warn('Failed to sync language preference:', err);
     }
   }
 
@@ -393,30 +380,6 @@ export default function Profile() {
               </button>
             </div>
           </form>
-        </section>
-
-        {/* Language Settings */}
-        <section className="profile-section">
-          <h2 className="profile-section-title">
-            {t('profile:language.title', 'Language')}
-          </h2>
-          <div className="profile-language-select">
-            {icons.globe}
-            <div className="language-options">
-              <button
-                className={`language-btn ${i18n.language === 'en' ? 'active' : ''}`}
-                onClick={() => changeLanguage('en')}
-              >
-                English
-              </button>
-              <button
-                className={`language-btn ${i18n.language === 'sv' ? 'active' : ''}`}
-                onClick={() => changeLanguage('sv')}
-              >
-                Svenska
-              </button>
-            </div>
-          </div>
         </section>
 
         {/* Legal */}

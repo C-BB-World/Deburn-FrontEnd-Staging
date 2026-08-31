@@ -30,8 +30,20 @@
   font-weight: 700;
   color: var(--color-deep-forest);
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 24px;
+}
+
+.legal-logo-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.legal-logo-icon svg {
+  display: block;
 }
 
 .legal-title {

@@ -1,112 +1,104 @@
 {
   "nav": {
-    "brand": "Human First AI",
+    "brand": "LIMITLESS",
     "login": "Member Login",
-    "demo": "Book a Demo"
+    "demo": "Request Access"
   },
   "hero": {
-    "headline": "You're scaling up while the whole world is changing",
-    "sub": "",
-    "body": "Human First AI helps fast-growing companies keep their leadership teams aligned so they can execute AI transformation with speed and confidence.",
-    "body2": ""
-  },
-  "video": {
-    "headline": "Watch how Human First AI works",
-    "desc": "See the platform in action, from daily check-ins to AI coaching and team insights. Under 2 minutes."
+    "eyebrow": "Our Flagship Programme · Daily Practice",
+    "headline": "Resilience isn't a soft skill. It's your leadership team's operating system.",
+    "sub": "Built on the science of stress, recovery and sustained performance.",
+    "body": "Resilience Code Plus+ helps fast-growing companies turn resilience into a daily practice, so leaders perform in week eight of pressure the way they performed in week one.",
+    "body2": "Not a one-off workshop. A system your leaders live in every day."
   },
   "pov": {
     "eyebrow": "Our Point of View",
-    "headline": "Leadership is the difference between buying AI and getting value from it.",
-    "body1": "Every growth-stage company is investing in AI. Yet many never see the return they expected, not because the technology is the problem, but because leaders struggle to turn AI adoption into consistent execution across the business.",
-    "body2": "As your company grows, every leader influences more decisions, more teams, and more of your AI transformation. Technology creates the opportunity. Leadership determines whether AI delivers measurable business value",
-    "body3": "The companies that pull ahead won't be the ones that spend the most on AI. They'll be the ones whose leaders turn adoption into real output, week after week."
+    "headline": "Resilience is not a soft metric. It's the variable that decides whether your leaders hold under pressure.",
+    "body1": "Every growth-stage company asks its leaders to carry more: faster change, higher stakes, longer weeks. Most training addresses this once a year. Pressure shows up every day.",
+    "body2": "As your company scales, every leader's ability to stay steady under load compounds, or erodes, everything downstream: decisions, teams, retention, execution.",
+    "body3": "The companies that pull ahead won't be the ones with the most talented leaders. They'll be the ones whose leaders can stay resourced, clear and consistent, week after week.",
+    "statsNote": "Harvard-validated impact · Prof. Shawn Achor / KPMG study, 2009"
+  },
+  "audit": {
+    "eyebrow": "The Resilience Audit",
+    "headline": "How durable is <em>your</em> leadership team, really?",
+    "body1": "Resilience isn't visible until it's tested, and by then it's expensive to fix. The Resilience Audit is a structured look across five dimensions of leadership resilience: recovery, focus under pressure, emotional regulation, purpose, and physical readiness.",
+    "body2": "We'll walk your team through where they're coded for pressure, and where they're exposed, then show you how Resilience Code Plus+ closes the gap with daily practice, not another one-off workshop.",
+    "whoBox": {
+      "label": "Who This Is For",
+      "body": "Chief People Officers, Heads of L&D, and senior HR leaders responsible for the resilience and performance of an executive cohort or senior leadership team."
+    },
+    "stat1": { "number": "5", "label": "Resilience dimensions" },
+    "stat2": { "number": "2 min", "label": "Daily check-in" },
+    "stat3": { "number": "24/7", "label": "AI coaching" },
+    "stat4": { "number": "Live", "label": "Team resilience data" },
+    "cta": "Request a Team Audit →"
   },
   "story": {
-    "eyebrow": "What This Looks Like in Practice",
     "stat1": {
-      "number": "14%",
-      "label": "of leaders consistently champion AI adoption. Most teams are left to figure it out alone."
+      "number": "30%+",
+      "label": "more productive once resilience becomes a daily practice, not a one-off intervention"
     },
     "stat2": {
-      "number": "1 in 6",
-      "label": "companies have no clear executive owner for AI adoption. A failed mid-level redeployment costs $47,000–$114,860"
+      "number": "10x",
+      "label": "more engaged at work when leaders actively build resilience habits into the week"
     },
     "stat3": {
-      "number": "88%",
-      "label": "of companies are deploying AI, yet many stay stuck in isolated wins that never reach the bottom line"
-    },
-    "box1": {
-      "img": "Photo placeholder: Elena in a leadership meeting with her executive team",
-      "body": "Elena, CEO of a 200-person logistics scale-up, is <strong>driving an ambitious AI transformation</strong>. She hands the rollout to her six-person executive team, each leading their own senior leaders and expected to turn strategy into results across their part of the business."
-    },
-    "box2": {
-      "img": "Photo placeholder: Friction in a team rollout meeting",
-      "body": "Soon, <strong>cracks appear everywhere</strong> at once. <strong>Teams resist new tools, accountability slips, and once-decisive leaders go quiet in meetings</strong> while timelines slip across departments. What was meant to be Elena's competitive advantage starts looking like the thing most likely to break the company from the inside."
-    },
-    "box3": {
-      "img": "Photo placeholder: Elena and a coach reviewing the leadership program",
-      "body": "Leadership programs create awareness. Human First AI creates reinforcement. Up to 70% of learning is forgotten without reinforcement. <strong>Human First AI extends your leadership programs with bite-sized support, AI coaching</strong>, and continuous accountability between sessions so leaders apply what they've learned, strengthen new behaviors, and keep AI transformation moving from disruption to adoption."
-    },
-    "box4": {
-      "img": "Photo placeholder: A leader starting the morning with the app",
-      "intro": "Human First AI becomes part of the day, not a program to remember. A two-minute check-in, coaching from Eve before a difficult conversation, a Micro-course on the commute, and a Think Tank that holds them to what they committed. <strong>Small daily habits that compound into how they actually lead.</strong>"
-    },
-    "box5": {
-      "img": "Photo placeholder: The executive team in a high-energy, productive session",
-      "body": "Soon, the shift is visible. Leaders who'd gone quiet start making decisions again and teams regain a clear sense of ownership. <strong>Elena sees firsthand that embracing an AI transformation was never about the technology.</strong> It was about whether her leaders could stay steady enough to lead through it."
+      "number": "23%",
+      "label": "fewer fatigue symptoms in teams practising structured resilience habits versus those relying on willpower alone"
     }
   },
   "product": {
-    "headline": "The Accountability Behind AI Transformation."
+    "headline": "The Daily Practice Behind Every Resilient Leader."
   },
   "pillar1": {
     "title": "Daily Check-in",
-    "body": "Accountability starts with yourself, 1 min pulse on mood, energy, sleep & stress before they become crises"
+    "body": "A 1-minute pulse on mood, energy, sleep & stress, so pressure gets caught before it becomes a crisis"
   },
   "pillar2": {
     "title": "Ask Eve",
-    "body": "An AI leadership coach, for support & accountability when leaders are faced with leadership challenges 24/7"
+    "body": "Your AI resilience coach, for support and perspective the moment leaders are under pressure, 24/7"
   },
   "pillar3": {
     "title": "Micro-learning",
-    "body": "The right skill in the right moment it's needed to grow & develop, short enough to fit in a work-week"
+    "body": "Evidence-based resilience science, in the moment it's needed, short enough to fit in a work-week"
   },
   "pillar4": {
     "title": "Think Tanks",
-    "body": "Peer groups of leaders that hold you to it and working through similar challenges. Built for trust and candor"
+    "body": "Peer circles of leaders under similar pressure who hold you to it. Built for trust and candor"
   },
   "pillar5": {
     "title": "Real-time Data",
-    "body": "For Founders & HR: Spot where attention is needed early. Insights into wellbeing and engagement let you act proactively, while measuring the impact and ROI of your leadership investment."
+    "body": "For People leaders: spot where resilience is running low before it costs you. See engagement and wellbeing trends, and measure the ROI of the practice."
   },
   "compounds": {
-    "headline": "Continuous accountability. Consistent execution."
+    "headline": "Continuous practice. Compounding resilience."
   },
   "step1": {
     "title": "Build resilient leaders",
-    "body": "Daily practice gives leaders the habits and confidence to keep leading well through constant change."
+    "body": "Daily practice gives leaders the habits and steadiness to keep leading well through sustained pressure."
   },
   "step2": {
     "title": "Strengthen execution",
-    "body": "AI leadership coaching, practical learning, and peer support help leaders follow through on what they commit to."
+    "body": "AI coaching, bite-sized science, and peer accountability help leaders follow through when it's hardest."
   },
   "step3": {
     "title": "Drive business performance",
-    "body": "Real-time insight shows you where support is needed so you can step in early and keep AI adoption and business priorities moving."
+    "body": "Real-time resilience data shows you where support is needed, so you can step in early and protect performance."
   },
   "compare": {
-    "headline": "We're not replacing your leadership stack. We're adding what it can't do.",
+    "headline": "We're not replacing your leadership stack. We're adding the resilience layer it's missing.",
     "col_feature": "Feature",
-    "col_hfai": "Human First AI",
+    "col_hfai": "Resilience Code Plus+",
     "col_lms": "LMS / Courses",
     "col_coaching": "Executive Coaching",
     "col_manager": "Manual Manager Check-ins",
-    "row1": "Daily behavior tracking",
-    "row2": "Real-time AI guidance in the moment",
+    "row1": "Daily resilience tracking",
+    "row2": "Real-time AI coaching in the moment",
     "row3": "Scales to every leader, not just top execs",
     "row4": "Peer accountability built in",
     "row5": "CEO-level visibility across all leaders",
-    "row6": "Catches stalled adoption in weeks, not quarters",
+    "row6": "Catches early burnout signals in days, not quarters",
     "row7": "Affordable at scale-up headcount",
     "note_inconsistent": "inconsistent",
     "note_scheduled": "scheduled only",
@@ -116,33 +108,33 @@
   },
   "testimonials": {
     "headline": "Hear it from our customers.",
-    "sub": "From the beta program: honest feedback from leaders in the field.",
+    "sub": "From the beta programme: honest feedback from leaders in the field.",
     "empty": "Testimonials coming soon.",
     "items": [
       {
-        "content": "Pleasantly surprised by how Eve responds. I get genuinely relevant answers and guidance for the real challenges I brought to her.",
-        "attribution": "Pilot participant, leadership program"
+        "content": "Eve caught what I couldn't see myself, that I was running on empty three weeks before I would have admitted it. That's the whole point.",
+        "attribution": "Pilot participant, executive team"
       },
       {
-        "content": "Profound experience. People opened up about real challenges, and we contributed with experience and new perspectives.",
-        "attribution": "Pilot participant, leadership program"
+        "content": "The Think Tank sessions were the most honest conversations I've had with peers about pressure. We're all carrying more than we let on.",
+        "attribution": "Pilot participant, senior leadership team"
       },
       {
-        "content": "The micro-courses are fantastic the right length and very informative. That's exactly what makes it genuinely user-friendly.",
-        "attribution": "Pilot participant, leadership program"
+        "content": "Two minutes a day sounded too small to matter. Eight weeks in, it's the only habit that's stuck through every busy season.",
+        "attribution": "Pilot participant, leadership programme"
       }
     ]
   },
   "demo": {
-    "headline": "Your leaders are already carrying the change. Give them a partner.",
-    "sub": "Scaling and AI transformation aren't two separate problems. They're the same problem, and your leadership team is where it gets solved."
+    "headline": "Your leaders are already carrying the pressure. Give them a system built for it.",
+    "sub": "Resilience isn't built in a single workshop. It's built daily, and your leadership team is where it either compounds or breaks down."
   },
   "form": {
     "name": "Your name",
     "company": "Company",
     "email": "Work email",
-    "message": "Tell us about your organization and what you're trying to solve (optional)",
-    "submit": "Book a pilot",
+    "message": "Tell us about your team and what you're trying to solve (optional)",
+    "submit": "Request Access",
     "sending": "Sending…",
     "success": {
       "title": "Thank you. We'll be in touch.",
@@ -153,7 +145,7 @@
     }
   },
   "footer": {
-    "brand": "Human First AI · Powered by Brainbank.world",
+    "brand": "Resilience Code Plus+ · Powered by Brainbank.world",
     "privacy": "Privacy",
     "terms": "Terms",
     "login": "Member Login"

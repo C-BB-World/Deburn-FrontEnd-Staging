@@ -8,14 +8,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
 import { get, post } from '@/utils/api';
-import storyElenaDream from '@/assets/images/story-elena-dream.jpg';
-import storyMismatch from '@/assets/images/story-mismatched-priorities.jpg';
-import storyLeadership from '@/assets/images/story-leadership-coaching.jpg';
-import storyHfai from '@/assets/images/story-hfai.jpg';
-import storyEnding from '@/assets/images/story-ending.jpg';
 
 export default function Landing() {
-  const { t, i18n } = useTranslation('landing');
+  const { t } = useTranslation('landing');
   const { isAuthenticated, isLoading } = useAuth();
   const navigate = useNavigate();
 
@@ -65,13 +60,8 @@ export default function Landing() {
   }, []);
 
   useEffect(() => {
-    loadTestimonials(i18n.language);
-  }, [i18n.language, loadTestimonials]);
-
-  // Language toggle
-  const setLang = (lang) => {
-    i18n.changeLanguage(lang);
-  };
+    loadTestimonials('en');
+  }, [loadTestimonials]);
 
   // Scroll to demo form
   const scrollToDemo = () => {
@@ -122,26 +112,22 @@ export default function Landing() {
   // Don't render while checking auth
   if (isLoading) return null;
 
-  const lang = i18n.language;
-
   return (
     <div className="landing-root">
       {/* NAV */}
       <nav className="l-nav" role="navigation" aria-label="Main navigation">
         <div className="l-nav-inner">
           <Link className="l-nav-brand" to="/">
-            <div className="logo">
-              <svg className="logo-icon" viewBox="0 0 32 32" width="32" height="32">
-                <circle cx="17" cy="16" r="12" fill="none" stroke="#2D4A47" strokeWidth="1.5" />
-                <circle cx="16.5" cy="16" r="9" fill="none" stroke="#7A9E97" strokeWidth="1.5" />
-                <circle cx="16" cy="16" r="6" fill="none" stroke="#C4956A" strokeWidth="1.5" />
-                <circle cx="15.5" cy="16" r="3" fill="none" stroke="#D4A9A0" strokeWidth="1.5" />
+            <span className="l-logo-icon" aria-hidden="true">
+              <svg viewBox="0 0 278 158" width="32" height="18">
+                <path fill="#753BBD" d="M12.639,77.323c12.452-33.853,53.886-43.488,80.864-19.829,19.622,19.312,39.244,38.625,58.866,57.937,9.32,8.872,16.628,16.73,29.123,21.378,39.945,14.858,82.961-13.511,83.652-56.078-11.821,33.739-53.214,43.813-80.244,20.758-23.03-22.617-46.06-45.234-69.091-67.851-11.908-10.519-27.744-16.555-43.685-16.111-31.539.879-59.623,27.843-59.486,59.796Z" />
+                <path fill="#753BBD" d="M166.526,74.583l14.502-14.502c8.59-8.124,17.793-14.071,32.169-9.804,25.266,7.499,28.731,46.079-.155,55.923,15.695,1.997,29.688-3.967,38.573-14.087,3.216-3.9,6.064-8.381,7.83-13.424h0c3.491-10.119,2.947-21.923-3.338-33.524-10.682-19.716-33.116-29.96-54.994-28.659-18.98,1.129-31.365,9.334-43.08,20.57l-.026-.026-14.716,14.716,23.234,22.818Z" />
+                <path fill="#753BBD" d="M111.237,83.82l-3.034,3.035c-12.902,12.229-22.875,27.331-43.617,21.175-25.266-7.499-28.731-46.079.155-55.923-14.728-1.874-27.956,3.263-36.873,12.264-3.976,4.244-7.351,9.315-9.479,15.103h0c-3.547,10.152-3.028,22.012,3.287,33.668,10.682,19.716,33.116,29.96,54.994,28.659,20.489-1.219,33.295-10.682,45.867-23.304l.039.039,11.872-11.872-23.209-22.843Z" />
               </svg>
-            </div>
-            <span>{t('nav.brand')}</span>
+            </span>
+            <span className="l-logo-text" dangerouslySetInnerHTML={{ __html: t('nav.brand') }} />
           </Link>
           <div className="l-nav-actions">
-            <LangToggle lang={lang} setLang={setLang} />
             <Link to="/login" className="l-btn-ghost">{t('nav.login')}</Link>
             <button className="l-btn-primary" onClick={scrollToDemo}>{t('nav.demo')}</button>
           </div>
@@ -152,15 +138,13 @@ export default function Landing() {
       <section className="l-hero" id="l-hero">
         <div className="l-hero-bg" role="presentation" aria-hidden="true" />
         <div className="l-hero-content l-container">
+          <p className="l-hero-eyebrow l-animate">{t('hero.eyebrow')}</p>
           <h1 className="l-hero-headline l-animate">{t('hero.headline')}</h1>
           <p className="l-hero-sub l-animate l-animate-delay-1">{t('hero.sub')}</p>
           <p className="l-hero-body l-animate l-animate-delay-2">{t('hero.body')}</p>
           <p className="l-hero-body l-animate l-animate-delay-2">{t('hero.body2')}</p>
         </div>
       </section>
-
-      {/* DEMO VIDEO */}
-      <VideoSection t={t} />
 
       {/* OUR POINT OF VIEW */}
       <section className="l-problem" id="l-pov">
@@ -170,6 +154,8 @@ export default function Landing() {
           <p className="l-eve-body l-animate l-animate-delay-2">{t('pov.body1')}</p>
           <p className="l-eve-body l-animate l-animate-delay-2">{t('pov.body2')}</p>
           <p className="l-eve-body l-animate l-animate-delay-3">{t('pov.body3')}</p>
+
+          <p className="l-stats-note l-animate l-animate-delay-3">{t('pov.statsNote')}</p>
 
           <div className="l-stat-grid l-animate l-animate-delay-3">
             <div className="l-stat-card l-stat-card-sage">
@@ -188,49 +174,44 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* WHAT THIS LOOKS LIKE IN PRACTICE */}
-      <section className="l-insight" id="l-story">
-        <div className="l-insight-inner l-container">
-          <p className="l-insight-eyebrow l-animate">{t('story.eyebrow')}</p>
+      {/* THE RESILIENCE AUDIT */}
+      <section className="l-audit" id="l-audit">
+        <div className="l-audit-inner l-container">
+          <p className="l-audit-eyebrow l-animate">{t('audit.eyebrow')}</p>
+          <h2
+            className="l-audit-headline l-animate l-animate-delay-1"
+            dangerouslySetInnerHTML={{ __html: t('audit.headline') }}
+          />
+          <p className="l-audit-body l-animate l-animate-delay-2">{t('audit.body1')}</p>
+          <p className="l-audit-body l-animate l-animate-delay-2">{t('audit.body2')}</p>
 
-          <div className="l-story-boxes">
-
-            {/* Box 1 — The Setup */}
-            <div className="l-story-box l-animate l-animate-delay-1">
-              <span className="l-story-box-step" aria-hidden="true">1</span>
-              <img className="l-story-box-img" src={storyElenaDream} alt={t('story.box1.img')} />
-              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box1.body') }} />
-            </div>
-
-            {/* Box 2 — The Breaking Point */}
-            <div className="l-story-box l-animate l-animate-delay-1">
-              <span className="l-story-box-step" aria-hidden="true">2</span>
-              <img className="l-story-box-img" src={storyMismatch} alt={t('story.box2.img')} />
-              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box2.body') }} />
-            </div>
-
-            {/* Box 3 — The Turning Point */}
-            <div className="l-story-box l-animate l-animate-delay-1">
-              <span className="l-story-box-step" aria-hidden="true">3</span>
-              <img className="l-story-box-img" src={storyLeadership} alt={t('story.box3.img')} />
-              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box3.body') }} />
-            </div>
-
-            {/* Box 4 — The Daily Habit */}
-            <div className="l-story-box l-story-box--habit l-animate l-animate-delay-1">
-              <span className="l-story-box-step" aria-hidden="true">4</span>
-              <img className="l-story-box-img" src={storyHfai} alt={t('story.box4.img')} />
-              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box4.intro') }} />
-            </div>
-
-            {/* Box 5 — The Result */}
-            <div className="l-story-box l-animate l-animate-delay-1">
-              <span className="l-story-box-step" aria-hidden="true">5</span>
-              <img className="l-story-box-img" src={storyEnding} alt={t('story.box5.img')} />
-              <p className="l-story-box-body" dangerouslySetInnerHTML={{ __html: t('story.box5.body') }} />
-            </div>
-
+          <div className="l-audit-who l-animate l-animate-delay-3">
+            <span className="l-audit-who-label">{t('audit.whoBox.label')}</span>
+            <span className="l-audit-who-body">{t('audit.whoBox.body')}</span>
           </div>
+
+          <div className="l-audit-stats l-animate l-animate-delay-3">
+            <div>
+              <p className="l-audit-stat-label">{t('audit.stat1.label')}</p>
+              <p className="l-audit-stat-value">{t('audit.stat1.number')}</p>
+            </div>
+            <div>
+              <p className="l-audit-stat-label">{t('audit.stat2.label')}</p>
+              <p className="l-audit-stat-value">{t('audit.stat2.number')}</p>
+            </div>
+            <div>
+              <p className="l-audit-stat-label">{t('audit.stat3.label')}</p>
+              <p className="l-audit-stat-value">{t('audit.stat3.number')}</p>
+            </div>
+            <div>
+              <p className="l-audit-stat-label">{t('audit.stat4.label')}</p>
+              <p className="l-audit-stat-value">{t('audit.stat4.number')}</p>
+            </div>
+          </div>
+
+          <button className="l-btn-ember l-animate l-animate-delay-4" onClick={(e) => scrollToId(e, 'l-demo')}>
+            {t('audit.cta')}
+          </button>
         </div>
       </section>
 
@@ -420,7 +401,7 @@ export default function Landing() {
       <footer className="l-footer" role="contentinfo">
         <div className="l-footer-inner l-container">
           <span className="l-footer-brand">
-            Human First AI &middot; Powered by{' '}
+            Resilience Code Plus+ &middot; Powered by{' '}
             <a href="https://brainbank.world" target="_blank" rel="noopener noreferrer" className="l-footer-brand-link">
               Brainbank.world
             </a>
@@ -430,105 +411,11 @@ export default function Landing() {
             <Link className="l-footer-link" to="/terms-of-service">{t('footer.terms')}</Link>
           </nav>
           <div className="l-footer-right">
-            <LangToggle lang={lang} setLang={setLang} dark />
             <Link to="/login" className="l-footer-link">{t('footer.login')}</Link>
           </div>
         </div>
       </footer>
     </div>
-  );
-}
-
-/**
- * Demo video section — collapsible Vimeo player
- */
-function VideoSection({ t }) {
-  const [videoOpen, setVideoOpen] = useState(false);
-  const hasOpenedRef = useRef(false);
-  const closeButtonRef = useRef(null);
-
-  const openVideo = () => {
-    hasOpenedRef.current = true;
-    setVideoOpen(true);
-  };
-  const closeVideo = () => setVideoOpen(false);
-
-  useEffect(() => {
-    if (videoOpen && closeButtonRef.current) {
-      closeButtonRef.current.focus();
-    }
-  }, [videoOpen]);
-
-  useEffect(() => {
-    const handler = (e) => {
-      if (e.key === 'Escape' && videoOpen) closeVideo();
-    };
-    document.addEventListener('keydown', handler);
-    return () => document.removeEventListener('keydown', handler);
-  }, [videoOpen]);
-
-  return (
-    <section className="l-video" id="l-video">
-      <div className="l-video-inner">
-        {!videoOpen ? (
-          <div
-            className={`l-video-card l-animate${hasOpenedRef.current ? ' l-visible' : ''}`}
-            role="button"
-            tabIndex={0}
-            aria-label="Play demo video"
-            onClick={openVideo}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openVideo();
-              }
-            }}
-          >
-            <div className="l-video-thumb-wrap">
-              <img
-                className="l-video-thumb-img"
-                src="/images/landing/demo-thumbnail.jpg"
-                alt="Human First AI platform demo"
-                draggable={false}
-              />
-              <div className="l-video-play-btn" aria-hidden="true">
-                <svg className="l-video-play-icon" viewBox="0 0 24 24" fill="none">
-                  <polygon points="9.5,6 9.5,18 19,12" fill="white" />
-                </svg>
-              </div>
-            </div>
-            <p className="l-video-card-text">
-              <strong>{t('video.headline')}</strong>
-              <br />
-              <span>{t('video.desc')}</span>
-            </p>
-          </div>
-        ) : (
-          <div className="l-video-expanded">
-            <button
-              className="l-video-close-btn"
-              type="button"
-              aria-label="Close video"
-              ref={closeButtonRef}
-              onClick={closeVideo}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-            <div className="l-video-player">
-              <iframe
-                src="https://player.vimeo.com/video/1196383244?h=b3aa5b669a&autoplay=1&badge=0&byline=0&portrait=0&title=0"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        )}
-      </div>
-    </section>
   );
 }
 
@@ -547,26 +434,4 @@ function CmpCell({ val, t }) {
     );
   }
   return null;
-}
-
-/**
- * Language toggle pill component
- */
-function LangToggle({ lang, setLang, dark = false }) {
-  return (
-    <div className={`l-lang-toggle${dark ? ' l-lang-toggle-dark' : ''}`} role="group" aria-label="Language selection">
-      <button
-        className={`l-lang-btn${lang === 'en' ? ' l-active' : ''}`}
-        onClick={() => setLang('en')}
-      >
-        EN
-      </button>
-      <button
-        className={`l-lang-btn${lang === 'sv' ? ' l-active' : ''}`}
-        onClick={() => setLang('sv')}
-      >
-        SV
-      </button>
-    </div>
-  );
 }
