@@ -8,6 +8,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
 import { get, post } from '@/utils/api';
+import Seo from '@/seo/Seo';
+import { organizationJsonLd, softwareApplicationJsonLd } from '@/seo/jsonld';
 import storyElenaDream from '@/assets/images/story-elena-dream.jpg';
 import storyMismatch from '@/assets/images/story-mismatched-priorities.jpg';
 import storyLeadership from '@/assets/images/story-leadership-coaching.jpg';
@@ -126,6 +128,12 @@ export default function Landing() {
 
   return (
     <div className="landing-root">
+      <Seo
+        title="Eve – AI Leadership Coaching | Human First AI"
+        description="Eve is your AI leadership coach: daily check-ins, real-time coaching, and micro-learning that help fast-growing companies execute AI transformation."
+        path="/"
+        jsonLd={[organizationJsonLd, softwareApplicationJsonLd]}
+      />
       {/* NAV */}
       <nav className="l-nav" role="navigation" aria-label="Main navigation">
         <div className="l-nav-inner">

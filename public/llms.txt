@@ -1,0 +1,17 @@
+# Human First AI
+
+> Eve is an AI-powered leadership coach that helps fast-growing companies keep
+> their leadership teams aligned so they can execute AI transformation with
+> speed and confidence.
+
+Human First AI is built by BrainBank (Singapore) and Human First AI AB (Sweden),
+combining AI technology with organizational psychology and burnout science.
+
+## Core pages
+- [Home](https://www.human-firstai.com/): Eve is your AI leadership coach: daily check-ins, real-time coaching, and micro-learning that help fast-growing companies execute AI transformation.
+- [Privacy Policy](https://www.human-firstai.com/privacy-policy): How Human First AI collects, uses and protects your data, including wellbeing data, under GDPR and Singapore's PDPA.
+- [Terms of Service](https://www.human-firstai.com/terms-of-service): The terms governing use of Human First AI's Eve platform, including account, billing and acceptable use terms.
+- [Cookie Policy](https://www.human-firstai.com/cookie-policy): How Human First AI uses cookies and similar technologies, and how to manage your preferences.
+
+## Contact
+- Book a demo via the site's "Book a Demo" call to action.

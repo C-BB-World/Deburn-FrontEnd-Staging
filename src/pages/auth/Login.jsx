@@ -7,6 +7,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
 import { circlesApi } from '@/features/circles/circlesApi';
+import Seo from '@/seo/Seo';
 
 export default function Login() {
   const { t, i18n } = useTranslation('auth');
@@ -68,6 +69,12 @@ export default function Login() {
 
   return (
     <div className="screen auth-screen active">
+      <Seo
+        title="Log In | Human First AI"
+        description="Log in to your Human First AI account to continue your leadership development with Eve."
+        path="/login"
+        noindex
+      />
       <div className="auth-language-switcher">
         <span className="auth-lang-label">{t('common.language.label', 'Language:')}</span>
         <button

@@ -1,44 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--
+  Generated from src/seo/routes.js by scripts/generate-seo-files.js at build
+  time — this checked-in copy is the fallback for `npm run dev`. Edit the
+  route manifest, not this file, so it can't drift from what's real.
 
-  <!-- Landing / Home Page -->
+  /login and /register are intentionally excluded: they carry an on-page
+  noindex tag (SEO-SPEC.md §3.1), and a sitemap is an "index this" signal
+  that would contradict that.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.human-firstai.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Registration -->
-  <url>
-    <loc>https://www.human-firstai.com/register</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Login -->
-  <url>
-    <loc>https://www.human-firstai.com/login</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Legal Pages -->
   <url>
     <loc>https://www.human-firstai.com/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
   <url>
     <loc>https://www.human-firstai.com/terms-of-service</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
   <url>
     <loc>https://www.human-firstai.com/cookie-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
 </urlset>

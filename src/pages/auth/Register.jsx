@@ -6,6 +6,7 @@ import { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
+import Seo from '@/seo/Seo';
 
 function getPasswordStrength(password) {
   if (!password) return { strength: 0, textKey: '', dataStrength: '' };
@@ -142,6 +143,12 @@ export default function Register() {
 
   return (
     <div className="screen auth-screen active">
+      <Seo
+        title="Create Your Account | Human First AI"
+        description="Start your leadership development journey with Human First AI's AI coach Eve, daily check-ins, and micro-learning."
+        path="/register"
+        noindex
+      />
       <div className="auth-language-switcher">
         <span className="auth-lang-label">{t('common.language.label', 'Language:')}</span>
         <button

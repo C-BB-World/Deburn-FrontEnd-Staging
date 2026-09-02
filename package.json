@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run prerender && npm run gen:seo && npm run check:seo",
+    "prerender": "node scripts/prerender.js",
+    "gen:seo": "node scripts/generate-seo-files.js",
+    "check:seo": "node scripts/check-seo-uniqueness.js",
     "start": "node server.js",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -16,6 +19,7 @@
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-helmet-async": "^3.0.0",
     "react-i18next": "^16.5.1",
     "react-router-dom": "^7.12.0"
   },
@@ -29,6 +33,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "playwright": "^1.62.1",
     "tailwindcss": "^4.1.18",
     "vite": "^7.2.4"
   }

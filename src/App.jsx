@@ -4,6 +4,7 @@
  */
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
 import { NotificationProvider } from '@/context/NotificationContext';
 import { Layout, AuthLayout, HubLayout } from '@/components/layout';
@@ -37,6 +38,9 @@ import VerifyEmail from '@/pages/auth/VerifyEmail';
 import PrivacyPolicy from '@/pages/legal/PrivacyPolicy';
 import TermsOfService from '@/pages/legal/TermsOfService';
 import CookiePolicy from '@/pages/legal/CookiePolicy';
+
+// Error pages
+import NotFound from '@/pages/NotFound';
 
 /**
  * Protected Route - Requires authentication
@@ -153,20 +157,22 @@ function AppRoutes() {
         <Route path="/admin" element={<Admin />} />
       </Route>
 
-      {/* Catch all - redirect to login */}
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      {/* Catch all - real 404, not a login-screen fallback (SEO-SPEC.md §3.3) */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <NotificationProvider>
-          <AppRoutes />
-        </NotificationProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <NotificationProvider>
+            <AppRoutes />
+          </NotificationProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }

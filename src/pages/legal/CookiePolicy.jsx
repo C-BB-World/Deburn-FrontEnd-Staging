@@ -3,10 +3,16 @@
  */
 
 import { Link } from 'react-router-dom';
+import Seo from '@/seo/Seo';
 
 export default function CookiePolicy() {
   return (
     <div className="legal-page">
+      <Seo
+        title="Cookie Policy | Human First AI"
+        description="How Human First AI uses cookies and similar technologies, and how to manage your preferences."
+        path="/cookie-policy"
+      />
       <div className="legal-container">
         {/* Header */}
         <header className="legal-header">

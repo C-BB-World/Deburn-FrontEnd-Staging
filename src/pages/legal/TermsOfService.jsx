@@ -3,17 +3,23 @@
  */
 
 import { Link } from 'react-router-dom';
+import Seo from '@/seo/Seo';
 
 export default function TermsOfService() {
   return (
     <div className="legal-page">
+      <Seo
+        title="Terms of Service | Human First AI"
+        description="The terms governing use of Human First AI's Eve platform, including account, billing and acceptable use terms."
+        path="/terms-of-service"
+      />
       <div className="legal-container">
         {/* Header */}
         <header className="legal-header">
           <Link to="/" className="legal-logo">
             Human First AI
           </Link>
-          <h1 className="legal-title">Terms of Use</h1>
+          <h1 className="legal-title">Terms of Service</h1>
           <p className="legal-meta">Last updated: January 2025</p>
         </header>
 
@@ -22,7 +28,7 @@ export default function TermsOfService() {
           <section className="legal-section">
             <h2>1. Agreement to Terms</h2>
             <p>
-              By accessing or using Human First AI ("the Service"), you agree to be bound by these Terms of Use ("Terms") and our Privacy Policy. If you do not agree to these Terms, please do not use the Service.
+              By accessing or using Human First AI ("the Service"), you agree to be bound by these Terms of Service ("Terms") and our Privacy Policy. If you do not agree to these Terms, please do not use the Service.
             </p>
             <p>
               These Terms constitute a legally binding agreement between you and the Service providers:

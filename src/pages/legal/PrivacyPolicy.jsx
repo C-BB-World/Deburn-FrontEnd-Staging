@@ -3,10 +3,16 @@
  */
 
 import { Link } from 'react-router-dom';
+import Seo from '@/seo/Seo';
 
 export default function PrivacyPolicy() {
   return (
     <div className="legal-page">
+      <Seo
+        title="Privacy Policy | Human First AI"
+        description="How Human First AI collects, uses and protects your data, including wellbeing data, under GDPR and Singapore's PDPA."
+        path="/privacy-policy"
+      />
       <div className="legal-container">
         {/* Header */}
         <header className="legal-header">
