@@ -62,7 +62,19 @@ app.use(
 );
 
 app.get('*', (req, res) => {
-  const path = req.path === '/' ? '/' : req.path.replace(/\/+$/, '');
+  const raw = req.path;
+
+  // Locale roots (e.g. "/sv/") are canonically trailing-slash, same as "/".
+  // Redirect the bare alias ("/sv") there so exactly one URL is canonical —
+  // without this, blindly stripping trailing slashes below would make both
+  // "/sv" and "/sv/" miss the manifest and fall through to the 404 branch.
+  if (!raw.endsWith('/') && publicPaths.has(`${raw}/`)) {
+    return res.redirect(301, `${raw}/`);
+  }
+
+  // Everything else is canonically NOT trailing-slash — tolerate one stray
+  // trailing slash (e.g. "/register/") by stripping it before matching.
+  const path = raw === '/' || publicPaths.has(raw) ? raw : raw.replace(/\/+$/, '');
 
   if (publicPaths.has(path)) {
     const file = publicRouteFile(path);

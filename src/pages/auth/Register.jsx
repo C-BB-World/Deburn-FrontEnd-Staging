@@ -3,10 +3,11 @@
  */
 
 import { useState, useMemo } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
 import Seo from '@/seo/Seo';
+import { alternatesFor, copyFor } from '@/seo/routes';
 
 function getPasswordStrength(password) {
   if (!password) return { strength: 0, textKey: '', dataStrength: '' };
@@ -33,6 +34,11 @@ export default function Register() {
   const { t, i18n } = useTranslation('auth');
   const { register } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const routeLocale = location.pathname.startsWith('/sv') ? 'sv' : 'en';
+  const registerAlternates = alternatesFor('register');
+  const loginAlternates = alternatesFor('login');
+  const registerCopy = copyFor('register', routeLocale);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -56,9 +62,12 @@ export default function Register() {
 
   const passwordStrength = useMemo(() => getPasswordStrength(formData.password), [formData.password]);
 
+  // Navigates to the /sv/ counterpart URL rather than just switching i18n
+  // in place, so the URL and rendered language always agree (SEO-SPEC.md
+  // §7). LangLayout does the actual i18n.changeLanguage call once the
+  // destination route mounts.
   function handleLanguageChange(lang) {
-    i18n.changeLanguage(lang);
-    localStorage.setItem('language', lang);
+    navigate(registerAlternates[lang]);
   }
 
   function handleChange(e) {
@@ -131,7 +140,7 @@ export default function Register() {
             </p>
             <p className="auth-message-email">{formData.email}</p>
             <div className="auth-message-actions">
-              <Link to="/login" className="btn btn-primary">
+              <Link to={loginAlternates[routeLocale]} className="btn btn-primary">
                 {t('register.backToLogin', 'Back to login')}
               </Link>
             </div>
@@ -144,22 +153,24 @@ export default function Register() {
   return (
     <div className="screen auth-screen active">
       <Seo
-        title="Create Your Account | Human First AI"
-        description="Start your leadership development journey with Human First AI's AI coach Eve, daily check-ins, and micro-learning."
-        path="/register"
+        title={registerCopy.title}
+        description={registerCopy.description}
+        path={registerAlternates[routeLocale]}
+        lang={routeLocale}
+        alternates={registerAlternates}
         noindex
       />
       <div className="auth-language-switcher">
         <span className="auth-lang-label">{t('common.language.label', 'Language:')}</span>
         <button
-          className={`auth-lang-btn ${i18n.language === 'en' ? 'active' : ''}`}
+          className={`auth-lang-btn ${routeLocale === 'en' ? 'active' : ''}`}
           onClick={() => handleLanguageChange('en')}
         >
           EN
         </button>
         <span className="auth-lang-divider">|</span>
         <button
-          className={`auth-lang-btn ${i18n.language === 'sv' ? 'active' : ''}`}
+          className={`auth-lang-btn ${routeLocale === 'sv' ? 'active' : ''}`}
           onClick={() => handleLanguageChange('sv')}
         >
           SV
@@ -448,7 +459,7 @@ export default function Register() {
 
           <div className="form-footer">
             {t('register.hasAccount', 'Already have an account?')}{' '}
-            <Link to="/login" className="form-link">
+            <Link to={loginAlternates[routeLocale]} className="form-link">
               {t('register.signIn', 'Sign in')}
             </Link>
           </div>

@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
 import { NotificationProvider } from '@/context/NotificationContext';
-import { Layout, AuthLayout, HubLayout } from '@/components/layout';
+import { Layout, AuthLayout, HubLayout, LangLayout } from '@/components/layout';
 import { LoadingOverlay } from '@/components/ui';
 
 // Import i18n configuration
@@ -82,43 +82,71 @@ function PublicRoute({ children }) {
 function AppRoutes() {
   return (
     <Routes>
-      {/* Landing page - redirects to dashboard if authenticated */}
-      <Route
-        path="/"
-        element={<Landing />}
-      />
-
-      {/* Auth routes */}
-      <Route element={<AuthLayout />}>
-        <Route
-          path="/login"
-          element={
-            <PublicRoute>
-              <Login />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <PublicRoute>
-              <Register />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/forgot-password"
-          element={
-            <PublicRoute>
-              <ForgotPassword />
-            </PublicRoute>
-          }
-        />
-        <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/verify-email" element={<VerifyEmail />} />
+      {/* Landing page (en) - redirects to dashboard if authenticated */}
+      <Route element={<LangLayout lang="en" />}>
+        <Route path="/" element={<Landing />} />
       </Route>
 
-      {/* Legal routes (public) */}
+      {/* Landing page (sv) — SEO-SPEC.md §7 */}
+      <Route element={<LangLayout lang="sv" />}>
+        <Route path="/sv" element={<Landing />} />
+      </Route>
+
+      {/* Auth routes (en) */}
+      <Route element={<LangLayout lang="en" />}>
+        <Route element={<AuthLayout />}>
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/forgot-password"
+            element={
+              <PublicRoute>
+                <ForgotPassword />
+              </PublicRoute>
+            }
+          />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+        </Route>
+      </Route>
+
+      {/* Auth routes (sv) — /sv/login and /sv/register only, SEO-SPEC.md §7 */}
+      <Route element={<LangLayout lang="sv" />}>
+        <Route element={<AuthLayout />}>
+          <Route
+            path="/sv/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/sv/register"
+            element={
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
+            }
+          />
+        </Route>
+      </Route>
+
+      {/* Legal routes (public, en-only — see SEO-SPEC.md §7 scope note) */}
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
       <Route path="/cookie-policy" element={<CookiePolicy />} />

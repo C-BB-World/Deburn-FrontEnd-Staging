@@ -10,7 +10,7 @@
 import { writeFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { SITE_URL, publicRoutes, sitemapRoutes, canonicalUrl } from '../src/seo/routes.js';
+import { SITE_URL, publicRoutes, sitemapRoutes, canonicalUrl, alternatesFor } from '../src/seo/routes.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, '..', 'dist');
@@ -57,24 +57,39 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 function buildSitemapXml() {
   const urls = sitemapRoutes
-    .map(
-      (r) => `  <url>
+    .map((r) => {
+      // Pages with a translated counterpart (currently just "home") get
+      // reciprocal hreflang alternates + x-default, per SEO-SPEC.md §7.
+      // Legal pages have no sv counterpart, so alternatesFor returns a
+      // single-key object and no hreflang block is emitted for them.
+      const alts = alternatesFor(r.id);
+      const altLocales = Object.keys(alts);
+      const hreflang =
+        altLocales.length > 1
+          ? altLocales
+              .map((loc) => `    <xhtml:link rel="alternate" hreflang="${loc}" href="${canonicalUrl(alts[loc])}" />`)
+              .join('\n') + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${canonicalUrl(alts.en)}" />\n`
+          : '';
+
+      return `  <url>
     <loc>${canonicalUrl(r.path)}</loc>
-    <changefreq>${r.changefreq}</changefreq>
+${hreflang}    <changefreq>${r.changefreq}</changefreq>
     <priority>${r.priority.toFixed(1)}</priority>
-  </url>`
-    )
+  </url>`;
+    })
     .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
 </urlset>
 `;
 }
 
 function buildLlmsTxt() {
-  const indexed = publicRoutes.filter((r) => !r.noindex);
+  // English-only on purpose (SEO-SPEC.md §7 scope note) — this isn't a
+  // locale-sensitive discovery mechanism the way hreflang is.
+  const indexed = publicRoutes.filter((r) => !r.noindex && r.locale === 'en');
   const links = indexed
     .map((r) => `- [${r.path === '/' ? 'Home' : r.title.split('|')[0].trim()}](${canonicalUrl(r.path)}): ${r.description}`)
     .join('\n');

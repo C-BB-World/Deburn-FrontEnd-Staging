@@ -4,12 +4,13 @@
  */
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
 import { get, post } from '@/utils/api';
 import Seo from '@/seo/Seo';
 import { organizationJsonLd, softwareApplicationJsonLd } from '@/seo/jsonld';
+import { alternatesFor, copyFor } from '@/seo/routes';
 import storyElenaDream from '@/assets/images/story-elena-dream.jpg';
 import storyMismatch from '@/assets/images/story-mismatched-priorities.jpg';
 import storyLeadership from '@/assets/images/story-leadership-coaching.jpg';
@@ -20,6 +21,7 @@ export default function Landing() {
   const { t, i18n } = useTranslation('landing');
   const { isAuthenticated, isLoading } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [testimonials, setTestimonials] = useState([]);
   const [formState, setFormState] = useState('idle'); // idle | sending | success | error
@@ -70,9 +72,14 @@ export default function Landing() {
     loadTestimonials(i18n.language);
   }, [i18n.language, loadTestimonials]);
 
-  // Language toggle
-  const setLang = (lang) => {
-    i18n.changeLanguage(lang);
+  // Language toggle — navigates to the /sv/ counterpart URL rather than
+  // just switching i18n in place, so the URL and rendered language always
+  // agree (SEO-SPEC.md §7). LangLayout does the actual i18n.changeLanguage
+  // call once the destination route mounts.
+  const homeAlternates = alternatesFor('home');
+  const loginAlternates = alternatesFor('login');
+  const setLang = (targetLang) => {
+    navigate(homeAlternates[targetLang]);
   };
 
   // Scroll to demo form
@@ -124,20 +131,23 @@ export default function Landing() {
   // Don't render while checking auth
   if (isLoading) return null;
 
-  const lang = i18n.language;
+  const routeLocale = location.pathname.startsWith('/sv') ? 'sv' : 'en';
+  const homeCopy = copyFor('home', routeLocale);
 
   return (
     <div className="landing-root">
       <Seo
-        title="Eve – AI Leadership Coaching | Human First AI"
-        description="Eve is your AI leadership coach: daily check-ins, real-time coaching, and micro-learning that help fast-growing companies execute AI transformation."
-        path="/"
+        title={homeCopy.title}
+        description={homeCopy.description}
+        path={homeAlternates[routeLocale]}
+        lang={routeLocale}
+        alternates={homeAlternates}
         jsonLd={[organizationJsonLd, softwareApplicationJsonLd]}
       />
       {/* NAV */}
       <nav className="l-nav" role="navigation" aria-label="Main navigation">
         <div className="l-nav-inner">
-          <Link className="l-nav-brand" to="/">
+          <Link className="l-nav-brand" to={homeAlternates[routeLocale]}>
             <div className="logo">
               <svg className="logo-icon" viewBox="0 0 32 32" width="32" height="32">
                 <circle cx="17" cy="16" r="12" fill="none" stroke="#2D4A47" strokeWidth="1.5" />
@@ -149,8 +159,8 @@ export default function Landing() {
             <span>{t('nav.brand')}</span>
           </Link>
           <div className="l-nav-actions">
-            <LangToggle lang={lang} setLang={setLang} />
-            <Link to="/login" className="l-btn-ghost">{t('nav.login')}</Link>
+            <LangToggle lang={routeLocale} setLang={setLang} />
+            <Link to={loginAlternates[routeLocale]} className="l-btn-ghost">{t('nav.login')}</Link>
             <button className="l-btn-primary" onClick={scrollToDemo}>{t('nav.demo')}</button>
           </div>
         </div>
@@ -438,8 +448,8 @@ export default function Landing() {
             <Link className="l-footer-link" to="/terms-of-service">{t('footer.terms')}</Link>
           </nav>
           <div className="l-footer-right">
-            <LangToggle lang={lang} setLang={setLang} dark />
-            <Link to="/login" className="l-footer-link">{t('footer.login')}</Link>
+            <LangToggle lang={routeLocale} setLang={setLang} dark />
+            <Link to={loginAlternates[routeLocale]} className="l-footer-link">{t('footer.login')}</Link>
           </div>
         </div>
       </footer>

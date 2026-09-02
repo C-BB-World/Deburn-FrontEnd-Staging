@@ -3,7 +3,7 @@
  * Main app layout with sidebar and header
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Sidebar } from './Sidebar';
@@ -108,6 +108,23 @@ export function Layout() {
  * Pages handle their own full-screen layout with .auth-screen class
  */
 export function AuthLayout() {
+  return <Outlet />;
+}
+
+/**
+ * Lang Layout - Switches the rendered UI language for a route subtree
+ * (SEO-SPEC.md §7). This is what actually drives i18next; <Seo lang=.../>
+ * only sets the <html lang> attribute and hreflang tags, not the UI text.
+ */
+export function LangLayout({ lang }) {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    if (i18n.language !== lang) {
+      i18n.changeLanguage(lang);
+    }
+  }, [lang, i18n]);
+
   return <Outlet />;
 }
 

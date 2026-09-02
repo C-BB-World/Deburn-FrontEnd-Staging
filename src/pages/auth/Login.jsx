@@ -3,17 +3,23 @@
  */
 
 import { useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/context/AuthContext';
 import { circlesApi } from '@/features/circles/circlesApi';
 import Seo from '@/seo/Seo';
+import { alternatesFor, copyFor } from '@/seo/routes';
 
 export default function Login() {
-  const { t, i18n } = useTranslation('auth');
+  const { t } = useTranslation('auth');
   const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
+  const routeLocale = location.pathname.startsWith('/sv') ? 'sv' : 'en';
+  const loginAlternates = alternatesFor('login');
+  const registerAlternates = alternatesFor('register');
+  const loginCopy = copyFor('login', routeLocale);
 
   // Check for invitation tokens from email links
   const inviteToken = searchParams.get('inviteToken');
@@ -26,9 +32,12 @@ export default function Login() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  // Navigates to the /sv/ counterpart URL rather than just switching i18n
+  // in place, so the URL and rendered language always agree (SEO-SPEC.md
+  // §7). LangLayout does the actual i18n.changeLanguage call once the
+  // destination route mounts.
   function handleLanguageChange(lang) {
-    i18n.changeLanguage(lang);
-    localStorage.setItem('language', lang);
+    navigate(loginAlternates[lang]);
   }
 
   async function handleSubmit(e) {
@@ -70,22 +79,24 @@ export default function Login() {
   return (
     <div className="screen auth-screen active">
       <Seo
-        title="Log In | Human First AI"
-        description="Log in to your Human First AI account to continue your leadership development with Eve."
-        path="/login"
+        title={loginCopy.title}
+        description={loginCopy.description}
+        path={loginAlternates[routeLocale]}
+        lang={routeLocale}
+        alternates={loginAlternates}
         noindex
       />
       <div className="auth-language-switcher">
         <span className="auth-lang-label">{t('common.language.label', 'Language:')}</span>
         <button
-          className={`auth-lang-btn ${i18n.language === 'en' ? 'active' : ''}`}
+          className={`auth-lang-btn ${routeLocale === 'en' ? 'active' : ''}`}
           onClick={() => handleLanguageChange('en')}
         >
           EN
         </button>
         <span className="auth-lang-divider">|</span>
         <button
-          className={`auth-lang-btn ${i18n.language === 'sv' ? 'active' : ''}`}
+          className={`auth-lang-btn ${routeLocale === 'sv' ? 'active' : ''}`}
           onClick={() => handleLanguageChange('sv')}
         >
           SV
@@ -207,7 +218,7 @@ export default function Login() {
 
           <div className="form-footer">
             {t('login.noAccount', "Don't have an account?")}{' '}
-            <Link to="/register" className="form-link">
+            <Link to={registerAlternates[routeLocale]} className="form-link">
               {t('login.createAccount', 'Create account')}
             </Link>
           </div>

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Generated from src/seo/routes.js by scripts/generate-seo-files.js at build
-  time — this checked-in copy is the fallback for `npm run dev`. Edit the
-  route manifest, not this file, so it can't drift from what's real.
-
-  /login and /register are intentionally excluded: they carry an on-page
-  noindex tag (SEO-SPEC.md §3.1), and a sitemap is an "index this" signal
-  that would contradict that.
--->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.human-firstai.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.human-firstai.com/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.human-firstai.com/sv/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.human-firstai.com/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.human-firstai.com/sv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.human-firstai.com/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.human-firstai.com/sv/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.human-firstai.com/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

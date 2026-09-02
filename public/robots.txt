@@ -1,17 +1,16 @@
 # robots.txt for Human First AI - Eve
 # https://www.human-firstai.com
-#
-# Generated from src/seo/routes.js by scripts/generate-seo-files.js at build
-# time — this checked-in copy is the fallback for `npm run dev`. Edit the
-# route manifest, not this file, so it can't drift from what's real.
 
 User-agent: *
 
 # Public pages — allow crawling (some are noindex via on-page meta tag —
 # see sitemap.xml for the actual index-worthy subset)
 Allow: /
+Allow: /sv/
 Allow: /register
+Allow: /sv/register
 Allow: /login
+Allow: /sv/login
 Allow: /privacy-policy
 Allow: /terms-of-service
 Allow: /cookie-policy
