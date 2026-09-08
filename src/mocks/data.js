@@ -1,13 +1,14 @@
 /**
- * In-memory mock data store.
+ * In-memory mock data store for the MSW browser mock (src/mocks/handlers/*.js).
  * Ported from Deburn-BackEnd/mocks/mock_v2.py, upgraded so create/read
  * round-trips (notifications, pools, groups, content, checkins) actually persist
- * for the lifetime of the process instead of returning disconnected canned data.
+ * for the lifetime of the page load. Resets on a hard refresh since it only
+ * lives in the service worker's memory, not a real backend.
  */
-import { randomBytes } from 'crypto';
-
 export function hex(bytes = 4) {
-  return randomBytes(bytes).toString('hex');
+  const arr = new Uint8Array(bytes);
+  crypto.getRandomValues(arr);
+  return Array.from(arr, (b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 export function nowIso() {

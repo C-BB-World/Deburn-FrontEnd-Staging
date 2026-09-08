@@ -1,20 +1,18 @@
-import { Router } from 'express';
-import * as state from '../state.js';
+import { http } from 'msw';
+import * as data from '../data.js';
 import { successResponse, requireAuth } from '../helpers.js';
 
-const router = Router();
+export const dashboardHandlers = [
+  http.get('/api/dashboard', async ({ request }) => {
+    requireAuth(request);
+    const latest = data.checkinHistory[data.checkinHistory.length - 1];
+    const nextGroupMeeting = data.MOCK_CIRCLE_GROUPS.find((g) => g.nextMeeting)?.nextMeeting;
 
-router.get('/dashboard', (req, res) => {
-  requireAuth(req);
-  const latest = state.checkinHistory[state.checkinHistory.length - 1];
-  const nextGroupMeeting = state.MOCK_CIRCLE_GROUPS.find((g) => g.nextMeeting)?.nextMeeting;
-
-  res.json(
-    successResponse({
+    return successResponse({
       todaysCheckin: latest
         ? { mood: latest.mood, physicalEnergy: latest.physicalEnergy, mentalEnergy: latest.mentalEnergy, sleep: 4, stress: latest.stress }
         : { mood: 4, physicalEnergy: 7, mentalEnergy: 6, sleep: 4, stress: 3 },
-      streak: Math.min(state.checkinHistory.length, 30),
+      streak: Math.min(data.checkinHistory.length, 30),
       insightsCount: 3,
       todaysFocus: {
         module: {
@@ -26,7 +24,7 @@ router.get('/dashboard', (req, res) => {
           lengthMinutes: 8,
         },
         currentIndex: 5,
-        totalModules: state.MOCK_CONTENT_ITEMS.length,
+        totalModules: data.MOCK_CONTENT_ITEMS.length,
         progress: 0.357,
       },
       nextCircle: nextGroupMeeting
@@ -35,8 +33,6 @@ router.get('/dashboard', (req, res) => {
             dateSv: new Date(nextGroupMeeting.scheduledAt).toLocaleString('sv-SE', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
           }
         : null,
-    })
-  );
-});
-
-export default router;
+    });
+  }),
+];

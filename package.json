@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -n vite,api -c blue,green \"vite\" \"PORT=3001 node --env-file=.env server.js\"",
-    "dev:api": "PORT=3001 node --env-file=.env server.js",
+    "dev": "vite",
     "build": "vite build",
     "start": "node server.js",
     "lint": "eslint .",
@@ -13,10 +12,8 @@
   },
   "dependencies": {
     "express": "^4.21.0",
-    "http-proxy-middleware": "^3.0.3",
     "i18next": "^25.7.4",
     "lucide-react": "^0.562.0",
-    "multer": "^2.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-i18next": "^16.5.1",
@@ -28,12 +25,17 @@
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
-    "concurrently": "^9.1.2",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "msw": "^2.15.0",
     "tailwindcss": "^4.1.18",
     "vite": "^7.2.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
