@@ -12,7 +12,7 @@ const COACH_TOPICS = [
   'mindfulness', 'resilience'
 ];
 
-const CATEGORIES = ['leadership', 'breath', 'meditation', 'burnout', 'wellbeing', 'other'];
+const CATEGORIES = ['resilience_code', 'leadership', 'breath', 'meditation', 'burnout', 'wellbeing', 'other'];
 const CONTENT_TYPES = ['text_article', 'audio_article', 'audio_exercise', 'video_link'];
 const STATUSES = ['draft', 'in_review', 'published', 'archived'];
 

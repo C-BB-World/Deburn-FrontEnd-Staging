@@ -8,12 +8,13 @@ import { useTranslation } from 'react-i18next';
 import { hubApi } from '@/features/hub/hubApi';
 import ContentModal from './ContentModal';
 
-const CATEGORIES = ['featured', 'leadership', 'breath', 'meditation', 'burnout', 'wellbeing', 'other'];
+const CATEGORIES = ['featured', 'resilience_code', 'leadership', 'breath', 'meditation', 'burnout', 'wellbeing', 'other'];
 const CONTENT_TYPES = ['text_article', 'audio_article', 'audio_exercise', 'video_link'];
 const STATUSES = ['draft', 'in_review', 'published', 'archived'];
 
 const CATEGORY_LABELS = {
   featured: 'Featured',
+  resilience_code: 'Resilience Code',
   leadership: 'Leadership',
   breath: 'Breath Techniques',
   meditation: 'Meditation',

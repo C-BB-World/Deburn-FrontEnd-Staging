@@ -464,8 +464,8 @@ export default function Dashboard() {
               <svg viewBox="0 0 100 40" className="trend-line">
                 <defs>
                   <linearGradient id="dashStressGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: 'var(--color-success)', stopOpacity: 0.4 }} />
-                    <stop offset="100%" style={{ stopColor: 'var(--color-success)', stopOpacity: 0 }} />
+                    <stop offset="0%" style={{ stopColor: 'var(--color-sage)', stopOpacity: 0.4 }} />
+                    <stop offset="100%" style={{ stopColor: 'var(--color-sage)', stopOpacity: 0 }} />
                   </linearGradient>
                 </defs>
                 <path
@@ -477,7 +477,7 @@ export default function Dashboard() {
                   className="trend-line"
                   points={getTrendPoints(trends?.stressValues)}
                   fill="none"
-                  stroke="var(--color-success)"
+                  stroke="var(--color-sage)"
                   strokeWidth="1.5"
                 />
               </svg>

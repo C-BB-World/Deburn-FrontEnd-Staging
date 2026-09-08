@@ -292,7 +292,7 @@ export default function Learning() {
   }, {});
 
   // Define category order
-  const categoryOrder = ['leadership', 'breath', 'meditation', 'burnout', 'wellbeing', 'other'];
+  const categoryOrder = ['resilience_code', 'leadership', 'breath', 'meditation', 'burnout', 'wellbeing', 'other'];
 
   return (
     <div className="learning-content">

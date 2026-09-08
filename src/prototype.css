@@ -388,8 +388,8 @@ p {
     top: calc(100% + var(--space-2));
     right: 0;
     min-width: 200px;
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     opacity: 0;
@@ -437,7 +437,7 @@ p {
 }
 
 .user-menu-dropdown-item:hover {
-    background: var(--neutral-100);
+    background: var(--color-bg-tertiary);
     color: var(--color-ink);
 }
 
@@ -545,8 +545,8 @@ p {
     right: 0;
     width: 360px;
     max-width: calc(100vw - var(--space-8));
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     z-index: 1000;
@@ -581,7 +581,7 @@ p {
 }
 
 .notification-mark-all-btn:hover {
-    background: var(--neutral-100);
+    background: var(--color-bg-tertiary);
 }
 
 .notification-dropdown-list {
@@ -595,7 +595,7 @@ p {
     align-items: center;
     justify-content: center;
     padding: var(--space-8);
-    color: var(--neutral-400);
+    color: var(--neutral-500);
     text-align: center;
 }
 
@@ -616,7 +616,7 @@ p {
     padding: var(--space-4);
     background: none;
     border: none;
-    border-bottom: 1px solid var(--neutral-100);
+    border-bottom: 1px solid var(--color-border);
     width: 100%;
     text-align: left;
     cursor: pointer;
@@ -624,7 +624,7 @@ p {
 }
 
 .notification-item:hover {
-    background: var(--neutral-50);
+    background: var(--color-bg-tertiary);
 }
 
 .notification-item.unread {
@@ -644,7 +644,7 @@ p {
     width: 32px;
     height: 32px;
     border-radius: var(--radius-md);
-    background: var(--neutral-100);
+    background: var(--color-bg-tertiary);
     color: var(--neutral-600);
     display: flex;
     align-items: center;
@@ -691,7 +691,7 @@ p {
 
 .notification-item-time {
     font-size: 12px;
-    color: var(--neutral-400);
+    color: var(--neutral-500);
     margin-top: var(--space-1);
 }
 
@@ -721,7 +721,7 @@ p {
     padding: var(--space-3);
     background: none;
     border: none;
-    border-top: 1px solid var(--neutral-100);
+    border-top: 1px solid var(--color-border);
     color: var(--color-primary);
     font-size: var(--text-body-sm);
     font-weight: 500;
@@ -1543,13 +1543,13 @@ p {
     background: rgba(117, 59, 189, 0.1);
 }
 
-.sleep-option i {
+.sleep-option svg {
     width: 24px;
     height: 24px;
-    color: var(--neutral-500);
+    color: var(--color-white);
 }
 
-.sleep-option.selected i {
+.sleep-option.selected svg {
     color: var(--color-primary);
 }
 
