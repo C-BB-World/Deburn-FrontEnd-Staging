@@ -3797,8 +3797,8 @@ p {
 
 /* Auth Form */
 .auth-form {
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: var(--space-8);
 }
@@ -3822,7 +3822,8 @@ p {
     font-family: var(--font-primary);
     border: 1px solid var(--neutral-300);
     border-radius: var(--radius-md);
-    background: white;
+    background: var(--color-bg-tertiary);
+    color: var(--color-ink);
     transition: all var(--duration-normal) var(--ease-standard);
 }
 
@@ -4312,8 +4313,8 @@ p {
     display: flex;
     gap: var(--space-6);
     padding: var(--space-6);
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
 }
 
@@ -4377,8 +4378,8 @@ p {
 
 /* Profile Form */
 .profile-form {
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: var(--space-6);
 }
@@ -4396,7 +4397,8 @@ p {
     font-family: var(--font-primary);
     border: 1px solid var(--neutral-300);
     border-radius: var(--radius-md);
-    background: white;
+    background: var(--color-bg-tertiary);
+    color: var(--color-ink);
     resize: vertical;
     min-height: 100px;
     transition: all var(--duration-normal) var(--ease-standard);
@@ -4424,8 +4426,8 @@ p {
 
 /* Profile Account Card */
 .profile-account-card {
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
 }
 
@@ -4461,8 +4463,8 @@ p {
 
 /* Profile Legal Links */
 .profile-legal-links {
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
 }
 
@@ -4481,7 +4483,7 @@ p {
 }
 
 .profile-legal-link:hover {
-    background-color: var(--neutral-50);
+    background-color: var(--color-bg-tertiary);
 }
 
 .profile-legal-link svg {
