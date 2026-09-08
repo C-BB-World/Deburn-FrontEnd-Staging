@@ -20,7 +20,7 @@
   },
   "absenteeism": {
     "question": "Under de senaste 12 månaderna, hur många arbetsdagar har du missat på grund av stress, utbrändhet eller psykisk hälsa?",
-    "placeholder": "Antal dagar"
+    "placeholder": "Antal"
   },
   "turnoverIntention": {
     "question": "Under de senaste 12 månaderna, hur ofta har du funderat på att lämna ditt jobb på grund av stress eller arbetsbörda?",

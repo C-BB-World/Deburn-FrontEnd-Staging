@@ -20,7 +20,7 @@
   },
   "absenteeism": {
     "question": "In the last 12 months, how many days of work have you missed due to stress, burnout, or mental health?",
-    "placeholder": "Number of days"
+    "placeholder": "Number"
   },
   "turnoverIntention": {
     "question": "In the last 12 months, how often have you thought about leaving your job because of stress or workload?",

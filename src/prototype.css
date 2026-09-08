@@ -1676,9 +1676,16 @@ p {
     margin-bottom: var(--space-8);
 }
 
+.numeric-input-wrapper {
+    position: relative;
+    display: inline-flex;
+    width: 150px;
+}
+
 .numeric-input {
-    width: 120px;
+    width: 100%;
     padding: var(--space-3) var(--space-4);
+    padding-right: calc(var(--space-4) + 22px);
     border: 2px solid var(--neutral-200);
     border-radius: var(--radius-lg);
     background: var(--neutral-50);
@@ -1686,11 +1693,54 @@ p {
     font-size: var(--text-body);
     color: var(--color-text-primary);
     transition: border-color var(--duration-normal) var(--ease-standard);
+    /* Hide native spinner — replaced by .numeric-input-steppers */
+    -moz-appearance: textfield;
+}
+
+.numeric-input::-webkit-outer-spin-button,
+.numeric-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .numeric-input:focus {
     outline: none;
     border-color: var(--color-sage);
+}
+
+.numeric-input-steppers {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    width: 22px;
+    border-left: 1px solid var(--neutral-200);
+    border-radius: 0 calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px) 0;
+    overflow: hidden;
+}
+
+.numeric-stepper-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: var(--color-bg-tertiary);
+    color: var(--neutral-500);
+    cursor: pointer;
+    padding: 0;
+    transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.numeric-stepper-btn:not(:last-child) {
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.numeric-stepper-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
 }
 
 /* Completion Screen */

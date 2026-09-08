@@ -22,6 +22,16 @@ export default function InitialAssessment() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
+  const ABSENTEEISM_MAX = 365;
+
+  function stepAbsenteeism(delta) {
+    setAbsenteeism((prev) => {
+      const current = parseInt(prev, 10) || 0;
+      const next = Math.min(Math.max(current + delta, 0), ABSENTEEISM_MAX);
+      return String(next);
+    });
+  }
+
   const frequencyLabels = [
     t('assessment:stress.never', 'Never'),
     t('assessment:stress.rarely', 'Rarely'),
@@ -102,14 +112,39 @@ export default function InitialAssessment() {
               <h4 className="likert-label">
                 {t('assessment:absenteeism.question', 'In the last 12 months, how many days of work have you missed due to stress, burnout, or mental health?')}
               </h4>
-              <input
-                type="number"
-                min="0"
-                className="numeric-input"
-                value={absenteeism}
-                onChange={(e) => setAbsenteeism(e.target.value)}
-                placeholder={t('assessment:absenteeism.placeholder', 'Number of days')}
-              />
+              <div className="numeric-input-wrapper">
+                <input
+                  type="number"
+                  min="0"
+                  max={ABSENTEEISM_MAX}
+                  className="numeric-input"
+                  value={absenteeism}
+                  onChange={(e) => setAbsenteeism(e.target.value)}
+                  placeholder={t('assessment:absenteeism.placeholder', 'Number of days')}
+                />
+                <div className="numeric-input-steppers">
+                  <button
+                    type="button"
+                    className="numeric-stepper-btn"
+                    aria-label={t('common:increase', 'Increase')}
+                    onClick={() => stepAbsenteeism(1)}
+                  >
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="1 5 5 1 9 5"></polyline>
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    className="numeric-stepper-btn"
+                    aria-label={t('common:decrease', 'Decrease')}
+                    onClick={() => stepAbsenteeism(-1)}
+                  >
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="1 1 5 5 9 1"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
 
             <LikertScale
