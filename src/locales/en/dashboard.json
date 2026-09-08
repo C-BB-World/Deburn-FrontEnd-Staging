@@ -7,6 +7,19 @@
       "evening": "Good evening, {{name}}"
     }
   },
+  "morningTip": {
+    "label": "Morning tip from Limitless Group",
+    "dismiss": "Dismiss",
+    "messages": [
+      "Small, consistent habits beat big, occasional efforts. Pick one habit from today's check-in and protect it this week.",
+      "Recovery is part of performance, not a break from it. Notice where you can build in a real pause today.",
+      "The way you start your morning sets the tone for your team. A calm start is a gift you give everyone around you.",
+      "Progress compounds. A 1% improvement in a daily habit, repeated for 28 days, adds up to real change.",
+      "If today feels heavy, that's useful information, not a failure. Name it, then take the smallest next step.",
+      "Psychological safety starts with you modelling it. One honest, low-stakes admission today can open a door for someone else.",
+      "Attention is a resource. Decide your one key focus before your inbox decides it for you."
+    ]
+  },
   "checkinCard": {
     "title": "Daily Check-in",
     "description": "Start your day with a quick reflection",

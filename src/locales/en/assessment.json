@@ -1,0 +1,33 @@
+{
+  "title": "Before you get started",
+  "subtitle": "A few quick questions to help us understand where you're starting from. This only appears once.",
+  "submit": "Continue",
+  "stress": {
+    "question": "In the last 12 months, how often have you experienced stress that affected your ability to work effectively?",
+    "never": "Never",
+    "rarely": "Rarely",
+    "sometimes": "Sometimes",
+    "often": "Often",
+    "almostAlways": "Almost always"
+  },
+  "presenteeism": {
+    "question": "In the last 12 months, how often have you gone to work despite feeling unwell or below your best, and worked at reduced effectiveness as a result?",
+    "never": "Never",
+    "rarely": "Rarely",
+    "sometimes": "Sometimes",
+    "often": "Often",
+    "almostAlways": "Almost always"
+  },
+  "absenteeism": {
+    "question": "In the last 12 months, how many days of work have you missed due to stress, burnout, or mental health?",
+    "placeholder": "Number of days"
+  },
+  "turnoverIntention": {
+    "question": "In the last 12 months, how often have you thought about leaving your job because of stress or workload?",
+    "never": "Never",
+    "rarely": "Rarely",
+    "sometimes": "Sometimes",
+    "often": "Often",
+    "veryOften": "Very often"
+  }
+}

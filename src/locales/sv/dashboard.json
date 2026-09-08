@@ -7,6 +7,19 @@
       "evening": "God kväll, {{name}}"
     }
   },
+  "morningTip": {
+    "label": "Morgontips från Limitless Group",
+    "dismiss": "Stäng",
+    "messages": [
+      "Små, konsekventa vanor slår stora, sporadiska insatser. Välj en vana från dagens incheckning och skydda den denna vecka.",
+      "Återhämtning är en del av prestationen, inte en paus från den. Lägg märke till var du kan bygga in en riktig paus idag.",
+      "Hur du börjar din morgon sätter tonen för ditt team. En lugn start är en gåva du ger alla omkring dig.",
+      "Framsteg ackumuleras. En 1 procents förbättring i en daglig vana, upprepad i 28 dagar, blir en verklig förändring.",
+      "Om dagen känns tung är det användbar information, inte ett misslyckande. Sätt ord på det och ta det minsta nästa steget.",
+      "Psykologisk trygghet börjar med att du föregår med gott exempel. Ett ärligt, lågriskerkännande idag kan öppna en dörr för någon annan.",
+      "Uppmärksamhet är en resurs. Bestäm ditt huvudfokus innan din inkorg bestämmer det åt dig."
+    ]
+  },
   "checkinCard": {
     "title": "Daglig incheckning",
     "description": "Börja din dag med en kort reflektion",

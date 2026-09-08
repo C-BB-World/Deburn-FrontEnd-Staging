@@ -28,10 +28,36 @@
     "calm": "Calm",
     "overwhelmed": "Overwhelmed"
   },
+  "habits": {
+    "question": "Daily habits",
+    "agreeScale": {
+      "stronglyDisagree": "Strongly disagree",
+      "disagree": "Disagree",
+      "neutral": "Neutral",
+      "agree": "Agree",
+      "stronglyAgree": "Strongly agree"
+    },
+    "newsSocial": "I have reduced the amount of time I spend watching news and using social media",
+    "exercise": "I have successfully increased how much I exercise",
+    "water": "I have successfully increased how much water I drink (2 litres/day)",
+    "mindfulness": "I was able to achieve a minimum of 10 minutes of mindfulness",
+    "coldExposure": "I was able to achieve 2 minutes of cold water exposure and conscious breathing"
+  },
   "reflection": {
     "fallbackPrompt": "What's on your mind?",
     "subtitle": "Optional: This is your space to reflect, notice patterns and track your journey",
-    "placeholder": "Write your thoughts here..."
+    "placeholder": "Write your thoughts here...",
+    "gratitude": {
+      "question": "What are you grateful for?",
+      "helper": "Name one specific thing that happened yesterday, e.g. \"a good chat with Sam over coffee,\" not a general \"my family.\" The detail is where the value is.",
+      "hint": "Once you've used an event or example, try not to repeat it during the 28 days.",
+      "placeholder": "Something specific from yesterday..."
+    },
+    "keyFocus": {
+      "question": "What is your key focus today?",
+      "helper": "One word or a short phrase to steer today, e.g. \"protect the morning deep work block.\"",
+      "placeholder": "Your focus for today..."
+    }
   },
   "complete": {
     "title": "Check-in Complete",

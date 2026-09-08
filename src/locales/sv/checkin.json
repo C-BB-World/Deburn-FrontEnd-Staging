@@ -28,10 +28,36 @@
     "calm": "Lugn",
     "overwhelmed": "Överväldigad"
   },
+  "habits": {
+    "question": "Dagliga vanor",
+    "agreeScale": {
+      "stronglyDisagree": "Instämmer inte alls",
+      "disagree": "Instämmer inte",
+      "neutral": "Neutral",
+      "agree": "Instämmer",
+      "stronglyAgree": "Instämmer helt"
+    },
+    "newsSocial": "Jag har minskat tiden jag lägger på nyheter och sociala medier",
+    "exercise": "Jag har lyckats öka hur mycket jag tränar",
+    "water": "Jag har lyckats öka hur mycket vatten jag dricker (2 liter/dag)",
+    "mindfulness": "Jag lyckades uppnå minst 10 minuters mindfulness",
+    "coldExposure": "Jag lyckades uppnå 2 minuters kallvattenexponering och medveten andning"
+  },
   "reflection": {
     "fallbackPrompt": "Vad har du på hjärtat?",
     "subtitle": "Valfritt: Detta är din plats för att reflektera, upptäcka mönster och följa din resa",
-    "placeholder": "Skriv dina tankar här..."
+    "placeholder": "Skriv dina tankar här...",
+    "gratitude": {
+      "question": "Vad är du tacksam för?",
+      "helper": "Nämn en specifik sak som hände igår, t.ex. \"ett bra samtal med Sam över en kaffe,\" inte något allmänt som \"min familj.\" Detaljen är där värdet ligger.",
+      "hint": "När en händelse eller ett exempel har använts, försök att inte upprepa det under de 28 dagarna.",
+      "placeholder": "Något specifikt från igår..."
+    },
+    "keyFocus": {
+      "question": "Vad är ditt huvudfokus idag?",
+      "helper": "Ett ord eller en kort fras för att styra dagen, t.ex. \"skydda morgonens djupa arbetspass.\"",
+      "placeholder": "Ditt fokus för idag..."
+    }
   },
   "complete": {
     "title": "Incheckning klar",

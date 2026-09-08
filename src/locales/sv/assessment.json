@@ -1,0 +1,33 @@
+{
+  "title": "Innan du kommer igång",
+  "subtitle": "Några snabba frågor för att hjälpa oss förstå var du befinner dig. Detta visas bara en gång.",
+  "submit": "Fortsätt",
+  "stress": {
+    "question": "Under de senaste 12 månaderna, hur ofta har du upplevt stress som påverkat din förmåga att arbeta effektivt?",
+    "never": "Aldrig",
+    "rarely": "Sällan",
+    "sometimes": "Ibland",
+    "often": "Ofta",
+    "almostAlways": "Nästan alltid"
+  },
+  "presenteeism": {
+    "question": "Under de senaste 12 månaderna, hur ofta har du gått till jobbet trots att du mått dåligt eller inte varit på topp, och arbetat med minskad effektivitet som ett resultat?",
+    "never": "Aldrig",
+    "rarely": "Sällan",
+    "sometimes": "Ibland",
+    "often": "Ofta",
+    "almostAlways": "Nästan alltid"
+  },
+  "absenteeism": {
+    "question": "Under de senaste 12 månaderna, hur många arbetsdagar har du missat på grund av stress, utbrändhet eller psykisk hälsa?",
+    "placeholder": "Antal dagar"
+  },
+  "turnoverIntention": {
+    "question": "Under de senaste 12 månaderna, hur ofta har du funderat på att lämna ditt jobb på grund av stress eller arbetsbörda?",
+    "never": "Aldrig",
+    "rarely": "Sällan",
+    "sometimes": "Ibland",
+    "often": "Ofta",
+    "veryOften": "Väldigt ofta"
+  }
+}

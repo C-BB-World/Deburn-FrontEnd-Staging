@@ -6,7 +6,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { get, post } from '@/utils/api';
+import { checkinApi } from '@/features/checkin/checkinApi';
+import { LikertScale } from '@/components/checkin/LikertScale';
 
 // SVG Icons
 const icons = {
@@ -170,17 +171,34 @@ export default function Checkin() {
   const [sleep, setSleep] = useState(null);
   const [stress, setStress] = useState(4);
 
+  // Daily habits data
+  const [newsSocialReduced, setNewsSocialReduced] = useState(null);
+  const [exerciseIncreased, setExerciseIncreased] = useState(null);
+  const [waterIncreased, setWaterIncreased] = useState(null);
+  const [mindfulness, setMindfulness] = useState(null);
+  const [coldExposure, setColdExposure] = useState(null);
+
   // Reflection data
   const [reflection, setReflection] = useState('');
   const [reflectionPrompt, setReflectionPrompt] = useState('');
+  const [gratitude, setGratitude] = useState('');
+  const [keyFocus, setKeyFocus] = useState('');
 
-  const totalSteps = 5;
+  const totalSteps = 6;
+
+  const agreeLabels = [
+    t('checkin:habits.agreeScale.stronglyDisagree', 'Strongly disagree'),
+    t('checkin:habits.agreeScale.disagree', 'Disagree'),
+    t('checkin:habits.agreeScale.neutral', 'Neutral'),
+    t('checkin:habits.agreeScale.agree', 'Agree'),
+    t('checkin:habits.agreeScale.stronglyAgree', 'Strongly agree'),
+  ];
 
   // Fetch reflection prompt on mount
   useEffect(() => {
     async function fetchPrompt() {
       try {
-        const response = await get('/api/reflection/prompt');
+        const response = await checkinApi.getReflectionPrompt();
         if (response.success) {
           setReflectionPrompt(response.data.prompt);
         }
@@ -227,8 +245,16 @@ export default function Checkin() {
       case 3:
         return sleep !== null;
       case 4:
-        return true; // reflection is optional
+        return (
+          newsSocialReduced !== null &&
+          exerciseIncreased !== null &&
+          waterIncreased !== null &&
+          mindfulness !== null &&
+          coldExposure !== null
+        );
       case 5:
+        return true; // reflection, gratitude, and key focus are optional
+      case 6:
         return true;
       default:
         return false;
@@ -236,9 +262,9 @@ export default function Checkin() {
   }
 
   async function handleNext() {
-    if (currentStep < 4) {
+    if (currentStep < totalSteps - 1) {
       setCurrentStep((prev) => prev + 1);
-    } else if (currentStep === 4) {
+    } else if (currentStep === totalSteps - 1) {
       await submitCheckin();
     } else {
       navigate('/dashboard');
@@ -254,18 +280,30 @@ export default function Checkin() {
   async function submitCheckin() {
     setIsSubmitting(true);
     try {
-      const response = await post('/api/checkin', {
+      const response = await checkinApi.submit({
         mood,
         physicalEnergy,
         mentalEnergy,
         sleep,
         stress,
+        newsSocialReduced,
+        exerciseIncreased,
+        waterIncreased,
+        mindfulness,
+        coldExposure,
       });
 
-      // Submit reflection if user wrote something
-      if (reflection.trim()) {
+      // Submit reflection/gratitude/key focus if the user wrote anything
+      const trimmedReflection = reflection.trim();
+      const trimmedGratitude = gratitude.trim();
+      const trimmedKeyFocus = keyFocus.trim();
+      if (trimmedReflection || trimmedGratitude || trimmedKeyFocus) {
         try {
-          await post('/api/reflection', { reflection: reflection.trim() });
+          await checkinApi.submitReflection({
+            reflection: trimmedReflection || undefined,
+            gratitude: trimmedGratitude || undefined,
+            keyFocus: trimmedKeyFocus || undefined,
+          });
         } catch (error) {
           console.error('Error submitting reflection:', error);
         }
@@ -273,7 +311,7 @@ export default function Checkin() {
 
       if (response.success) {
         setCompletionData(response.data);
-        setCurrentStep(5);
+        setCurrentStep(totalSteps);
       }
     } catch (error) {
       console.error('Error submitting check-in:', error);
@@ -428,10 +466,81 @@ export default function Checkin() {
         </div>
       </div>
 
-      {/* Step 4: Reflection */}
+      {/* Step 4: Daily Habits */}
       <div className={`checkin-step ${currentStep === 4 ? 'active' : ''}`} data-step="4">
         <div className="step-content">
           <h3 className="step-question">
+            {t('checkin:habits.question', 'Daily habits')}
+          </h3>
+
+          <LikertScale
+            question={t('checkin:habits.newsSocial', 'I have reduced the amount of time I spend watching news and using social media')}
+            value={newsSocialReduced}
+            onChange={setNewsSocialReduced}
+            labels={agreeLabels}
+          />
+          <LikertScale
+            question={t('checkin:habits.exercise', 'I have successfully increased how much I exercise')}
+            value={exerciseIncreased}
+            onChange={setExerciseIncreased}
+            labels={agreeLabels}
+          />
+          <LikertScale
+            question={t('checkin:habits.water', 'I have successfully increased how much water I drink (2 litres/day)')}
+            value={waterIncreased}
+            onChange={setWaterIncreased}
+            labels={agreeLabels}
+          />
+          <LikertScale
+            question={t('checkin:habits.mindfulness', 'I was able to achieve a minimum of 10 minutes of mindfulness')}
+            value={mindfulness}
+            onChange={setMindfulness}
+            labels={agreeLabels}
+          />
+          <LikertScale
+            question={t('checkin:habits.coldExposure', 'I was able to achieve 2 minutes of cold water exposure and conscious breathing')}
+            value={coldExposure}
+            onChange={setColdExposure}
+            labels={agreeLabels}
+          />
+        </div>
+      </div>
+
+      {/* Step 5: Reflection */}
+      <div className={`checkin-step ${currentStep === 5 ? 'active' : ''}`} data-step="5">
+        <div className="step-content">
+          <h3 className="step-question">
+            {t('checkin:reflection.gratitude.question', 'What are you grateful for?')}
+          </h3>
+          <p className="reflection-subtitle">
+            {t('checkin:reflection.gratitude.helper', 'Name one specific thing that happened yesterday, e.g. "a good chat with Sam over coffee," not a general "my family." The detail is where the value is.')}
+          </p>
+          <textarea
+            className="reflection-textarea"
+            value={gratitude}
+            onChange={(e) => setGratitude(e.target.value)}
+            placeholder={t('checkin:reflection.gratitude.placeholder', 'Something specific from yesterday...')}
+            rows={3}
+          />
+          <p className="likert-helper">
+            {t('checkin:reflection.gratitude.hint', "Once you've used an event or example, try not to repeat it during the 28 days.")}
+          </p>
+
+          <h3 className="step-question" style={{ marginTop: 'var(--space-8)' }}>
+            {t('checkin:reflection.keyFocus.question', 'What is your key focus today?')}
+          </h3>
+          <p className="reflection-subtitle">
+            {t('checkin:reflection.keyFocus.helper', 'One word or a short phrase to steer today, e.g. "protect the morning deep work block."')}
+          </p>
+          <textarea
+            className="reflection-textarea"
+            value={keyFocus}
+            onChange={(e) => setKeyFocus(e.target.value)}
+            placeholder={t('checkin:reflection.keyFocus.placeholder', 'Your focus for today...')}
+            rows={2}
+          />
+
+          <h3 className="step-question" style={{ marginTop: 'var(--space-8)' }}>
             {reflectionPrompt || t('checkin:reflection.fallbackPrompt', "What's on your mind?")}
           </h3>
           <p className="reflection-subtitle">
@@ -447,8 +556,8 @@ export default function Checkin() {
         </div>
       </div>
 
-      {/* Step 5: Complete */}
-      <div className={`checkin-step ${currentStep === 5 ? 'active' : ''}`} data-step="5">
+      {/* Step 6: Complete */}
+      <div className={`checkin-step ${currentStep === 6 ? 'active' : ''}`} data-step="6">
         <div className="step-content completion-content">
           <div className="completion-icon">
             {icons.checkCircle}
@@ -487,7 +596,7 @@ export default function Checkin() {
           <button
             className="btn btn-ghost"
             onClick={handleBack}
-            style={{ visibility: currentStep === 1 || currentStep === 5 ? 'hidden' : 'visible' }}
+            style={{ visibility: currentStep === 1 || currentStep === totalSteps ? 'hidden' : 'visible' }}
           >
             {icons.arrowLeft}
             <span>{t('common:back', 'Back')}</span>
@@ -499,9 +608,9 @@ export default function Checkin() {
           >
             {isSubmitting ? (
               <span>{t('common:loading', 'Loading...')}</span>
-            ) : currentStep === 5 ? (
+            ) : currentStep === totalSteps ? (
               <span>{t('checkin:complete.done', 'Done')}</span>
-            ) : currentStep === 4 ? (
+            ) : currentStep === totalSteps - 1 ? (
               <span>{t('checkin:submit', 'Submit')}</span>
             ) : (
               <>

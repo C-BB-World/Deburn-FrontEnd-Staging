@@ -16,6 +16,7 @@ import '@/utils/i18n';
 import Landing from '@/pages/Landing';
 import Dashboard from '@/pages/Dashboard';
 import Checkin from '@/pages/Checkin';
+import InitialAssessment from '@/pages/onboarding/InitialAssessment';
 import Coach from '@/pages/Coach';
 import Learning from '@/pages/Learning';
 import Circles from '@/pages/Circles';
@@ -73,6 +74,24 @@ function PublicRoute({ children }) {
 }
 
 /**
+ * Require Assessment - Redirects to the one-time Day 0 assessment
+ * until the user has completed it.
+ */
+function RequireAssessment({ children }) {
+  const { user, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <LoadingOverlay fullScreen message="Loading..." />;
+  }
+
+  if (user && !user.hasCompletedAssessment) {
+    return <Navigate to="/onboarding" replace />;
+  }
+
+  return children;
+}
+
+/**
  * App Routes
  */
 function AppRoutes() {
@@ -124,12 +143,24 @@ function AppRoutes() {
         <Route path="/hub" element={<Hub />} />
       </Route> */}
 
+      {/* One-time Day 0 assessment (fullscreen, no sidebar) */}
+      <Route
+        path="/onboarding"
+        element={
+          <ProtectedRoute>
+            <InitialAssessment />
+          </ProtectedRoute>
+        }
+      />
+
       {/* Check-in (fullscreen, no sidebar) */}
       <Route
         path="/checkin"
         element={
           <ProtectedRoute>
-            <Checkin />
+            <RequireAssessment>
+              <Checkin />
+            </RequireAssessment>
           </ProtectedRoute>
         }
       />
@@ -138,7 +169,9 @@ function AppRoutes() {
       <Route
         element={
           <ProtectedRoute>
-            <Layout />
+            <RequireAssessment>
+              <Layout />
+            </RequireAssessment>
           </ProtectedRoute>
         }
       >

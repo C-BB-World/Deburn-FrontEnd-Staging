@@ -10,6 +10,7 @@ import i18n from '@/utils/i18n';
 import { useAuth } from '@/context/AuthContext';
 import { get } from '@/utils/api';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { MorningTipCard } from '@/components/dashboard/MorningTipCard';
 
 // Modal components for Today's Focus
 import ArticleModal from '@/components/learning/ArticleModal';
@@ -299,6 +300,8 @@ export default function Dashboard() {
           </p>
         </div>
       </div>
+
+      <MorningTipCard />
 
       {/* Action Cards */}
       <div className="action-cards">
