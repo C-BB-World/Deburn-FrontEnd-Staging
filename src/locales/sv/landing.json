@@ -1,17 +1,17 @@
 {
   "nav": {
-    "brand": "Human First AI",
+    "brand": "LIMITLESS",
     "login": "Logga in",
     "demo": "Boka demo"
   },
   "hero": {
     "headline": "Du skalar upp medan hela världen förändras",
     "sub": "",
-    "body": "Human First AI hjälper snabbväxande företag att hålla sina ledningsgrupper samstämda så att de kan genomföra AI-transformation med snabbhet och trygghet.",
+    "body": "LIMITLESS hjälper snabbväxande företag att hålla sina ledningsgrupper samstämda så att de kan genomföra AI-transformation med snabbhet och trygghet.",
     "body2": ""
   },
   "video": {
-    "headline": "Se hur Human First AI fungerar",
+    "headline": "Se hur LIMITLESS fungerar",
     "desc": "Se plattformen i aktion, från daglig incheckning till AI-coaching och teaminsikter. Under 2 minuter."
   },
   "pov": {
@@ -45,11 +45,11 @@
     },
     "box3": {
       "img": "Fotoplats: Elena och en coach granskar ledarskapsprogrammet",
-      "body": "Ledarskapsprogram skapar medvetenhet. Human First AI skapar förstärkning. Upp till 70 % av inlärningen glöms bort utan förstärkning. <strong>Human First AI förlänger era ledarskapsprogram med lättsmälta stödinsatser, AI-coaching</strong>, och kontinuerlig ansvarighet mellan sessionerna, så att ledare tillämpar det de lärt sig, förstärker nya beteenden och håller AI-transformationen i rörelse från omställning till adoption."
+      "body": "Ledarskapsprogram skapar medvetenhet. LIMITLESS skapar förstärkning. Upp till 70 % av inlärningen glöms bort utan förstärkning. <strong>LIMITLESS förlänger era ledarskapsprogram med lättsmälta stödinsatser, AI-coaching</strong>, och kontinuerlig ansvarighet mellan sessionerna, så att ledare tillämpar det de lärt sig, förstärker nya beteenden och håller AI-transformationen i rörelse från omställning till adoption."
     },
     "box4": {
       "img": "Fotoplats: En ledare startar morgonen med appen",
-      "intro": "Human First AI blir en del av dagen, inte ett program att komma ihåg. En tvåminuters incheckning, coaching från Eve inför ett svårt samtal, en mikrokurs på pendlingen och en Think Tank som håller dem till vad de lovat. <strong>Små dagliga vanor som ackumuleras till hur de faktiskt leder.</strong>"
+      "intro": "LIMITLESS blir en del av dagen, inte ett program att komma ihåg. En tvåminuters incheckning, coaching från Eve inför ett svårt samtal, en mikrokurs på pendlingen och en Think Tank som håller dem till vad de lovat. <strong>Små dagliga vanor som ackumuleras till hur de faktiskt leder.</strong>"
     },
     "box5": {
       "img": "Fotoplats: Ledningsteamet i en energifylld, produktiv session",
@@ -97,7 +97,7 @@
   "compare": {
     "headline": "Vi ersätter inte din befintliga ledarskapssatsning. Vi tillför det den saknar.",
     "col_feature": "Funktion",
-    "col_hfai": "Human First AI",
+    "col_hfai": "LIMITLESS",
     "col_lms": "LMS / Kurser",
     "col_coaching": "Executive Coaching",
     "col_manager": "Manuella chefsuppföljningar",
@@ -153,7 +153,7 @@
     }
   },
   "footer": {
-    "brand": "Human First AI · Powered by Brainbank.world",
+    "brand": "LIMITLESS · Powered by BrainBank and Human First AI",
     "privacy": "Integritetspolicy",
     "terms": "Villkor",
     "login": "Logga in"

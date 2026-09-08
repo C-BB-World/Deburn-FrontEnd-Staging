@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,500;0,700;0,800&display=swap');
-
 /* ============================================================
-   Resilience Code Plus+ — Landing Page Styles
+   LIMITLESS — Landing Page Styles
    All selectors prefixed .landing-* or scoped under .landing-root
    All CSS variables prefixed --l-* to avoid collisions
    ============================================================ */
@@ -12,23 +10,24 @@
   --l-forest-mid:    #4A2575;
   --l-forest-light:  #AF78F5;
   --l-forest-dark:   #0B0F1F;
-  --l-clay:          #F5F3FA;
-  --l-clay-mid:      #ECE8F7;
+  --l-page-bg:       #0B0E1A;
+  --l-clay:          #12162A;
+  --l-clay-mid:      #1A1F35;
   --l-white:         #FFFFFF;
   --l-ember:         #753BBD;
   --l-ember-hover:   #652FA6;
   --l-sage:          #9B6FE0;
   --l-dawn:          #C9A9F5;
-  --l-ink:           #0F0F12;
-  --l-ink-light:     #3A3A42;
-  --l-neutral-600:   #5B5B66;
-  --l-neutral-400:   #A8A6B3;
-  --l-neutral-200:   #E4E2ED;
+  --l-ink:           #F5F4F7;
+  --l-ink-light:     #C4C6D6;
+  --l-neutral-600:   #A9AFC0;
+  --l-neutral-400:   #6B6F8C;
+  --l-neutral-200:   #232E3D;
   --l-on-dark:       #FFFFFF;
   --l-on-dark-muted: rgba(255,255,255,0.7);
 
   /* Typography */
-  --l-font: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica Neue, Arial, sans-serif;
+  --l-font: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica Neue, Arial, sans-serif;
 
   /* Layout */
   --l-nav-h: 64px;
@@ -41,7 +40,7 @@
 .landing-root {
   font-family: var(--l-font);
   color: var(--l-ink);
-  background: var(--l-white);
+  background: var(--l-page-bg);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -360,13 +359,13 @@
 }
 
 .l-stat-card {
-  background: var(--l-white);
+  background: var(--l-page-bg);
   border-radius: 3px;
   padding: 32px 28px;
 }
 
-.l-stat-card-sage   { background: #EDE4FB; }
-.l-stat-card-ember  { background: #E3D3F5; }
+.l-stat-card-sage   { background: #241A38; }
+.l-stat-card-ember  { background: #2E1A42; }
 .l-stat-card-forest { background: var(--l-forest-dark); color: var(--l-white); }
 .l-stat-card-forest .l-stat-number { color: var(--l-ember); }
 .l-stat-card-forest .l-stat-label  { color: rgba(255,255,255,0.75); }
@@ -390,7 +389,7 @@
    INSIGHT
    ============================================================ */
 .l-insight {
-  background: var(--l-white);
+  background: var(--l-page-bg);
   padding: var(--l-section-pad-v) var(--l-section-pad-h);
 }
 
@@ -666,7 +665,7 @@ img.l-story-box-img {
    RESILIENCE AUDIT
    ============================================================ */
 .l-audit {
-  background: var(--l-white);
+  background: var(--l-page-bg);
   padding: var(--l-section-pad-v) var(--l-section-pad-h);
   border-top: 1px solid var(--l-neutral-200);
   border-bottom: 1px solid var(--l-neutral-200);
@@ -849,7 +848,7 @@ img.l-story-box-img {
    PILLARS
    ============================================================ */
 .l-pillars {
-  background: var(--l-white);
+  background: var(--l-page-bg);
   padding: var(--l-section-pad-v) var(--l-section-pad-h);
 }
 
@@ -990,7 +989,7 @@ img.l-story-box-img {
    COMPARISON TABLE
    ============================================================ */
 .l-comparison {
-  background: var(--l-white);
+  background: var(--l-page-bg);
   padding: var(--l-section-pad-v) 0;
 }
 
@@ -1016,7 +1015,7 @@ img.l-story-box-img {
   min-width: 640px;
   border-collapse: collapse;
   font-size: 14px;
-  background: var(--l-white);
+  background: var(--l-page-bg);
 }
 
 .l-comparison-table thead tr {
@@ -1071,7 +1070,7 @@ td.l-cmp-col-hfai {
 }
 
 .l-cmp-yes {
-  color: #2e7d4f;
+  color: #4ADE80;
   font-size: 17px;
   font-weight: 700;
   display: block;
@@ -1079,7 +1078,7 @@ td.l-cmp-col-hfai {
 }
 
 .l-cmp-no {
-  color: #b93030;
+  color: #f87171;
   font-size: 17px;
   font-weight: 700;
   display: block;
@@ -1093,7 +1092,7 @@ td.l-cmp-col-hfai {
 
 .l-cmp-partial > span:first-child {
   font-size: 15px;
-  color: #c07a0a;
+  color: #FBBF24;
 }
 
 .l-cmp-note {
@@ -1108,7 +1107,7 @@ td.l-cmp-col-hfai {
    TESTIMONIALS
    ============================================================ */
 .l-testimonials {
-  background: var(--l-white);
+  background: var(--l-page-bg);
   padding: var(--l-section-pad-v) var(--l-section-pad-h);
 }
 

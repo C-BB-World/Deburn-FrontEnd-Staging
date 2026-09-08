@@ -1,4 +1,5 @@
 /* Import original CSS files */
+@import './fonts.css';
 @import './prototype.css';
 @import './hub.css';
 @import './pages/landing.css';
@@ -28,7 +29,7 @@
 .legal-logo {
   font-size: 24px;
   font-weight: 700;
-  color: var(--color-deep-forest);
+  color: var(--color-primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -86,7 +87,7 @@
 }
 
 .legal-content a {
-  color: var(--color-deep-forest);
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
@@ -128,7 +129,7 @@
   align-items: center;
   gap: 8px;
   margin-top: 48px;
-  color: var(--color-deep-forest);
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: 500;
 }

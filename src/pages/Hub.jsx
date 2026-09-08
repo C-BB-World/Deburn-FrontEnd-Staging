@@ -1,6 +1,6 @@
 /**
  * Hub Page
- * Global Administration panel for the Human First AI platform
+ * Global Administration panel for the Limitless platform
  * Accessible only to Hub Admins (role-based access control)
  */
 

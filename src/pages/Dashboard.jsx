@@ -286,7 +286,7 @@ export default function Dashboard() {
         <div className="hero-image-container">
           <img
             src={heroImage}
-            alt="Abstract Nordic landscape"
+            alt="Abstract particle rendering of the Limitless infinity mark"
             className="hero-image"
           />
           <div className="hero-overlay"></div>

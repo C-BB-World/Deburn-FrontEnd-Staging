@@ -196,7 +196,7 @@ export default function Checkin() {
   function getSliderStyle(value, min = 1, max = 10) {
     const percentage = ((value - min) / (max - min)) * 100;
     return {
-      background: `linear-gradient(90deg, var(--color-sage) 0%, var(--color-deep-forest) ${percentage}%, var(--neutral-200) ${percentage}%)`,
+      background: `linear-gradient(90deg, var(--color-sage) 0%, var(--color-primary) ${percentage}%, var(--neutral-200) ${percentage}%)`,
     };
   }
 

@@ -132,7 +132,7 @@ export default function Feedback() {
 
       {/* Subtitle below banner */}
       <p className="feedback-intro">
-        {t('feedback:subtitle', 'Help us improve Limitless Resilience Code by sharing your thoughts')}
+        {t('feedback:subtitle', 'Help us improve LIMITLESS by sharing your thoughts')}
       </p>
 
       {/* Feedback Form */}
@@ -195,7 +195,7 @@ export default function Feedback() {
                   <textarea
                     ref={textareaRef}
                     className="feedback-textarea"
-                    placeholder={t('feedback:placeholder', 'Share your thoughts about Limitless Resilience Code, with your team, or just how things are going in general.')}
+                    placeholder={t('feedback:placeholder', 'Share your thoughts about LIMITLESS, with your team, or just how things are going in general.')}
                     value={content}
                     onChange={(e) => setContent(e.target.value.slice(0, MAX_CHARS))}
                   />

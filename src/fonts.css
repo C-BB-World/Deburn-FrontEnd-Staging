@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Montserrat — Limitless primary typeface
+   Self-hosted variable fonts, SIL Open Font License (see src/assets/fonts/OFL.txt)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Variable.ttf') format('truetype-variations'),
+       url('./assets/fonts/Montserrat-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Italic-Variable.ttf') format('truetype-variations'),
+       url('./assets/fonts/Montserrat-Italic-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}

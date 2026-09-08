@@ -3,40 +3,40 @@
 
   <!-- Landing / Home Page -->
   <url>
-    <loc>https://www.human-firstai.com/</loc>
+    <loc>https://www.limitless.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Registration -->
   <url>
-    <loc>https://www.human-firstai.com/register</loc>
+    <loc>https://www.limitless.com/register</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Login -->
   <url>
-    <loc>https://www.human-firstai.com/login</loc>
+    <loc>https://www.limitless.com/login</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://www.human-firstai.com/privacy-policy</loc>
+    <loc>https://www.limitless.com/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://www.human-firstai.com/terms-of-service</loc>
+    <loc>https://www.limitless.com/terms-of-service</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://www.human-firstai.com/cookie-policy</loc>
+    <loc>https://www.limitless.com/cookie-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
