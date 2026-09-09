@@ -2269,6 +2269,8 @@ p {
     padding: 2px 6px;
     border: 1px solid var(--color-sage);
     border-radius: var(--radius-sm);
+    background: var(--color-bg-tertiary);
+    color: var(--color-ink);
     font-size: var(--text-body-sm);
     font-family: var(--font-primary);
     outline: none;
@@ -2348,7 +2350,7 @@ p {
 .chat-loading-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(11, 14, 26, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2484,8 +2486,8 @@ p {
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-3) var(--space-4);
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     font-size: var(--text-body-sm);
     font-weight: 500;
@@ -2496,7 +2498,7 @@ p {
 
 .coach-option:hover {
     border-color: var(--color-sage);
-    background: rgba(117, 59, 189, 0.05);
+    background: rgba(117, 59, 189, 0.15);
 }
 
 .coach-option i {
@@ -2518,8 +2520,8 @@ p {
     flex-direction: column;
     align-items: flex-start;
     padding: var(--space-4);
-    background: var(--color-warm-white);
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     cursor: pointer;
     transition: all var(--duration-normal) var(--ease-standard);
@@ -2559,8 +2561,8 @@ p {
 
 .chat-input-container {
     padding: var(--space-4);
-    border-top: 1px solid var(--neutral-200);
-    background: white;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-warm-white);
 }
 
 .chat-input-wrapper {
@@ -2572,8 +2574,10 @@ p {
 .chat-input {
     flex: 1;
     padding: var(--space-3) var(--space-4);
-    border: 1px solid var(--neutral-200);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
+    background: var(--color-bg-tertiary);
+    color: var(--color-ink);
     font-size: var(--text-body);
     font-family: var(--font-primary);
     line-height: 1.5;
@@ -2808,8 +2812,8 @@ p {
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-4);
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-full);
     font-size: var(--text-body-sm);
     font-weight: 500;
@@ -2820,7 +2824,7 @@ p {
 
 .starter-btn:hover {
     border-color: var(--color-sage);
-    background: rgba(117, 59, 189, 0.05);
+    background: rgba(117, 59, 189, 0.15);
 }
 
 .starter-btn i {
@@ -2841,8 +2845,8 @@ p {
 
 .quick-reply-chip {
     padding: var(--space-2) var(--space-4);
-    background: white;
-    border: 1px solid var(--neutral-200);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-full);
     font-size: var(--text-body-sm);
     color: var(--color-primary);
@@ -2852,7 +2856,7 @@ p {
 
 .quick-reply-chip:hover {
     border-color: var(--color-sage);
-    background: rgba(117, 59, 189, 0.05);
+    background: rgba(117, 59, 189, 0.15);
 }
 
 /* Typing Indicator */

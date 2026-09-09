@@ -19,8 +19,7 @@ import Checkin from '@/pages/Checkin';
 import InitialAssessment from '@/pages/onboarding/InitialAssessment';
 import Coach from '@/pages/Coach';
 import Learning from '@/pages/Learning';
-import Circles from '@/pages/Circles';
-import CirclesAdmin from '@/pages/CirclesAdmin';
+// Circles ("Think Tanks") is disabled for now — imports removed, routes redirect below.
 import Progress from '@/pages/Progress';
 import Profile from '@/pages/Profile';
 import Feedback from '@/pages/Feedback';
@@ -178,8 +177,8 @@ function AppRoutes() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/coach" element={<Coach />} />
         <Route path="/learning" element={<Learning />} />
-        <Route path="/circles" element={<Circles />} />
-        <Route path="/circles/admin" element={<CirclesAdmin />} />
+        <Route path="/circles" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/circles/admin" element={<Navigate to="/dashboard" replace />} />
         <Route path="/progress" element={<Progress />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/feedback" element={<Feedback />} />

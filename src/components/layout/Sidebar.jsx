@@ -12,7 +12,7 @@ const navItems = [
   { key: 'checkin', path: '/checkin', icon: 'heart-pulse', labelKey: 'common:nav.checkin', label: 'Check-in' },
   { key: 'coach', path: '/coach', icon: 'message-circle', labelKey: 'common:nav.coach', label: 'Ask Eve' },
   { key: 'learning', path: '/learning', icon: 'book-open', labelKey: 'common:nav.learning', label: 'Micro-Courses' },
-  { key: 'circles', path: '/circles', icon: 'users', labelKey: 'common:nav.circles', label: 'Think Tanks', end: true },
+  // Think Tanks (Circles) is disabled for now — nav entry removed, route also blocked in App.jsx.
 ];
 
 // SVG icons matching Lucide icons used in original
